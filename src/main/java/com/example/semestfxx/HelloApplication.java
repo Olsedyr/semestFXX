@@ -23,7 +23,7 @@ import javafx.scene.layout.VBox;
 
 public class HelloApplication extends Application {
 
-    public static void main(String args[]){
+ /*   public static void main(String args[]){
         launch(args);
 }
 
@@ -53,9 +53,9 @@ public class HelloApplication extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+*/
 
-
- /*   @Override
+   @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         Scene scene = new Scene(root, 1280, 720);
@@ -68,5 +68,5 @@ public class HelloApplication extends Application {
         launch();
     }
 
-  */
+
 }
