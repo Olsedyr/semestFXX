@@ -6,17 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.util.HashMap;
+
 public class HelloController {
-
-    @FXML
-    Button btnScene1, btnScene2;
-
     public void onHelloButtonClick() throws Exception {
         System.out.println("Scene 2");
-
-
     }
 }
 
