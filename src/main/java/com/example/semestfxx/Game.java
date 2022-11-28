@@ -1,5 +1,8 @@
 package com.example.semestfxx;
 
+import javafx.scene.Parent;
+import javafx.scene.image.ImageView;
+
 import java.io.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,6 +12,7 @@ import java.util.List;
 
 public class Game {
 
+    public ArrayList<Room> rooms;
     private Room currentRoom;
     public Item currentItem;
 //    private final Inventory inventory;
@@ -27,10 +31,12 @@ public class Game {
     }
 //
     private void createRooms() {
+        rooms = new ArrayList<Room>();
 //        //region ------------------------------------Rooms------------------------------------
         Room soveværelse, køkken, badeværelse, byen, strand;
 //        soveværelse = new Room("i dit soveværelse i dit hjem");
         køkken = new Room("i køkkenet. Der var gæster på besøg i går og det kan ses");
+        rooms.add(køkken);
 //        badeværelse = new Room("på badeværelset. Du mærker de kolde klinker under dine fødder");
 //        byen = new Room("i byen, travl som altid. Du kan vælge enten at tage en bil eller en cykel hjem");
 //        strand = new Room("på stranden. Sandet er blødt under din fødder");
@@ -54,7 +60,7 @@ public class Game {
 //
 //        //region ------------------------------------Items------------------------------------
 //        ///Toggle Items: ToggleState==True means that the current state of the object is not climate friendly
-//        Item.ToggleItem loftlampe, radiator, vindue, computer, køkkenlampe, tv, vandhane;
+        Item.ToggleItem loftlampe, radiator, vindue, computer, køkkenlampe, tv, vandhane;
 //        loftlampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
 //                "Du kigger på loftlampen i dit soveværelse. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
 //                        "Gardinet er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
@@ -77,12 +83,12 @@ public class Game {
 //                        "Når den er i brug kan du se på din elmåler at den bruger ret meget strøm.",
 //                " Det er din stationære computer. Den er slukket, så der er ikke længere en summen at høre fra den.",
 //                2,true);
-//        køkkenlampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
-//                "Du kigger på køkkenlampen. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
-//                        "Der er flere store vinduer rundt omkring i køkkenet. Gardinerne er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
-//                "Du kigger på loftlampen i dit soveværelse. Den er slukket. " +
-//                        "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
-//                1,true);
+        køkkenlampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
+                "Du kigger på køkkenlampen. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
+                        "Der er flere store vinduer rundt omkring i køkkenet. Gardinerne er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
+                "Du kigger på loftlampen i dit soveværelse. Den er slukket. " +
+                        "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
+                1,true);
 //        tv = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
 //                "Der er et TV i køkkenet. Det er lige nu tændt, og du kan høre en nyhedsvært tale i baggrunden. Når du vasker op er det " +
 //                        "ofte rart at have noget at se på imens, men ellers bruger du det ikke så meget. Og lige nu ser det ikke ud til" +
@@ -104,12 +110,12 @@ public class Game {
 //                "Du spiste salat",
 //                "Du spiste burger",
 //                false,1);
-        komfur = new Item.ChoiceItem("I dit køkken er der også et komfur. Du kan vælge enten at varme kødet i ovenen, " +
-                "eller stege det på en stegepande.",3,
-                "1. ovenen\n2. stegepande",
-                "Du brugt ovenen",
-                "Du brugt stegepande",
-                false,2);
+//        komfur = new Item.ChoiceItem("I dit køkken er der også et komfur. Du kan vælge enten at varme kødet i ovenen, " +
+//                "eller stege det på en stegepande.",3,
+//                "1. ovenen\n2. stegepande",
+//                "Du brugt ovenen",
+//                "Du brugt stegepande",
+//                false,2);
 //        bad = new Item.ChoiceItem("Der er en bruser og et badekar på dit badeværelse." +
 //                " Du kan tage et brusebad eller karbad bad her.",3,
 //                "1. bruser\n2. badekar",
@@ -162,10 +168,10 @@ public class Game {
 //        soveværelse.setRoomItems("silkepapir", silkepapir);
 //        soveværelse.setRoomItems("sodavandsdåser", sodavandsdåser);
 //
-//        køkken.setRoomItems("køkkenlampe", køkkenlampe);
-//        køkken.setRoomItems("tv", tv);
+        køkken.setRoomItems("køkkenlampe", køkkenlampe);
+//      s  køkken.setRoomItems("tv", tv);
 //        køkken.setRoomItems("køleskab", køleskab);
-        køkken.setRoomItems("komfur", komfur);
+//        køkken.setRoomItems("komfur", komfur);
 //        køkken.setRoomItems("pizzabakke", pizzabakke);
 //        køkken.setRoomItems("mælkekarton", mælkekarton);
 //
