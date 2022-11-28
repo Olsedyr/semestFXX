@@ -13,3 +13,5 @@
     <Label fx:id="welcomeText" />
     <Button fx:id="mainButton" layoutX="74.0" layoutY="88.0" mnemonicParsing="false" onAction="#loadSecond" styleClass="main-button" stylesheets="@../semestfxx/mainmenu.css" text="PLAY" />
 </VBox>
+
+<!--A-->
