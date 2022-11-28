@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -15,6 +16,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -38,7 +40,8 @@ public class HelloController implements Initializable {
     private ImageView Komfur;
         //Doors
     @FXML
-    private ImageView kitchenToBedroom;
+    private ImageView kitchenToBedroom, bedroomToKitchen;
+
 
 
 
@@ -46,6 +49,7 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle rb){
 
     }
+
 
     public void loadBedroom(ActionEvent event) throws IOException {
 
@@ -65,9 +69,11 @@ public class HelloController implements Initializable {
 
 
     public void loadKitchen(MouseEvent event) throws IOException {
+
         System.out.println("Scene 3");
         StackPane pane = FXMLLoader.load(getClass().getResource("kitchen.fxml"));
         rootPane.getChildren().setAll(pane);
+
     }
 
     public void deleteItem() throws IOException {
