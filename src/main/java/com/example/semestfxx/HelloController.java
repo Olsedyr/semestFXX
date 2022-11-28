@@ -26,6 +26,9 @@ import java.util.TimerTask;
 
 public class HelloController implements Initializable {
 
+    private Game game;
+    private Room kitchen;
+
     @FXML
     private StackPane rootPane;
 
@@ -37,7 +40,7 @@ public class HelloController implements Initializable {
     private ImageView LampeTændt, LampeSlukket, TvTændt, TvSlukket;
         //ChoiceItems
     @FXML
-    private ImageView Komfur;
+    private ImageView komfur;
         //Doors
     @FXML
     private ImageView kitchenToBedroom, bedroomToKitchen;
@@ -47,10 +50,20 @@ public class HelloController implements Initializable {
 
 
 
+        //TrashItems
+    @FXML
+    private ImageView pizzabakke, mælkekarton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
+        System.out.println("INIT");
+        game = GameSingleton.getInstance().getGame();
+        kitchen = game.rooms.get(0);
+    }
 
+    public void startGame(ActionEvent event) throws IOException {
+        System.out.println("Game Started!");
+        loadBedroom(event);
     }
 
 
@@ -84,13 +97,26 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    void showImage (MouseEvent event) {
+    void toggleKLamp (MouseEvent event) {
+        Item lamp = kitchen.getItem("køkkenlampe");
+
         if(LampeSlukket.isVisible()==true) {
             LampeSlukket.setVisible(false);
             LampeTændt.setVisible(true);
         } else {
             LampeSlukket.setVisible(true);
             LampeTændt.setVisible(false);
+        }
+    }
+
+    @FXML
+    void toggleTv (MouseEvent event) {
+        if(TvSlukket.isVisible()==true) {
+            TvSlukket.setVisible(false);
+            TvTændt.setVisible(true);
+        } else {
+            TvSlukket.setVisible(true);
+            TvTændt.setVisible(false);
         }
     }
 
