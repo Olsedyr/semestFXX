@@ -19,21 +19,25 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>18.0.1</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>18.0.1</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.controlsfx</groupId>
             <artifactId>controlsfx</artifactId>
             <version>11.1.1</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.dlsc.formsfx</groupId>
             <artifactId>formsfx-core</artifactId>
             <version>11.5.0</version>
+            <scope>compile</scope>
             <exclusions>
                 <exclusion>
                     <groupId>org.openjfx</groupId>
@@ -45,6 +49,7 @@
             <groupId>org.kordamp.bootstrapfx</groupId>
             <artifactId>bootstrapfx-core</artifactId>
             <version>0.4.0</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

@@ -5,6 +5,7 @@ module com.example.semestfxx {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires javafx.graphics;
 
     opens com.example.semestfxx to javafx.fxml;
     exports com.example.semestfxx;
