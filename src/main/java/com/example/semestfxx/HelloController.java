@@ -42,6 +42,9 @@ public class HelloController implements Initializable {
     @FXML
     private ImageView kitchenToBedroom, bedroomToKitchen;
 
+    @FXML
+    private ImageView loftLampeTændt, loftLampeSlukket, ComputerTændt, ComputerSlukket, radiator, VindueAaben, VindueLukket;
+
 
 
 
@@ -91,6 +94,44 @@ public class HelloController implements Initializable {
         }
     }
 
+
+
+
+    // Soveværelse: Tænder/Slukker computer
+    @FXML
+    void showComputer (MouseEvent event) {
+        if(ComputerSlukket.isVisible()==true) {
+            ComputerSlukket.setVisible(false);
+            ComputerTændt.setVisible(true);
+        } else {
+            ComputerSlukket.setVisible(true);
+            ComputerTændt.setVisible(false);
+        }
+    }
+
+    //Soveværelse: Åbner/Lukker vindue
+
+    @FXML
+    void showWindow (MouseEvent event) {
+        if(VindueLukket.isVisible()==true) {
+            VindueLukket.setVisible(false);
+            VindueAaben.setVisible(true);
+        } else {
+            VindueLukket.setVisible(true);
+            VindueAaben.setVisible(false);
+        }
+    }
+
+    @FXML
+    void showCeilingLight (MouseEvent event) {
+        if(loftLampeSlukket.isVisible()==true) {
+            loftLampeSlukket.setVisible(false);
+            loftLampeTændt.setVisible(true);
+        } else {
+            loftLampeSlukket.setVisible(true);
+            loftLampeTændt.setVisible(false);
+        }
+    }
 
 
 
