@@ -8,7 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -21,11 +23,12 @@ import java.util.TimerTask;
 
 public class HelloController implements Initializable {
 
-
-
+    @FXML
+    private StackPane rootPane;
 
     @FXML
-    private VBox rootVbox;
+    private ImageView image;
+
 
 
     @Override
@@ -33,23 +36,23 @@ public class HelloController implements Initializable {
 
     }
 
-
-
-
-
     public void loadSecond(ActionEvent event) throws IOException {
 
         System.out.println("Scene 2");
-        VBox vbox = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
-        rootVbox.getChildren().setAll(vbox);
+        StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
+        rootPane.getChildren().setAll(pane);
 
     }
 
 
     public void loadKitchen() throws IOException {
         System.out.println("Scene 3");
-        VBox vbox = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
-        rootVbox.getChildren().setAll(vbox);
+        StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
+
+    public void deleteItem() throws IOException {
+        image.setImage(null);
     }
 }
 

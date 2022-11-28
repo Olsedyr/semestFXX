@@ -62,6 +62,7 @@ public class HelloApplication extends Application {
         primaryStage.setTitle("Main Menu");
         primaryStage.setScene(scene);
         primaryStage.show();
+        Game klimaspillet = new Game();
     }
 
     public static void main(String[] args) {
