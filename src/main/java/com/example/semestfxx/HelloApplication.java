@@ -54,7 +54,6 @@ public class HelloApplication extends Application {
         primaryStage.show();
     }
 */
-
    @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
