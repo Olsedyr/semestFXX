@@ -40,7 +40,7 @@ public class HelloController implements Initializable {
     private ImageView Komfur;
         //Doors
     @FXML
-    private ImageView kitchenToBedroom;
+    private ImageView kitchenToBedroom, bedroomToKitchen;
 
 
 

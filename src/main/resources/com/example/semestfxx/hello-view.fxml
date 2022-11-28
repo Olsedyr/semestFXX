@@ -10,12 +10,6 @@
    <children>
       <Button fx:id="mainButton" mnemonicParsing="false" onAction="#loadBedroom" styleClass="main-button" stylesheets="@../semestfxx/mainmenu.css" text="spil" />
 
-      <ImageView fitHeight="358.0" fitWidth="558.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@menu.png" />
-         </image>
-      </ImageView>
-      <Button mnemonicParsing="false" onAction="#loadBedroom" text="spil" />
 
    </children>
 </StackPane>
