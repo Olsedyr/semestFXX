@@ -12,6 +12,6 @@
             <Image url="@menu.png" />
          </image>
       </ImageView>
-      <Button mnemonicParsing="false" onAction="#loadSecond" text="spil" />
+      <Button mnemonicParsing="false" onAction="#loadBedroom" text="spil" />
    </children>
 </StackPane>
