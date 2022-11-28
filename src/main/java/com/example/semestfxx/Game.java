@@ -9,28 +9,28 @@ import java.util.List;
 
 public class Game {
 
-//    private Room currentRoom;
-//    public Item currentItem;
-    private final Inventory inventory;
+    private Room currentRoom;
+    public Item currentItem;
+//    private final Inventory inventory;
 //    private final CommandWords commands;
 //
 //    public List<Integer> score_list = new ArrayList<Integer>();
 //
 //
-//    public File scoreFile = new File("score.txt");
+    public File scoreFile = new File("score.txt");
 //
 //
     public Game() {
         createRooms();
 //        commands = new CommandWordsImplementation();
-        inventory = new Inventory();
+//        inventory = new Inventory();
     }
 //
     private void createRooms() {
 //        //region ------------------------------------Rooms------------------------------------
         Room soveværelse, køkken, badeværelse, byen, strand;
-        soveværelse = new Room("i dit soveværelse i dit hjem");
-//        køkken = new Room("i køkkenet. Der var gæster på besøg i går og det kan ses");
+//        soveværelse = new Room("i dit soveværelse i dit hjem");
+        køkken = new Room("i køkkenet. Der var gæster på besøg i går og det kan ses");
 //        badeværelse = new Room("på badeværelset. Du mærker de kolde klinker under dine fødder");
 //        byen = new Room("i byen, travl som altid. Du kan vælge enten at tage en bil eller en cykel hjem");
 //        strand = new Room("på stranden. Sandet er blødt under din fødder");
@@ -96,20 +96,20 @@ public class Game {
 //                3,true);
 //
 //
-//        ///Choice Items, can only choose once
-//        Item.ChoiceItem køleskab, komfur, bad, transport;
+        ///Choice Items, can only choose once
+        Item.ChoiceItem køleskab, komfur, bad, transport;
 //        køleskab = new Item.ChoiceItem("Der er et køleskab i dit køkken. Med ingredienserne indeni kan du enten lave en økologisk salat med kylling, " +
 //                "eller en burger lavet på oksekød med ost og bacon.", 3,
 //                "1. salat\n2. burger",
 //                "Du spiste salat",
 //                "Du spiste burger",
 //                false,1);
-//        komfur = new Item.ChoiceItem("I dit køkken er der også et komfur. Du kan vælge enten at varme kødet i ovenen, " +
-//                "eller stege det på en stegepande.",3,
-//                "1. ovenen\n2. stegepande",
-//                "Du brugt ovenen",
-//                "Du brugt stegepande",
-//                false,2);
+        komfur = new Item.ChoiceItem("I dit køkken er der også et komfur. Du kan vælge enten at varme kødet i ovenen, " +
+                "eller stege det på en stegepande.",3,
+                "1. ovenen\n2. stegepande",
+                "Du brugt ovenen",
+                "Du brugt stegepande",
+                false,2);
 //        bad = new Item.ChoiceItem("Der er en bruser og et badekar på dit badeværelse." +
 //                " Du kan tage et brusebad eller karbad bad her.",3,
 //                "1. bruser\n2. badekar",
@@ -148,8 +148,8 @@ public class Game {
 //
 //
 //        ///Trash Items
-        Item.TrashItem silkepapir, sodavandsdåser, pizzabakke, mælkekarton;
-        silkepapir = new Item.TrashItem("Brugt silkepapir.",1,false);
+//        Item.TrashItem silkepapir, sodavandsdåser, pizzabakke, mælkekarton;
+//        silkepapir = new Item.TrashItem("Brugt silkepapir.",1,false);
 //        sodavandsdåser = new Item.TrashItem("Tomme sodavandsdåser som du drak i går med dine venner.",1,false);
 //        pizzabakke = new Item.TrashItem("Tom pizzabakke, olien fra pizzaen pletter pizzaboksen.",1,false);
 //        mælkekarton = new Item.TrashItem("Tom mælkekarton，du har allerede foldet det sammen.",1,false);
@@ -165,7 +165,7 @@ public class Game {
 //        køkken.setRoomItems("køkkenlampe", køkkenlampe);
 //        køkken.setRoomItems("tv", tv);
 //        køkken.setRoomItems("køleskab", køleskab);
-//        køkken.setRoomItems("komfur", komfur);
+        køkken.setRoomItems("komfur", komfur);
 //        køkken.setRoomItems("pizzabakke", pizzabakke);
 //        køkken.setRoomItems("mælkekarton", mælkekarton);
 //
@@ -291,9 +291,7 @@ public class Game {
 //            currentItem.pickedUp = true;
 //            if (currentItem.getPickedUp()==true) {
 //                score_list.add(currentItem.getItemPoints());
-//            }
-//            plus_sum_score();
-//            addItemToInventory();
+//            } plus_sum_score(); addItemToInventory();
 //            removeItem(command);
 //        }
 //    }
@@ -318,17 +316,17 @@ public class Game {
 //
 //    //region getCommands Implementation
 //    //---------------------------------------------------------------------------------------
-//    public String getRoomDescription() {
-//        return currentRoom.getLongDescription();
-//    }
+    public String getRoomDescription() {
+        return currentRoom.getLongDescription();
+    }
 //
-//    public String getItemDescription() {
-//        return currentItem.getItemLongDescription();
-//    }
-//
-//    public String getChoice() {
-//        return currentItem.getChoiceDescription();
-//    }
+    public String getItemDescription() {
+        return currentItem.getItemLongDescription();
+    }
+
+    public String getChoice() {
+        return currentItem.getChoiceDescription();
+    }
 //
 //    public String getInventoryDescription(){
 //        return inventory.getInventoryString();
