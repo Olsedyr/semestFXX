@@ -34,19 +34,27 @@ public class HelloController implements Initializable {
 
         //ToggleItems
     @FXML
-    private ImageView LampeTændt, LampeSlukket, TvTændt, TvSlukket,
-                loftLampeTændt, loftLampeSlukket, ComputerTændt, ComputerSlukket, radiator, VindueAaben, VindueLukket,
-                BadeværelseLysSlukket, BadeværelseLysTændt, VandhaneTændt, VandhaneSlukket;
+    private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, radiator, vindueÅben, vindueLukket,
+                badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad, badChoice,
+                køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket;
+
         //ChoiceItems
     @FXML
-    private ImageView komfur, transport;
+    private ImageView
+                komfur,
+                transport;
+
         //Doors
     @FXML
-    private ImageView kitchenToBedroom, bedroomToKitchen, bedroomToBathroom, bathroomToBedroom, kitchenToCity, cityToKitchen, cityToBeach, beachToCity;
+    private ImageView bedroomToBathroom, bathroomToBedroom,
+                kitchenToBedroom, bedroomToKitchen,
+                kitchenToCity, cityToKitchen,
+                cityToBeach, beachToCity;
 
         //TrashItems
     @FXML
-    private ImageView pizzabakke, mælkekarton, silkepapir;
+    private ImageView silkepapir,
+                pizzabakke, mælkekarton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -105,36 +113,36 @@ public class HelloController implements Initializable {
     // Soveværelse: Tænder/Slukker lys
     @FXML
     void showCeilingLight (MouseEvent event) {
-        if(loftLampeSlukket.isVisible()==true) {
-            loftLampeSlukket.setVisible(false);
-            loftLampeTændt.setVisible(true);
+        if(soveværelseLampeSlukket.isVisible()==true) {
+            soveværelseLampeSlukket.setVisible(false);
+            soveværelseLampeTændt.setVisible(true);
         } else {
-            loftLampeSlukket.setVisible(true);
-            loftLampeTændt.setVisible(false);
+            soveværelseLampeSlukket.setVisible(true);
+            soveværelseLampeTændt.setVisible(false);
         }
     }
 
     // Soveværelse: Tænder/Slukker computer
     @FXML
     void showComputer (MouseEvent event) {
-        if(ComputerSlukket.isVisible()==true) {
-            ComputerSlukket.setVisible(false);
-            ComputerTændt.setVisible(true);
+        if(computerSlukket.isVisible()==true) {
+            computerSlukket.setVisible(false);
+            computerTændt.setVisible(true);
         } else {
-            ComputerSlukket.setVisible(true);
-            ComputerTændt.setVisible(false);
+            computerSlukket.setVisible(true);
+            computerTændt.setVisible(false);
         }
     }
 
     //Soveværelse: Åbner/Lukker vindue
     @FXML
     void showWindow (MouseEvent event) {
-        if(VindueLukket.isVisible()==true) {
-            VindueLukket.setVisible(false);
-            VindueAaben.setVisible(true);
+        if(vindueLukket.isVisible()==true) {
+            vindueLukket.setVisible(false);
+            vindueÅben.setVisible(true);
         } else {
-            VindueLukket.setVisible(true);
-            VindueAaben.setVisible(false);
+            vindueLukket.setVisible(true);
+            vindueÅben.setVisible(false);
         }
     }
 
@@ -143,48 +151,59 @@ public class HelloController implements Initializable {
     void toggleKLamp (MouseEvent event) {
         Item lamp = kitchen.getItem("køkkenlampe");
 
-        if(LampeSlukket.isVisible()==true) {
-            LampeSlukket.setVisible(false);
-            LampeTændt.setVisible(true);
+        if(køkkenLampeSlukket.isVisible()==true) {
+            køkkenLampeSlukket.setVisible(false);
+            køkkenLampeTændt.setVisible(true);
         } else {
-            LampeSlukket.setVisible(true);
-            LampeTændt.setVisible(false);
+            køkkenLampeSlukket.setVisible(true);
+            køkkenLampeTændt.setVisible(false);
         }
     }
 
     // Køkken: Tænder/Slukker TV
     @FXML
     void toggleTv (MouseEvent event) {
-        if(TvSlukket.isVisible()==true) {
-            TvSlukket.setVisible(false);
-            TvTændt.setVisible(true);
+        if(tvSlukket.isVisible()==true) {
+            tvSlukket.setVisible(false);
+            tvTændt.setVisible(true);
         } else {
-            TvSlukket.setVisible(true);
-            TvTændt.setVisible(false);
+            tvSlukket.setVisible(true);
+            tvTændt.setVisible(false);
         }
     }
 
     // Badeværelse: Tænder/Slukker badeværelse lys
     @FXML
     void toggleBadeværelseLys (MouseEvent event) {
-        if(BadeværelseLysSlukket.isVisible()==true) {
-            BadeværelseLysSlukket.setVisible(false);
-            BadeværelseLysTændt.setVisible(true);
+        if(badeværelseLysSlukket.isVisible()==true) {
+            badeværelseLysSlukket.setVisible(false);
+            badeværelseLysTændt.setVisible(true);
         } else {
-            BadeværelseLysSlukket.setVisible(true);
-            BadeværelseLysTændt.setVisible(false);
+            badeværelseLysSlukket.setVisible(true);
+            badeværelseLysTændt.setVisible(false);
         }
     }
 
     // Badeværelse: Tænder/Slukker vandhane
     @FXML
     void toggleVandhane (MouseEvent event) {
-        if(VandhaneSlukket.isVisible()==true) {
-            VandhaneSlukket.setVisible(false);
-            VandhaneTændt.setVisible(true);
+        if(vandhaneSlukket.isVisible()==true) {
+            vandhaneSlukket.setVisible(false);
+            vandhaneTændt.setVisible(true);
         } else {
-            VandhaneSlukket.setVisible(true);
-            VandhaneTændt.setVisible(false);
+            vandhaneSlukket.setVisible(true);
+            vandhaneTændt.setVisible(false);
+        }
+    }
+
+    @FXML
+    void choiceBad (MouseEvent event) {
+        if(vandhaneSlukket.isVisible()==true) {
+            vandhaneSlukket.setVisible(false);
+            vandhaneTændt.setVisible(true);
+        } else {
+            vandhaneSlukket.setVisible(true);
+            vandhaneTændt.setVisible(false);
         }
     }
 

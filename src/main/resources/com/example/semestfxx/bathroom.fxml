@@ -26,7 +26,7 @@
             <Insets right="998.0" top="38.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="VandhaneSlukket" fitHeight="237.0" fitWidth="190.0" layoutX="548.0" layoutY="-4.0" onMouseClicked="#toggleVandhane" visible="false">
+      <ImageView fx:id="vandhaneSlukket" fitHeight="237.0" fitWidth="190.0" layoutX="548.0" layoutY="-4.0" onMouseClicked="#toggleVandhane" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Vandhane/VandhaneSlukket.png" />
          </image>
@@ -34,7 +34,7 @@
             <Insets right="412.0" top="245.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="VandhaneTændt" fitHeight="237.0" fitWidth="190.0" layoutX="548.0" layoutY="-4.0" onMouseClicked="#toggleVandhane">
+      <ImageView fx:id="vandhaneTændt" fitHeight="237.0" fitWidth="190.0" layoutX="548.0" layoutY="-4.0" onMouseClicked="#toggleVandhane">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Vandhane/VandhaneTændt.png" />
          </image>
@@ -42,7 +42,7 @@
             <Insets right="412.0" top="245.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="BadeværelseLysSlukket" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#toggleBadeværelseLys" visible="false">
+      <ImageView fx:id="badeværelseLysSlukket" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#toggleBadeværelseLys" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Loftlampe/LoftlampeSlukket.png" />
          </image>
@@ -50,7 +50,7 @@
             <Insets bottom="568.0" right="22.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="BadeværelseLysTændt" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#toggleBadeværelseLys">
+      <ImageView fx:id="badeværelseLysTændt" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#toggleBadeværelseLys">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Loftlampe/LoftlampeTændt.png" />
          </image>
@@ -58,7 +58,7 @@
             <Insets bottom="568.0" right="22.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="Bad" fitHeight="251.0" fitWidth="394.0" onMouseClicked="#badChoiceMenu">
+      <ImageView fx:id="bad" fitHeight="251.0" fitWidth="394.0">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/Bad.png" />
          </image>
@@ -66,28 +66,27 @@
             <Insets left="864.0" top="268.0" />
          </StackPane.margin>
       </ImageView>
-      <AnchorPane fx:id="BadChoice" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" visible="false">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="300.0" />
-            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="25.0" layoutY="26.0" prefHeight="100.0" prefWidth="250.0" text="Bruge du bruser eller badekar?" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="25.0" layoutY="35.0" prefHeight="100.0" prefWidth="250.0" text=" Bruge bruser eller badekar?" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="28.0" />
-               </font>
-            </Label>
-            <Button layoutX="17.0" layoutY="219.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="266.0" text="Badekar">
+               </font></Label>
+            <Button layoutX="50.0" layoutY="150.0" mnemonicParsing="false" prefWidth="200.0" text="Bruser">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button layoutX="17.0" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#loadBedroom" prefHeight="51.0" prefWidth="266.0" text="Bruser">
+            <Button layoutX="50.0" layoutY="219.0" mnemonicParsing="false" prefWidth="200.0" text="Badekar">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
          </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </AnchorPane>
     <!--  <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loadKitchen" opacity="0.0" prefHeight="406.0" prefWidth="193.0" text="Button" StackPane.alignment="CENTER_LEFT">
          <opaqueInsets>

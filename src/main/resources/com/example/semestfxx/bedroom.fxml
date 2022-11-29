@@ -32,7 +32,7 @@
             <Insets bottom="220.0" left="400.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="loftLampeSlukket" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#showCeilingLight" visible="false">
+      <ImageView fx:id="soveværelseLampeSlukket" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#showCeilingLight" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Loftlampe/LoftlampeSlukket.png" />
          </image>
@@ -40,7 +40,7 @@
             <Insets bottom="568.0" right="22.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="loftLampeTændt" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#showCeilingLight">
+      <ImageView fx:id="soveværelseLampeTændt" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#showCeilingLight">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Loftlampe/LoftlampeTændt.png" />
          </image>
@@ -48,7 +48,7 @@
             <Insets bottom="568.0" right="22.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="VindueLukket" fitHeight="245.0" fitWidth="265.0" onMouseClicked="#showWindow" visible="false">
+      <ImageView fx:id="vindueLukket" fitHeight="245.0" fitWidth="265.0" onMouseClicked="#showWindow" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Vindue/VindueLukket.png" />
          </image>
@@ -56,7 +56,7 @@
             <Insets bottom="142.0" left="-13.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="VindueAaben" fitHeight="245.0" fitWidth="265.0" onMouseClicked="#showWindow">
+      <ImageView fx:id="vindueÅben" fitHeight="245.0" fitWidth="265.0" onMouseClicked="#showWindow">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Vindue/VindueÅbent.png" />
          </image>
@@ -64,7 +64,7 @@
             <Insets bottom="142.0" left="-13.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="ComputerSlukket" fitHeight="275.0" fitWidth="379.0" onMouseClicked="#showComputer" visible="false">
+      <ImageView fx:id="computerSlukket" fitHeight="275.0" fitWidth="379.0" onMouseClicked="#showComputer" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Computer/ComputerSlukket.png" />
          </image>
@@ -72,7 +72,7 @@
             <Insets bottom="-207.0" left="513.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="ComputerTændt" fitHeight="275.0" fitWidth="379.0" onMouseClicked="#showComputer">
+      <ImageView fx:id="computerTændt" fitHeight="275.0" fitWidth="379.0" onMouseClicked="#showComputer">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Computer/ComputerTændt.png" />
          </image>

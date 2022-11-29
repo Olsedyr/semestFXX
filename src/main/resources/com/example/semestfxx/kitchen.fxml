@@ -32,7 +32,7 @@
             <Insets left="2.0" top="90.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="LampeTændt" fitHeight="196.0" fitWidth="248.0" onMouseClicked="#toggleKLamp" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_CENTER">
+      <ImageView fx:id="køkkenLampeTændt" fitHeight="196.0" fitWidth="248.0" onMouseClicked="#toggleKLamp" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_CENTER">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Køkkenlampe/KøkkenLampeTændt.png" />
          </image>
@@ -40,7 +40,7 @@
             <Insets right="150.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="LampeSlukket" fitHeight="196.0" fitWidth="248.0" onMouseClicked="#toggleKLamp" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="TOP_CENTER">
+      <ImageView fx:id="køkkenLampeSlukket" fitHeight="196.0" fitWidth="248.0" onMouseClicked="#toggleKLamp" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="TOP_CENTER">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Køkkenlampe/KøkkenLampeSlukket.png" />
          </image>
@@ -48,7 +48,7 @@
             <Insets right="150.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="omfur" fitHeight="295.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="komfur" fitHeight="295.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Komfur/KomfurIntet.png" />
          </image>
@@ -56,7 +56,7 @@
             <Insets left="630.0" top="264.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="TvTændt" fitHeight="187.0" fitWidth="167.0" onMouseClicked="#toggleTv" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_CENTER">
+      <ImageView fx:id="tvTændt" fitHeight="187.0" fitWidth="167.0" onMouseClicked="#toggleTv" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_CENTER">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/TV/TVTændt.png" />
          </image>
@@ -64,7 +64,7 @@
             <Insets left="380.0" top="28.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="TvSlukket" fitHeight="187.0" fitWidth="167.0" onMouseClicked="#toggleTv" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="TOP_CENTER">
+      <ImageView fx:id="tvSlukket" fitHeight="187.0" fitWidth="167.0" onMouseClicked="#toggleTv" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="TOP_CENTER">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/TV/TV.png" />
          </image>
