@@ -32,23 +32,21 @@ public class HelloController implements Initializable {
     @FXML
     private StackPane rootPane;
 
+        //Test image
     @FXML
     private ImageView image;
 
         //ToggleItems
     @FXML
-    private ImageView LampeTændt, LampeSlukket, TvTændt, TvSlukket;
+    private ImageView LampeTændt, LampeSlukket, TvTændt, TvSlukket,
+                loftLampeTændt, loftLampeSlukket, ComputerTændt, ComputerSlukket, radiator, VindueAaben, VindueLukket,
+                BadeværelseLysSlukket, BadeværelseLysTændt, VandhaneTændt, VandhaneSlukket;
         //ChoiceItems
     @FXML
     private ImageView komfur;
         //Doors
     @FXML
     private ImageView kitchenToBedroom, bedroomToKitchen;
-
-    @FXML
-    private ImageView loftLampeTændt, loftLampeSlukket, ComputerTændt, ComputerSlukket, radiator, VindueAaben, VindueLukket;
-
-
 
         //TrashItems
     @FXML
@@ -61,67 +59,54 @@ public class HelloController implements Initializable {
         kitchen = game.rooms.get(0);
     }
 
+    ///ActionEvent
     public void startGame(ActionEvent event) throws IOException {
         System.out.println("Game Started!");
-        loadBedroom(event);
+        loadBedroomStart(event);
     }
 
-
-    public void loadBedroom(ActionEvent event) throws IOException {
-
+    public void loadBedroomStart(ActionEvent event) throws IOException {
         System.out.println("Scene 2");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
-
     }
 
-    public void loadBedroom1(MouseEvent event) throws IOException {
-
+    ///MouseEvent
+    public void loadBedroom(MouseEvent event) throws IOException {
         System.out.println("Scene 2");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
-
     }
-
 
     public void loadKitchen(MouseEvent event) throws IOException {
-
         System.out.println("Scene 3");
         StackPane pane = FXMLLoader.load(getClass().getResource("kitchen.fxml"));
         rootPane.getChildren().setAll(pane);
-
     }
+
+    public void loadBathroom(MouseEvent event) throws IOException {
+        System.out.println("Scene 4");
+        StackPane pane = FXMLLoader.load(getClass().getResource("bathroom.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
+
 
     public void deleteItem() throws IOException {
         image.setImage(null);
     }
 
-    @FXML
-    void toggleKLamp (MouseEvent event) {
-        Item lamp = kitchen.getItem("køkkenlampe");
 
-        if(LampeSlukket.isVisible()==true) {
-            LampeSlukket.setVisible(false);
-            LampeTændt.setVisible(true);
+    // Soveværelse: Tænder/Slukker lys
+    @FXML
+    void showCeilingLight (MouseEvent event) {
+        if(loftLampeSlukket.isVisible()==true) {
+            loftLampeSlukket.setVisible(false);
+            loftLampeTændt.setVisible(true);
         } else {
-            LampeSlukket.setVisible(true);
-            LampeTændt.setVisible(false);
+            loftLampeSlukket.setVisible(true);
+            loftLampeTændt.setVisible(false);
         }
     }
-
-    @FXML
-    void toggleTv (MouseEvent event) {
-        if(TvSlukket.isVisible()==true) {
-            TvSlukket.setVisible(false);
-            TvTændt.setVisible(true);
-        } else {
-            TvSlukket.setVisible(true);
-            TvTændt.setVisible(false);
-        }
-    }
-
-
-
 
     // Soveværelse: Tænder/Slukker computer
     @FXML
@@ -136,7 +121,6 @@ public class HelloController implements Initializable {
     }
 
     //Soveværelse: Åbner/Lukker vindue
-
     @FXML
     void showWindow (MouseEvent event) {
         if(VindueLukket.isVisible()==true) {
@@ -148,18 +132,55 @@ public class HelloController implements Initializable {
         }
     }
 
+    // Køkken: Tænder/Slukker køkken lys
     @FXML
-    void showCeilingLight (MouseEvent event) {
-        if(loftLampeSlukket.isVisible()==true) {
-            loftLampeSlukket.setVisible(false);
-            loftLampeTændt.setVisible(true);
+    void toggleKLamp (MouseEvent event) {
+        Item lamp = kitchen.getItem("køkkenlampe");
+
+        if(LampeSlukket.isVisible()==true) {
+            LampeSlukket.setVisible(false);
+            LampeTændt.setVisible(true);
         } else {
-            loftLampeSlukket.setVisible(true);
-            loftLampeTændt.setVisible(false);
+            LampeSlukket.setVisible(true);
+            LampeTændt.setVisible(false);
         }
     }
 
+    // Køkken: Tænder/Slukker TV
+    @FXML
+    void toggleTv (MouseEvent event) {
+        if(TvSlukket.isVisible()==true) {
+            TvSlukket.setVisible(false);
+            TvTændt.setVisible(true);
+        } else {
+            TvSlukket.setVisible(true);
+            TvTændt.setVisible(false);
+        }
+    }
 
+    // Badeværelse: Tænder/Slukker badeværelse lys
+    @FXML
+    void toggleBadeværelseLys (MouseEvent event) {
+        if(BadeværelseLysSlukket.isVisible()==true) {
+            BadeværelseLysSlukket.setVisible(false);
+            BadeværelseLysTændt.setVisible(true);
+        } else {
+            BadeværelseLysSlukket.setVisible(true);
+            BadeværelseLysTændt.setVisible(false);
+        }
+    }
+
+    // Badeværelse: Tænder/Slukker vandhane
+    @FXML
+    void toggleVandhane (MouseEvent event) {
+        if(VandhaneSlukket.isVisible()==true) {
+            VandhaneSlukket.setVisible(false);
+            VandhaneTændt.setVisible(true);
+        } else {
+            VandhaneSlukket.setVisible(true);
+            VandhaneTændt.setVisible(false);
+        }
+    }
 
 }
 
