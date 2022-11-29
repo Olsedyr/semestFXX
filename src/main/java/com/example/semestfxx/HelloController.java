@@ -132,7 +132,6 @@ public class HelloController implements Initializable {
         }
     }
 
-
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
