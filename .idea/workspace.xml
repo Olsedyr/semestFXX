@@ -5,9 +5,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52cf06ea-4861-4571-9365-b1154f4040f8" name="Changes" comment="K">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Projekt_Billeder/ProjektBilleder/Arrow.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/beach.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/city.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Badeværesle/Bad/Bad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Badeværesle/Badeværelse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Badeværesle/Spejl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Badeværesle/Vandhane/Vandhane.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Byen/Townwithcarandbike.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Byen/Transport/Cykel.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Byen/Transport/Cykel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Byen/Transport/Cykel1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Byen/Transport/car.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Byen/door.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Byen/townnocarbike.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Dør Rum.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Dør Udenfor.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/DørRum.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/DørUdenfor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Komfur/Komfur Pande.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Komfur/Komfur Pande.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Komfur/Komfur Tændt.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Komfur/Komfur Tændt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køkken Baggrund.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køkken Baggrundd.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køkkenlampe/Køkken Lampe Slukket.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køkkenlampe/Køkken Lampe Slukket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køkkenlampe/Køkken Lampe Tændt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køkkenlampe/Køkken Lampe.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køleskab/Burger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køleskab/Køkken Baggrund I GANG.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køleskab/Køleskab Lukket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køleskab/Køleskab Åbnet.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køleskab/Køleskab Åbnet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køleskab/Salat.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Køleskab/Salat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Mælkekarton/Mælkecarton.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Mælkekarton/Mælkekarton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Pizzabakke/Pizzabakke.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/Pizzabakke/Pizzabakke.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/TV/TV Tændt.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/TV/TV Tændt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/TV/TV.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Køkken/TV/TV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Computer/Computer Slukket.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Computer/Computer Tændt.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Computer/ComputerSlukket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Computer/ComputerTændt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Loftlampe/Loftlampe Slukket.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Loftlampe/Loftlampe Tændt.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Loftlampe/LoftlampeSlukket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Loftlampe/LoftlampeTændt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Radiator/Radiator.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Radiator/Radiator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Silkepapir/Silkepapir.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Silkepapir/Silkepapir.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Sodavandsdåser/Dåser.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Sodavandsdåser/Dåser.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Soveværelse.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Soveværelse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Vindue/Vindue lukket.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Vindue/Vindue åbent.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Vindue/VindueAabent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Soveværelse/Vindue/VindueLukket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Strand/Strand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/ProjektBilleder/Strand/beach.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/bathroom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/bathroom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/bedroom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/bedroom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/kitchen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/kitchen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/room_bed_comfort_convenience_bedroom_64345_1280x720.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/silkepapir.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +108,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/harry/Documents/semsetFXX/src/main/resources/com/example/semestfxx&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/harry/Documents/semsetFXX/src/main/resources/com/example/semestfxx",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.build"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\harry\Documents\semsetFXX\src\main\resources\com\example\semestfxx" />
@@ -73,10 +142,10 @@
   </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-19.0.1" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../Program Files/Java/jdk-18.0.2.1" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.example.semestfxx.HelloApplication" />
-      <module name="semsetFXX-Copy" />
+      <module name="semestFXX" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.semestfxx.*" />

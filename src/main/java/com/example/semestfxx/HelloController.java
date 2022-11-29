@@ -32,10 +32,6 @@ public class HelloController implements Initializable {
     @FXML
     private StackPane rootPane;
 
-        //Test image
-    @FXML
-    private ImageView image;
-
         //ToggleItems
     @FXML
     private ImageView LampeTændt, LampeSlukket, TvTændt, TvSlukket,
@@ -43,14 +39,14 @@ public class HelloController implements Initializable {
                 BadeværelseLysSlukket, BadeværelseLysTændt, VandhaneTændt, VandhaneSlukket;
         //ChoiceItems
     @FXML
-    private ImageView komfur;
+    private ImageView komfur, transport;
         //Doors
     @FXML
-    private ImageView kitchenToBedroom, bedroomToKitchen;
+    private ImageView kitchenToBedroom, bedroomToKitchen, bedroomToBathroom, bathroomToBedroom, kitchenToCity, cityToKitchen, cityToBeach, beachToCity;
 
         //TrashItems
     @FXML
-    private ImageView pizzabakke, mælkekarton;
+    private ImageView pizzabakke, mælkekarton, silkepapir;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -73,26 +69,36 @@ public class HelloController implements Initializable {
 
     ///MouseEvent
     public void loadBedroom(MouseEvent event) throws IOException {
-        System.out.println("Scene 2");
+        System.out.println("Bedroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
     }
 
     public void loadKitchen(MouseEvent event) throws IOException {
-        System.out.println("Scene 3");
+        System.out.println("Kitchen");
         StackPane pane = FXMLLoader.load(getClass().getResource("kitchen.fxml"));
         rootPane.getChildren().setAll(pane);
     }
 
     public void loadBathroom(MouseEvent event) throws IOException {
-        System.out.println("Scene 4");
+        System.out.println("Bathroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bathroom.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
+    public void loadCity(MouseEvent event) throws IOException {
+        System.out.println("City");
+        StackPane pane = FXMLLoader.load(getClass().getResource("city.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
+    public void loadBeach(MouseEvent event) throws IOException {
+        System.out.println("Beach");
+        StackPane pane = FXMLLoader.load(getClass().getResource("beach.fxml"));
         rootPane.getChildren().setAll(pane);
     }
 
 
     public void deleteItem() throws IOException {
-        image.setImage(null);
+        // relevantfx:id.setImage(null);
     }
 
 
