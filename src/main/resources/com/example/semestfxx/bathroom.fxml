@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.semestfxx.HelloController">
+   <children>
+
+      <ImageView fitHeight="720.0" fitWidth="1280.0">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Badeværelse.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bathroomToBedRoom" fitHeight="446.0" fitWidth="192.0" onMouseClicked="#loadBedroom">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/DørRum.png" />
+         </image>
+         <StackPane.margin>
+            <Insets right="998.0" top="38.0" />
+         </StackPane.margin>
+      </ImageView>
+      <ImageView fx:id="Bad" fitHeight="251.0" fitWidth="394.0">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/Bad.png" />
+         </image>
+         <StackPane.margin>
+            <Insets left="864.0" top="268.0" />
+         </StackPane.margin>
+      </ImageView>
+      <ImageView fx:id="VandhaneSlukket" fitHeight="237.0" fitWidth="190.0" layoutX="548.0" layoutY="-4.0" onMouseClicked="#toggleVandhane" visible="false">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Vandhane/VandhaneSlukket.png" />
+         </image>
+         <StackPane.margin>
+            <Insets right="412.0" top="245.0" />
+         </StackPane.margin>
+      </ImageView>
+      <ImageView fx:id="VandhaneTændt" fitHeight="237.0" fitWidth="190.0" layoutX="548.0" layoutY="-4.0" onMouseClicked="#toggleVandhane">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Vandhane/VandhaneTændt.png" />
+         </image>
+         <StackPane.margin>
+            <Insets right="412.0" top="245.0" />
+         </StackPane.margin>
+      </ImageView>
+      <ImageView fx:id="BadeværelseLysSlukket" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#toggleBadeværelseLys" visible="false">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Loftlampe/LoftlampeSlukket.png" />
+         </image>
+         <StackPane.margin>
+            <Insets bottom="568.0" right="22.0" />
+         </StackPane.margin>
+      </ImageView>
+      <ImageView fx:id="BadeværelseLysTændt" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#toggleBadeværelseLys">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Loftlampe/LoftlampeTændt.png" />
+         </image>
+         <StackPane.margin>
+            <Insets bottom="568.0" right="22.0" />
+         </StackPane.margin>
+      </ImageView>
+    <!--  <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loadKitchen" opacity="0.0" prefHeight="406.0" prefWidth="193.0" text="Button" StackPane.alignment="CENTER_LEFT">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></Button>
+
+         <StackPane.margin>
+            <Insets left="625.0" />
+         </StackPane.margin>
+      </Button> -->
+
+   </children>
+</StackPane>
