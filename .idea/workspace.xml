@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52cf06ea-4861-4571-9365-b1154f4040f8" name="Changes" comment="K">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/green-energy-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Projekt_Billeder/ProjektBilleder/RedArrow.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/bathroom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/bathroom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/bedroom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/bedroom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/kitchen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/kitchen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/beach.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/beach.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/city.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/city.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +59,7 @@
       <recent name="C:\Users\harry\Documents\semsetFXX\src\main\resources\com\example\semestfxx" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\harry\Documents\semsetFXX\src\main\java\com\example\semestfxx" />
       <recent name="C:\Projects\semestFXX\src\main\java" />
       <recent name="C:\Projects\semestFXX\src\main" />
       <recent name="C:\Projects\semestFXX\src\main\java\com\example\semestfxx" />

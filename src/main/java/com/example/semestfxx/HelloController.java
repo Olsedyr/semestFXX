@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -35,14 +36,14 @@ public class HelloController implements Initializable {
         //ToggleItems
     @FXML
     private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, radiator, vindueÅben, vindueLukket,
-                badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad, badChoice,
+                badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad,
                 køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket;
 
         //ChoiceItems
     @FXML
-    private ImageView
-                komfur,
-                transport;
+    private ImageView komfur, transport;
+    @FXML
+    private AnchorPane badChoice, køleskabChoice, komfurChoice, transportChoice;
 
         //Doors
     @FXML
@@ -56,6 +57,7 @@ public class HelloController implements Initializable {
     private ImageView silkepapir,
                 pizzabakke, mælkekarton;
 
+    //------------------------------------------------------------------------------------------------------------------
     @Override
     public void initialize(URL url, ResourceBundle rb){
         System.out.println("INIT");
@@ -63,6 +65,7 @@ public class HelloController implements Initializable {
         kitchen = game.rooms.get(0);
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     ///ActionEvent
     public void startGame(ActionEvent event) throws IOException {
         System.out.println("Game Started!");
@@ -70,11 +73,12 @@ public class HelloController implements Initializable {
     }
 
     public void loadBedroomStart(ActionEvent event) throws IOException {
-        System.out.println("Scene 2");
+        System.out.println("Start Bedroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     ///MouseEvent
     public void loadBedroom(MouseEvent event) throws IOException {
         System.out.println("Bedroom");
@@ -104,12 +108,12 @@ public class HelloController implements Initializable {
         rootPane.getChildren().setAll(pane);
     }
 
-
+    //------------------------------------------------------------------------------------------------------------------
     public void deleteItem() throws IOException {
         // relevantfx:id.setImage(null);
     }
 
-
+    //------------------------------------------------------------------------------------------------------------------
     // Soveværelse: Tænder/Slukker lys
     @FXML
     void showCeilingLight (MouseEvent event) {
@@ -146,6 +150,42 @@ public class HelloController implements Initializable {
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    // Badeværelse: Tænder/Slukker badeværelse lys
+    @FXML
+    void toggleBadeværelseLys (MouseEvent event) {
+        if(badeværelseLysSlukket.isVisible()==true) {
+            badeværelseLysSlukket.setVisible(false);
+            badeværelseLysTændt.setVisible(true);
+        } else {
+            badeværelseLysSlukket.setVisible(true);
+            badeværelseLysTændt.setVisible(false);
+        }
+    }
+
+    // Badeværelse: Tænder/Slukker vandhane
+    @FXML
+    void toggleVandhane (MouseEvent event) {
+        if(vandhaneSlukket.isVisible()==true) {
+            vandhaneSlukket.setVisible(false);
+            vandhaneTændt.setVisible(true);
+        } else {
+            vandhaneSlukket.setVisible(true);
+            vandhaneTændt.setVisible(false);
+        }
+    }
+
+    // Badeværelse: Bad choice
+    @FXML
+    void choiceBad (MouseEvent event) {
+        if(badChoice.isVisible()==true) {
+            badChoice.setVisible(false);
+        } else {
+            badChoice.setVisible(true);
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
@@ -172,40 +212,38 @@ public class HelloController implements Initializable {
         }
     }
 
-    // Badeværelse: Tænder/Slukker badeværelse lys
+    // Køkken Choice: Køleskab
     @FXML
-    void toggleBadeværelseLys (MouseEvent event) {
-        if(badeværelseLysSlukket.isVisible()==true) {
-            badeværelseLysSlukket.setVisible(false);
-            badeværelseLysTændt.setVisible(true);
+    void choiceKøleskab (MouseEvent event) {
+        if(køleskabChoice.isVisible()==true) {
+            køleskabChoice.setVisible(false);
         } else {
-            badeværelseLysSlukket.setVisible(true);
-            badeværelseLysTændt.setVisible(false);
+            køleskabChoice.setVisible(true);
         }
     }
 
-    // Badeværelse: Tænder/Slukker vandhane
+    // Køkken Choice: Komfur
     @FXML
-    void toggleVandhane (MouseEvent event) {
-        if(vandhaneSlukket.isVisible()==true) {
-            vandhaneSlukket.setVisible(false);
-            vandhaneTændt.setVisible(true);
+    void choiceKomfur (MouseEvent event) {
+        if(komfurChoice.isVisible()==true) {
+            komfurChoice.setVisible(false);
         } else {
-            vandhaneSlukket.setVisible(true);
-            vandhaneTændt.setVisible(false);
+            komfurChoice.setVisible(true);
+        }
+    }
+    //------------------------------------------------------------------------------------------------------------------
+    // Byen Choice:
+    @FXML
+    void choiceTransport (MouseEvent event) {
+        if (transportChoice.isVisible() == true) {
+            transportChoice.setVisible(false);
+        } else {
+            transportChoice.setVisible(true);
         }
     }
 
-    @FXML
-    void choiceBad (MouseEvent event) {
-        if(vandhaneSlukket.isVisible()==true) {
-            vandhaneSlukket.setVisible(false);
-            vandhaneTændt.setVisible(true);
-        } else {
-            vandhaneSlukket.setVisible(true);
-            vandhaneTændt.setVisible(false);
-        }
-    }
+    //------------------------------------------------------------------------------------------------------------------
+    // Strand:
 
 }
 
