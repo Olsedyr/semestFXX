@@ -32,27 +32,21 @@ public class HelloController implements Initializable {
     @FXML
     private StackPane rootPane;
 
-        //Test image
-    @FXML
-    private ImageView image;
-
         //ToggleItems
     @FXML
     private ImageView LampeTændt, LampeSlukket, TvTændt, TvSlukket,
                 loftLampeTændt, loftLampeSlukket, ComputerTændt, ComputerSlukket, radiator, VindueAaben, VindueLukket,
-                BadeværelseLysTændt, BadeværelseLysSlukket, VandhaneTændt, VandhaneSlukket;
+                BadeværelseLysSlukket, BadeværelseLysTændt, VandhaneTændt, VandhaneSlukket;
         //ChoiceItems
     @FXML
-    private ImageView komfur
-
-                , BadChoice;
+    private ImageView komfur, transport;
         //Doors
     @FXML
-    private ImageView kitchenToBedroom, bedroomToKitchen;
+    private ImageView kitchenToBedroom, bedroomToKitchen, bedroomToBathroom, bathroomToBedroom, kitchenToCity, cityToKitchen, cityToBeach, beachToCity;
 
         //TrashItems
     @FXML
-    private ImageView pizzabakke, mælkekarton;
+    private ImageView pizzabakke, mælkekarton, silkepapir;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -75,29 +69,39 @@ public class HelloController implements Initializable {
 
     ///MouseEvent
     public void loadBedroom(MouseEvent event) throws IOException {
-        System.out.println("Scene 2");
+        System.out.println("Bedroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
     }
 
     public void loadKitchen(MouseEvent event) throws IOException {
-        System.out.println("Scene 3");
+        System.out.println("Kitchen");
         StackPane pane = FXMLLoader.load(getClass().getResource("kitchen.fxml"));
         rootPane.getChildren().setAll(pane);
     }
 
     public void loadBathroom(MouseEvent event) throws IOException {
-        System.out.println("Scene 4");
+        System.out.println("Bathroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bathroom.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
+    public void loadCity(MouseEvent event) throws IOException {
+        System.out.println("City");
+        StackPane pane = FXMLLoader.load(getClass().getResource("city.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
+    public void loadBeach(MouseEvent event) throws IOException {
+        System.out.println("Beach");
+        StackPane pane = FXMLLoader.load(getClass().getResource("beach.fxml"));
         rootPane.getChildren().setAll(pane);
     }
 
 
     public void deleteItem() throws IOException {
-        image.setImage(null);
+        // relevantfx:id.setImage(null);
     }
 
-    // Soveværelse----------------------------------------------------------------------------------------------------
+
     // Soveværelse: Tænder/Slukker lys
     @FXML
     void showCeilingLight (MouseEvent event) {
@@ -134,7 +138,6 @@ public class HelloController implements Initializable {
         }
     }
 
-    // Køkken----------------------------------------------------------------------------------------------------
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
@@ -161,7 +164,6 @@ public class HelloController implements Initializable {
         }
     }
 
-    // Badeværelse----------------------------------------------------------------------------------------------------
     // Badeværelse: Tænder/Slukker badeværelse lys
     @FXML
     void toggleBadeværelseLys (MouseEvent event) {
@@ -185,18 +187,6 @@ public class HelloController implements Initializable {
             VandhaneTændt.setVisible(false);
         }
     }
-
-    // Badeværelse: Choise bath
-    @FXML
-    void badChoiceMenu (MouseEvent event) {
-        ///This should be used or not
-        if(BadChoice.isVisible()==false) {
-            BadChoice.setVisible(true);
-        } else {
-            BadChoice.setVisible(false);
-        }
-    }
-
 
 }
 
