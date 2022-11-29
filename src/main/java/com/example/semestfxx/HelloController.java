@@ -40,10 +40,12 @@ public class HelloController implements Initializable {
     @FXML
     private ImageView LampeTændt, LampeSlukket, TvTændt, TvSlukket,
                 loftLampeTændt, loftLampeSlukket, ComputerTændt, ComputerSlukket, radiator, VindueAaben, VindueLukket,
-                BadeværelseLysSlukket, BadeværelseLysTændt, VandhaneTændt, VandhaneSlukket;
+                BadeværelseLysTændt, BadeværelseLysSlukket, VandhaneTændt, VandhaneSlukket;
         //ChoiceItems
     @FXML
-    private ImageView komfur;
+    private ImageView komfur
+
+                , BadChoice;
         //Doors
     @FXML
     private ImageView kitchenToBedroom, bedroomToKitchen;
@@ -95,7 +97,7 @@ public class HelloController implements Initializable {
         image.setImage(null);
     }
 
-
+    // Soveværelse----------------------------------------------------------------------------------------------------
     // Soveværelse: Tænder/Slukker lys
     @FXML
     void showCeilingLight (MouseEvent event) {
@@ -132,6 +134,7 @@ public class HelloController implements Initializable {
         }
     }
 
+    // Køkken----------------------------------------------------------------------------------------------------
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
@@ -158,6 +161,7 @@ public class HelloController implements Initializable {
         }
     }
 
+    // Badeværelse----------------------------------------------------------------------------------------------------
     // Badeværelse: Tænder/Slukker badeværelse lys
     @FXML
     void toggleBadeværelseLys (MouseEvent event) {
@@ -181,6 +185,18 @@ public class HelloController implements Initializable {
             VandhaneTændt.setVisible(false);
         }
     }
+
+    // Badeværelse: Choise bath
+    @FXML
+    void badChoiceMenu (MouseEvent event) {
+        ///This should be used or not
+        if(BadChoice.isVisible()==false) {
+            BadChoice.setVisible(true);
+        } else {
+            BadChoice.setVisible(false);
+        }
+    }
+
 
 }
 
