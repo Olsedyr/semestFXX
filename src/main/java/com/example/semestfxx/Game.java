@@ -13,12 +13,14 @@ import java.util.List;
 public class Game {
 
     public ArrayList<Room> rooms;
+
+
     private Room currentRoom;
     public Item currentItem;
 //    private final Inventory inventory;
 //    private final CommandWords commands;
 //
-//    public List<Integer> score_list = new ArrayList<Integer>();
+    public List<Integer> score_list = new ArrayList<Integer>();
 //
 //
     public File scoreFile = new File("score.txt");
@@ -72,13 +74,13 @@ public class Game {
                 "Du kigger på loftlampen i dit soveværelse. Den er slukket. " +
                         "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
                 1,true);
-//        tv = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
-//                "Der er et TV i køkkenet. Det er lige nu tændt, og du kan høre en nyhedsvært tale i baggrunden. Når du vasker op er det " +
-//                        "ofte rart at have noget at se på imens, men ellers bruger du det ikke så meget. Og lige nu ser det ikke ud til" +
-//                        " at der er sket noget du ikke har hørt om tidligere.",
-//                "Der er et TV i dit køkken. Det er lige nu slukket, og bruger dermed ikke unødig strøm. " +
-//                        "Du har alligevel ikke lyst til at se noget på det lige nu.",
-//                3,true);
+        tv = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
+                "Der er et TV i køkkenet. Det er lige nu tændt, og du kan høre en nyhedsvært tale i baggrunden. Når du vasker op er det " +
+                        "ofte rart at have noget at se på imens, men ellers bruger du det ikke så meget. Og lige nu ser det ikke ud til" +
+                        " at der er sket noget du ikke har hørt om tidligere.",
+                "Der er et TV i dit køkken. Det er lige nu slukket, og bruger dermed ikke unødig strøm. " +
+                        "Du har alligevel ikke lyst til at se noget på det lige nu.",
+                3,true);
 //        vandhane = new Item.ToggleItem(" Dette burde du ikke kunne se! pinligt...",
 //                "Der er et vandhane på badeværelset. Den står og drypper, formentligt fra da du vaskede hænder tidligere på dagen.",
 //                "Der er en vandhane på badeværelset. Lige nu er den ikke i brug, og bruger dermed ikke unødig rent vand.",
@@ -152,7 +154,7 @@ public class Game {
 //        soveværelse.setRoomItems("sodavandsdåser", sodavandsdåser);
 //
         køkken.setRoomItems("køkkenlampe", køkkenlampe);
-//        køkken.setRoomItems("tv", tv);
+        køkken.setRoomItems("tv", tv);
 //        køkken.setRoomItems("køleskab", køleskab);
 //        køkken.setRoomItems("komfur", komfur);
 //        køkken.setRoomItems("pizzabakke", pizzabakke);
@@ -220,40 +222,40 @@ public class Game {
 //        }
 //    }
 //
-//    public int plus_sum_score(){
-//        int sum=0;
-//        for (int i = 0; i<score_list.size(); i++)
-//            sum += Integer.valueOf(score_list.get(i));
-//
-//        if (currentItem instanceof Item.ToggleItem) {
-//            if (currentItem.getItemState() == true) {
-//                System.out.println("Du fik " + currentItem.getItemPoints() + " pointx");
-//            } else {
-//                System.out.println("Du mistede " + currentItem.getItemPoints() + " point");
-//            }
+    public int plus_sum_score(){
+        int sum=0;
+        for (int i = 0; i<score_list.size(); i++)
+            sum += Integer.valueOf(score_list.get(i));
+
+        if (currentItem instanceof Item.ToggleItem) {
+            if (currentItem.getItemState() == true) {
+                System.out.println("Du fik " + currentItem.getItemPoints() + " pointx");
+            } else {
+                System.out.println("Du mistede " + currentItem.getItemPoints() + " point");
+            }
 //        }else if (currentItem instanceof Item.ChoiceItem) {
 //            if(currentItem.correctChoice == CommandLineClient.choice){
 //                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
 //            }
 //
-//        }else if (currentItem instanceof Item.TrashItem) {
+        }//else if (currentItem instanceof Item.TrashItem) {
 //            if (currentItem.getPickedUp()==true){
 //                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
 //            }
 //        }
-//        System.out.println("Din score er nu: " + sum);
+        System.out.println("Din score er nu: " + sum);
 //
 //        //Skriver til score.txt filen
-//        PrintWriter pw;
-//        try{
-//            pw = new PrintWriter(scoreFile);
-//            pw.println(sum);
-//            pw.close();
-//        } catch (FileNotFoundException ex){
-//            System.out.println("Der var en fejl i scoresystemet. ");
-//        }
-//        return sum;
-//    }
+        PrintWriter pw;
+        try{
+            pw = new PrintWriter(scoreFile);
+            pw.println(sum);
+            pw.close();
+        } catch (FileNotFoundException ex){
+            System.out.println("Der var en fejl i scoresystemet. ");
+        }
+        return sum;
+    }
 //
 //
 //    public void switchItemState(Command command) {
@@ -316,7 +318,7 @@ public class Game {
     public String getChoice() {
         return currentItem.getChoiceDescription();
     }
-//
+
 //    public String getInventoryDescription(){
 //        return inventory.getInventoryString();
 //    }

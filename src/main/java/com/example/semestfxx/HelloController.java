@@ -77,6 +77,7 @@ public class HelloController implements Initializable {
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
         currentRoom = game.rooms.get(0);
+        System.out.print(currentRoom);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -86,6 +87,7 @@ public class HelloController implements Initializable {
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
         currentRoom = game.rooms.get(0);
+        System.out.print(currentRoom);
     }
 
     public void loadKitchen(MouseEvent event) throws IOException {
@@ -93,6 +95,8 @@ public class HelloController implements Initializable {
         StackPane pane = FXMLLoader.load(getClass().getResource("kitchen.fxml"));
         rootPane.getChildren().setAll(pane);
         currentRoom = game.rooms.get(1);
+        System.out.print(currentRoom);
+        System.out.println(currentRoom.getRoomItemList());
     }
 
     public void loadBathroom(MouseEvent event) throws IOException {
@@ -100,18 +104,21 @@ public class HelloController implements Initializable {
         StackPane pane = FXMLLoader.load(getClass().getResource("bathroom.fxml"));
         rootPane.getChildren().setAll(pane);
         currentRoom = game.rooms.get(2);
+        System.out.print(currentRoom);
     }
     public void loadCity(MouseEvent event) throws IOException {
         System.out.println("City");
         StackPane pane = FXMLLoader.load(getClass().getResource("city.fxml"));
         rootPane.getChildren().setAll(pane);
         currentRoom = game.rooms.get(3);
+        System.out.print(currentRoom);
     }
     public void loadBeach(MouseEvent event) throws IOException {
         System.out.println("Beach");
         StackPane pane = FXMLLoader.load(getClass().getResource("beach.fxml"));
         rootPane.getChildren().setAll(pane);
         currentRoom = game.rooms.get(4);
+        System.out.print(currentRoom);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -123,7 +130,7 @@ public class HelloController implements Initializable {
     // Soveværelse: Tænder/Slukker lys
     @FXML
     void showCeilingLight (MouseEvent event) {
-        if(soveværelseLampeSlukket.isVisible()==true) {
+        if(soveværelseLampeSlukket.isVisible() ==true) {
             soveværelseLampeSlukket.setVisible(false);
             soveværelseLampeTændt.setVisible(true);
         } else {
