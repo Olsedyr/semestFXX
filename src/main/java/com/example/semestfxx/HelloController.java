@@ -141,7 +141,7 @@ public class HelloController implements Initializable {
             soveværelseLampeTændt.setVisible(false);
         }
 
-        currentItem.toggleState ^= true;
+        game.switchItemState();
         System.out.println(currentItem.toggleState);
     }
 
