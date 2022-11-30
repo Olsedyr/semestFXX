@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.semestfxx.HelloController">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.semestfxx.HelloController">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -70,7 +74,7 @@
             <Insets left="220.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="pizzabakke" fitHeight="200.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pizzabakke" fitHeight="200.0" fitWidth="150.0" onMouseClicked="#displayImage" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Pizzabakke/Pizzabakke.png" />
          </image>
@@ -78,5 +82,10 @@
             <Insets right="40.0" top="45.0" />
          </StackPane.margin>
       </ImageView>
+      <ListView fx:id="itemList" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ListView>
    </children>
 </StackPane>

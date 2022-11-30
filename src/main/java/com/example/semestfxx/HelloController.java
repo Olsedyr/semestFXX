@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,6 +24,8 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.ArrayList;
+
 
 public class HelloController implements Initializable {
 
@@ -50,7 +53,21 @@ public class HelloController implements Initializable {
 
         //TrashItems
     @FXML
-    private ImageView pizzabakke, mælkekarton;
+    private ImageView pizzabakke, mælkekarton, silkepapir;
+
+    @FXML
+    Image pizzabakke_tom = new Image(getClass().getResourceAsStream("empty.png"));
+
+    public void displayImage() {
+        pizzabakke.setImage(pizzabakke_tom);
+    }
+
+    @FXML
+    private ListView<String> itemList;
+
+    String[] items = {"pizzabakke", "mælkekarton"};
+
+    itemList.getItems().addAll(items);
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -181,7 +198,6 @@ public class HelloController implements Initializable {
             VandhaneTændt.setVisible(false);
         }
     }
-
 }
 
 
