@@ -30,33 +30,16 @@ public class Game {
 //        inventory = new Inventory();
     }
 //
-    private void createRooms() {
+    public void createRooms() {
         rooms = new ArrayList<Room>();
-//        //region ------------------------------------Rooms------------------------------------
+//------------------------------------Rooms------------------------------------
         Room soveværelse, køkken, badeværelse, byen, strand;
-//        soveværelse = new Room("i dit soveværelse i dit hjem");
-        køkken = new Room("i køkkenet. Der var gæster på besøg i går og det kan ses");
-        rooms.add(køkken);
-//        badeværelse = new Room("på badeværelset. Du mærker de kolde klinker under dine fødder");
-//        byen = new Room("i byen, travl som altid. Du kan vælge enten at tage en bil eller en cykel hjem");
-//        strand = new Room("på stranden. Sandet er blødt under din fødder");
-//
-//        ///Set Exit
-//        soveværelse.setExit("køkken", køkken);
-//
-//        køkken.setExit("soveværelse", soveværelse);
-//        køkken.setExit("badeværelse", badeværelse);
-//        køkken.setExit("byen", byen);
-//
-//        badeværelse.setExit("køkken", køkken);
-//
-//        byen.setExit("køkken", køkken);
-//        byen.setExit("stranden", strand);
-//
-//        strand.setExit("byen", byen);
-//
-//        currentRoom = soveværelse;
-//        //endregion ------------------------------------------------------------------------
+        soveværelse = new Room("i dit soveværelse i dit hjem"); rooms.add(soveværelse);
+        køkken = new Room("i køkkenet. Der var gæster på besøg i går og det kan ses"); rooms.add(køkken);
+        badeværelse = new Room("på badeværelset. Du mærker de kolde klinker under dine fødder"); rooms.add(badeværelse);
+        byen = new Room("i byen, travl som altid. Du kan vælge enten at tage en bil eller en cykel hjem"); rooms.add(byen);
+        strand = new Room("på stranden. Sandet er blødt under din fødder"); rooms.add(strand);
+
 //
 //        //region ------------------------------------Items------------------------------------
 //        ///Toggle Items: ToggleState==True means that the current state of the object is not climate friendly
@@ -169,7 +152,7 @@ public class Game {
 //        soveværelse.setRoomItems("sodavandsdåser", sodavandsdåser);
 //
         køkken.setRoomItems("køkkenlampe", køkkenlampe);
-//      s  køkken.setRoomItems("tv", tv);
+//        køkken.setRoomItems("tv", tv);
 //        køkken.setRoomItems("køleskab", køleskab);
 //        køkken.setRoomItems("komfur", komfur);
 //        køkken.setRoomItems("pizzabakke", pizzabakke);
@@ -346,9 +329,9 @@ public class Game {
 //        return commands.getCommandWords();
 //    }
 //
-//    public String getItemList() {
-//        return currentRoom.getRoomItemList();
-//    }
+        public String getItemList() {
+            return currentRoom.getRoomItemList();
+        }
 //
 //    public Command getCommand(String word1, String word2) {
 //        return new CommandImplementation(commands.getCommand(word1), word2);

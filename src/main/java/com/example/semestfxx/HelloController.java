@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 public class HelloController implements Initializable {
 
     private Game game;
-    private Room thisRoom;
+    private Room currentRoom;
 
     @FXML
     private StackPane rootPane;
@@ -62,7 +62,7 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle rb){
         System.out.println("INIT");
         game = GameSingleton.getInstance().getGame();
-        thisRoom = game.rooms.get(0);
+
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -76,6 +76,7 @@ public class HelloController implements Initializable {
         System.out.println("Start Bedroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
+        currentRoom = game.rooms.get(0);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -84,28 +85,33 @@ public class HelloController implements Initializable {
         System.out.println("Bedroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
+        currentRoom = game.rooms.get(0);
     }
 
     public void loadKitchen(MouseEvent event) throws IOException {
         System.out.println("Kitchen");
         StackPane pane = FXMLLoader.load(getClass().getResource("kitchen.fxml"));
         rootPane.getChildren().setAll(pane);
+        currentRoom = game.rooms.get(1);
     }
 
     public void loadBathroom(MouseEvent event) throws IOException {
         System.out.println("Bathroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bathroom.fxml"));
         rootPane.getChildren().setAll(pane);
+        currentRoom = game.rooms.get(2);
     }
     public void loadCity(MouseEvent event) throws IOException {
         System.out.println("City");
         StackPane pane = FXMLLoader.load(getClass().getResource("city.fxml"));
         rootPane.getChildren().setAll(pane);
+        currentRoom = game.rooms.get(3);
     }
     public void loadBeach(MouseEvent event) throws IOException {
         System.out.println("Beach");
         StackPane pane = FXMLLoader.load(getClass().getResource("beach.fxml"));
         rootPane.getChildren().setAll(pane);
+        currentRoom = game.rooms.get(4);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -150,12 +156,6 @@ public class HelloController implements Initializable {
         }
     }
 
-    // Køkken: Tænder/Slukker køkken lys
-
-
-    // Køkken: Tænder/Slukker TV
-
-
     //------------------------------------------------------------------------------------------------------------------
     // Badeværelse: Tænder/Slukker badeværelse lys
     @FXML
@@ -195,8 +195,6 @@ public class HelloController implements Initializable {
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
-        Item lamp = thisRoom.getItem("køkkenlampe");
-
         if(køkkenLampeSlukket.isVisible()==true) {
             køkkenLampeSlukket.setVisible(false);
             køkkenLampeTændt.setVisible(true);
@@ -237,6 +235,7 @@ public class HelloController implements Initializable {
             komfurChoice.setVisible(true);
         }
     }
+
     //------------------------------------------------------------------------------------------------------------------
     // Byen Choice:
     @FXML
@@ -263,9 +262,7 @@ public class HelloController implements Initializable {
         } else {
             display.setVisible(false);
         }
-
     }
-
 
 }
 
