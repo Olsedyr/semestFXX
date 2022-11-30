@@ -255,11 +255,18 @@ public class Game {
         return sum;
     }
 
-
-    public void switchItemState() {
-        if (currentItem instanceof Item.ToggleItem) {
+    public void test(){
+        System.out.println("Test");
+            currentItem.toggleState ^= true;
             plus_sum_score();
-            currentItem.toggleState ^= true;                    //Toggle switch for toggleState boolean
+    }
+    public void switchItemState() {
+
+        if (currentItem instanceof Item.ToggleItem) {
+
+            currentItem.toggleState ^= true;
+            plus_sum_score();
+            //Toggle switch for toggleState boolean
             //refer to method changing itemDescription based on toggleState?
 
 //        } else if(currentItem instanceof Item.ChoiceItem) {

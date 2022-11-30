@@ -73,7 +73,8 @@ public class HelloController implements Initializable {
         System.out.println("Game Started!");
         loadBedroomStart(event);
 
-        currentRoom = game.rooms.get(0);
+        game.currentRoom = game.rooms.get(0);
+
     }
 
     public void loadBedroomStart(ActionEvent event) throws IOException {
@@ -130,10 +131,10 @@ public class HelloController implements Initializable {
     // Soveværelse: Tænder/Slukker lys
     @FXML
     void showCeilingLight (MouseEvent event) {
-        currentRoom = game.rooms.get(0);
-        currentItem = currentRoom.getItem("soveværelseLampe");
+        game.currentRoom = game.rooms.get(0);
+        game.currentItem = game.currentRoom.getItem("soveværelseLampe");
 
-        if(currentItem.getItemState()==false) {
+        if(game.currentItem.getItemState()==false) {
             soveværelseLampeSlukket.setVisible(false);
             soveværelseLampeTændt.setVisible(true);
         } else {
@@ -142,7 +143,7 @@ public class HelloController implements Initializable {
         }
 
         game.switchItemState();
-        System.out.println(currentItem.toggleState);
+        System.out.println(game.currentItem.toggleState);
     }
 
     // Soveværelse: Tænder/Slukker computer
