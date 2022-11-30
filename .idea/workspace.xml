@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52cf06ea-4861-4571-9365-b1154f4040f8" name="Changes" comment="K">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/green-energy-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Projekt_Billeder/ProjektBilleder/RedArrow.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/beach.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/beach.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/city.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/city.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -42,24 +37,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/harry/Documents/semsetFXX/src/main/resources/com/example/semestfxx&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\harry\Documents\semsetFXX\src\main\resources\com\example\semestfxx" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\harry\Documents\semsetFXX\src\main\java\com\example\semestfxx" />
       <recent name="C:\Projects\semestFXX\src\main\java" />
       <recent name="C:\Projects\semestFXX\src\main" />
       <recent name="C:\Projects\semestFXX\src\main\java\com\example\semestfxx" />
@@ -77,10 +61,10 @@
   </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-19.0.1" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../Program Files/Java/jdk-18.0.2.1" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.example.semestfxx.HelloApplication" />
-      <module name="semsetFXX-Copy" />
+      <module name="semestFXX" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.semestfxx.*" />
@@ -131,5 +115,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

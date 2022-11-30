@@ -1,40 +1,32 @@
 package com.example.semestfxx;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class HelloController implements Initializable {
 
     private Game game;
-    private Room kitchen;
+    private Room thisRoom;
 
     @FXML
     private StackPane rootPane;
 
         //ToggleItems
     @FXML
+
     private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, radiator, vindueÅben, vindueLukket,
                 badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad,
                 køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket;
@@ -56,13 +48,21 @@ public class HelloController implements Initializable {
     @FXML
     private ImageView silkepapir,
                 pizzabakke, mælkekarton;
+    @FXML
+    private Button Quit, Help;
+
+    @FXML
+    private Text display;
+
 
     //------------------------------------------------------------------------------------------------------------------
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb){
         System.out.println("INIT");
         game = GameSingleton.getInstance().getGame();
-        kitchen = game.rooms.get(0);
+        thisRoom = game.rooms.get(0);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -150,6 +150,12 @@ public class HelloController implements Initializable {
         }
     }
 
+    // Køkken: Tænder/Slukker køkken lys
+
+
+    // Køkken: Tænder/Slukker TV
+
+
     //------------------------------------------------------------------------------------------------------------------
     // Badeværelse: Tænder/Slukker badeværelse lys
     @FXML
@@ -189,7 +195,7 @@ public class HelloController implements Initializable {
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
-        Item lamp = kitchen.getItem("køkkenlampe");
+        Item lamp = thisRoom.getItem("køkkenlampe");
 
         if(køkkenLampeSlukket.isVisible()==true) {
             køkkenLampeSlukket.setVisible(false);
@@ -244,6 +250,22 @@ public class HelloController implements Initializable {
 
     //------------------------------------------------------------------------------------------------------------------
     // Strand:
+    @FXML
+    void quit(ActionEvent event) {
+        Platform.exit();
+    }
+
+    @FXML
+    void help(ActionEvent event) {
+        if (display.isVisible()==false) {
+            display.setVisible(true);
+            display.setText(GameText.textHelp());
+        } else {
+            display.setVisible(false);
+        }
+
+    }
+
 
 }
 
