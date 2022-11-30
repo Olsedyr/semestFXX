@@ -62,7 +62,6 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle rb){
         System.out.println("INIT");
         game = GameSingleton.getInstance().getGame();
-        thisRoom = game.rooms.get(0);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -195,7 +194,6 @@ public class HelloController implements Initializable {
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
-        Item lamp = thisRoom.getItem("køkkenlampe");
 
         if(køkkenLampeSlukket.isVisible()==true) {
             køkkenLampeSlukket.setVisible(false);
@@ -203,6 +201,7 @@ public class HelloController implements Initializable {
         } else {
             køkkenLampeSlukket.setVisible(true);
             køkkenLampeTændt.setVisible(false);
+            System.out.println(game.getItemList());
         }
     }
 
