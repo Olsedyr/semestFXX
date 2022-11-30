@@ -20,11 +20,7 @@ public class Item{
     }
 
     public String getItemLongDescription(){
-        String returnString = getItemDescription();
-        if(this instanceof ToggleItem){
-            returnString += toggleStateString();
-        }
-        return returnString;
+        return getItemDescription();
     }
 
     public String getItemDescription(){
@@ -32,16 +28,6 @@ public class Item{
             return ((ToggleItem) this).changeItemDescription();
         }
         return itemDescription;
-    }
-
-    private String toggleStateString(){
-        String returnString = "";
-        if (getItemState()) {
-            returnString = " ";         // Before: Den/det er tændt/åben.
-        } else {
-            returnString = " ";         // Before: Den/det er slukket/lukket.
-        }
-        return returnString;
     }
 
     public  String getChoiceDescription() {return choiceDescription;}
