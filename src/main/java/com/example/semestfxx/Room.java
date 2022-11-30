@@ -8,17 +8,14 @@ public class Room{
     private String description;
     private HashMap<String, Item> roomItems;
 
-
     public Room(String description) {
         this.description = description;
         roomItems = new HashMap<String, Item>();
     }
 
-
     public void setRoomItems(String itemName, Item item){
         roomItems.put(itemName,item);
     }
-
 
     public String getShortDescription() {
         return description;
@@ -42,8 +39,6 @@ public class Room{
     public void removeItem(String itemName)
     {
         roomItems.remove(itemName);
-
-        ///don't know why doesn't work
     }
 
     public Item getItem(String itemName) { return roomItems.get(itemName);}
