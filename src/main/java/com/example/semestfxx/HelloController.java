@@ -49,7 +49,7 @@ public class HelloController implements Initializable {
     private ImageView silkepapir,
                 pizzabakke, mælkekarton;
     @FXML
-    private Button Quit, Help;
+    private Button quitGame, helpGame;
 
     @FXML
     private Text display;
