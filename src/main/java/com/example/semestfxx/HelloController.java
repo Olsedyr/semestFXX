@@ -1,5 +1,6 @@
 package com.example.semestfxx;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -184,10 +185,10 @@ public class HelloController implements Initializable {
         }
     }
 
-//    @FXML
-//    void quit() {
-//
-//    }
+    @FXML
+    void quit(ActionEvent event) {
+        Platform.exit();
+    }
 
     @FXML
     void help(ActionEvent event) {

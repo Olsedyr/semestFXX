@@ -23,7 +23,7 @@
             <Insets bottom="180.0" left="30.0" />
          </StackPane.margin>
       </ImageView>
-      <Button fx:id="beachQuit" mnemonicParsing="false" text="Afslut" StackPane.alignment="TOP_RIGHT">
+      <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">
          <StackPane.margin>
             <Insets right="10.0" top="10.0" />
          </StackPane.margin>

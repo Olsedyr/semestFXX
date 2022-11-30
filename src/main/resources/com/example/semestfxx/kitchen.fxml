@@ -91,7 +91,7 @@
             <Insets right="40.0" top="45.0" />
          </StackPane.margin>
       </ImageView>
-      <Button fx:id="kitQuit" mnemonicParsing="false" text="Afslut" StackPane.alignment="TOP_RIGHT">
+      <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">
          <StackPane.margin>
             <Insets right="10.0" top="10.0" />
          </StackPane.margin>
