@@ -4,37 +4,27 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class HelloController implements Initializable {
 
     private Game game;
-    private Room kitchen;
+    private Room thisRoom;
 
     @FXML
     private StackPane rootPane;
 
         //ToggleItems
     @FXML
-    private ImageView LampeTændt, LampeSlukket, TvTændt, TvSlukket,
+    private ImageView lampOn, LampeSlukket, TvTændt, TvSlukket,
                 loftLampeTændt, loftLampeSlukket, ComputerTændt, ComputerSlukket, radiator, VindueAaben, VindueLukket,
                 BadeværelseLysSlukket, BadeværelseLysTændt, VandhaneTændt, VandhaneSlukket;
         //ChoiceItems
@@ -48,11 +38,17 @@ public class HelloController implements Initializable {
     @FXML
     private ImageView pizzabakke, mælkekarton, silkepapir;
 
+    @FXML
+    private Button Quit, Help;
+
+    @FXML
+    private Text display;
+
     @Override
     public void initialize(URL url, ResourceBundle rb){
         System.out.println("INIT");
         game = GameSingleton.getInstance().getGame();
-        kitchen = game.rooms.get(0);
+        thisRoom = game.rooms.get(0);
     }
 
     ///ActionEvent
@@ -141,14 +137,14 @@ public class HelloController implements Initializable {
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
-        Item lamp = kitchen.getItem("køkkenlampe");
+        Item lamp = thisRoom.getItem("køkkenlampe");
 
         if(LampeSlukket.isVisible()==true) {
             LampeSlukket.setVisible(false);
-            LampeTændt.setVisible(true);
+            lampOn.setVisible(true);
         } else {
             LampeSlukket.setVisible(true);
-            LampeTændt.setVisible(false);
+            lampOn.setVisible(false);
         }
     }
 
@@ -187,6 +183,23 @@ public class HelloController implements Initializable {
             VandhaneTændt.setVisible(false);
         }
     }
+
+//    @FXML
+//    void quit() {
+//
+//    }
+
+    @FXML
+    void help(ActionEvent event) {
+        if (display.isVisible()==false) {
+            display.setVisible(true);
+            display.setText(GameText.textHelp());
+        } else {
+            display.setVisible(false);
+        }
+
+    }
+
 
 }
 
