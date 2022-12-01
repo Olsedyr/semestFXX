@@ -41,7 +41,7 @@ public class Game {
 
         //------------------------------------Items------------------------------------
         //Toggle Items: ToggleState==True means that the current state of the object is not climate friendly
-        Item.ToggleItem soveværelseLampe, radiator, vindue, computer, køkkenlampe, tv, vandhane;
+        Item.ToggleItem soveværelseLampe, radiator, vindue, computer, køkkenlampe, tv, vandhane, badeværelselys;
         soveværelseLampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "Du kigger på loftlampen i dit soveværelse. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
                         "Gardinet er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
@@ -70,17 +70,21 @@ public class Game {
                 "Du kigger på loftlampen i dit soveværelse. Den er slukket. " +
                         "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
                 1,true);
-        tv = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
+        tv      = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "Der er et TV i køkkenet. Det er lige nu tændt, og du kan høre en nyhedsvært tale i baggrunden. Når du vasker op er det " +
                         "ofte rart at have noget at se på imens, men ellers bruger du det ikke så meget. Og lige nu ser det ikke ud til" +
                         " at der er sket noget du ikke har hørt om tidligere.",
                 "Der er et TV i dit køkken. Det er lige nu slukket, og bruger dermed ikke unødig strøm. " +
                         "Du har alligevel ikke lyst til at se noget på det lige nu.",
                 3,true);
-        vandhane = new Item.ToggleItem(" Dette burde du ikke kunne se! pinligt...",
-                "Der er et vandhane på badeværelset. Den står og drypper, formentligt fra da du vaskede hænder tidligere på dagen.",
+        vandhane = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
+                "Der er en vandhane på badeværelset. Den står og drypper, formentligt fra da du vaskede hænder tidligere på dagen.",
                 "Der er en vandhane på badeværelset. Lige nu er den ikke i brug, og bruger dermed ikke unødig rent vand.",
                 3,true);
+        badeværelselys = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
+                "Du kigger på badeværelseslyset. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt.",
+                "Du kigger på lampen i dit badeværelse. Den er slukket.",
+                1, true);
 
 
         //Choice Items, can only choose once
@@ -158,6 +162,7 @@ public class Game {
 
         badeværelse.setRoomItems("vandhane", vandhane);
         badeværelse.setRoomItems("bad", bad);
+        badeværelse.setRoomItems("badeværelselys", badeværelselys);
 
         byen.setRoomItems("transport", transport);
 

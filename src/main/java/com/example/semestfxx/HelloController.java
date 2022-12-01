@@ -142,58 +142,76 @@ public class HelloController implements Initializable {
             soveværelseLampeSlukket.setVisible(false);
             soveværelseLampeTændt.setVisible(true);
         }
-
-//        game.switchItemState();
         System.out.println(game.currentItem.toggleState);
     }
 
     // Soveværelse: Tænder/Slukker computer
     @FXML
     void showComputer (MouseEvent event) {
-        if(computerSlukket.isVisible()==true) {
+        game.currentRoom = game.rooms.get(0);
+        game.currentItem = game.currentRoom.getItem("computer");
+        game.switchItemState();
+
+        if(game.currentItem.getItemState()==true) {
             computerSlukket.setVisible(false);
             computerTændt.setVisible(true);
         } else {
             computerSlukket.setVisible(true);
             computerTændt.setVisible(false);
         }
+        System.out.println(game.currentItem.toggleState);
     }
 
     //Soveværelse: Åbner/Lukker vindue
     @FXML
     void showWindow (MouseEvent event) {
-        if(vindueLukket.isVisible()==true) {
+        game.currentRoom = game.rooms.get(0);
+        game.currentItem = game.currentRoom.getItem("vindue");
+        game.switchItemState();
+
+        if(game.currentItem.getItemState()==true) {
             vindueLukket.setVisible(false);
             vindueÅben.setVisible(true);
         } else {
             vindueLukket.setVisible(true);
             vindueÅben.setVisible(false);
         }
+        System.out.println(game.currentItem.toggleState);
     }
 
     //------------------------------------------------------------------------------------------------------------------
     // Badeværelse: Tænder/Slukker badeværelse lys
     @FXML
     void toggleBadeværelseLys (MouseEvent event) {
-        if(badeværelseLysSlukket.isVisible()==true) {
+        game.currentRoom = game.rooms.get(2);
+        game.currentItem = game.currentRoom.getItem("badeværelselys");
+        game.switchItemState();
+
+        if(game.currentItem.getItemState()==true) {
             badeværelseLysSlukket.setVisible(false);
             badeværelseLysTændt.setVisible(true);
         } else {
             badeværelseLysSlukket.setVisible(true);
             badeværelseLysTændt.setVisible(false);
         }
+        System.out.println(game.currentItem.toggleState);
     }
 
     // Badeværelse: Tænder/Slukker vandhane
     @FXML
     void toggleVandhane (MouseEvent event) {
-        if(vandhaneSlukket.isVisible()==true) {
+        game.currentRoom = game.rooms.get(2);
+        game.currentItem = game.currentRoom.getItem("vandhane");
+        game.switchItemState();
+
+        if(game.currentItem.getItemState()==true) {
             vandhaneSlukket.setVisible(false);
             vandhaneTændt.setVisible(true);
         } else {
             vandhaneSlukket.setVisible(true);
             vandhaneTændt.setVisible(false);
         }
+        System.out.println(game.currentItem.toggleState);
     }
 
     // Badeværelse: Bad choice
@@ -210,6 +228,10 @@ public class HelloController implements Initializable {
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("køkkenlampe");
+        game.switchItemState();
+
         if(køkkenLampeSlukket.isVisible()==true) {
             køkkenLampeSlukket.setVisible(false);
             køkkenLampeTændt.setVisible(true);
@@ -217,11 +239,16 @@ public class HelloController implements Initializable {
             køkkenLampeSlukket.setVisible(true);
             køkkenLampeTændt.setVisible(false);
         }
+        System.out.println(game.currentItem.toggleState);
     }
 
     // Køkken: Tænder/Slukker TV
     @FXML
     void toggleTv (MouseEvent event) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("tv");
+        game.switchItemState();
+
         if(tvSlukket.isVisible()==true) {
             tvSlukket.setVisible(false);
             tvTændt.setVisible(true);
@@ -229,6 +256,7 @@ public class HelloController implements Initializable {
             tvSlukket.setVisible(true);
             tvTændt.setVisible(false);
         }
+            System.out.println(game.currentItem.toggleState);
     }
 
     // Køkken Choice: Køleskab
