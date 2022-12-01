@@ -64,7 +64,7 @@ public class Game {
                         "Når den er i brug kan du se på din elmåler at den bruger ret meget strøm.",
                 " Det er din stationære computer. Den er slukket, så der er ikke længere en summen at høre fra den.",
                 2,true);
-          køkkenlampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
+        køkkenlampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "Du kigger på køkkenlampen. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
                        "Der er flere store vinduer rundt omkring i køkkenet. Gardinerne er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
                 "Du kigger på loftlampen i dit soveværelse. Den er slukket. " +
@@ -218,52 +218,55 @@ public class Game {
 //        }
 //    }
 //
-//    public int plus_sum_score(){
-//        int sum=0;
-//        for (int i = 0; i<score_list.size(); i++)
-//            sum += Integer.valueOf(score_list.get(i));
-//
-//        if (currentItem instanceof Item.ToggleItem) {
-//            if (currentItem.getItemState() == true) {
-//                System.out.println("Du fik " + currentItem.getItemPoints() + " pointx");
-//            } else {
-//                System.out.println("Du mistede " + currentItem.getItemPoints() + " point");
-//            }
+    public int plus_sum_score(){
+        int sum=0;
+
+        if (currentItem instanceof Item.ToggleItem) {
+            if (currentItem.getItemState() == false) {
+                score_list.add(currentItem.getItemPoints());
+                System.out.println("Du fik " + currentItem.getItemPoints() + " pointx");
+            } else {
+                score_list.remove(Integer.valueOf(currentItem.getItemPoints()));
+                System.out.println("Du mistede " + currentItem.getItemPoints() + " point");
+            }
 //        }else if (currentItem instanceof Item.ChoiceItem) {
 //            if(currentItem.correctChoice == CommandLineClient.choice){
 //                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
 //            }
-//
-//        }else if (currentItem instanceof Item.TrashItem) {
-//            if (currentItem.getPickedUp()==true){
-//                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
-//            }
-//        }
-//        System.out.println("Din score er nu: " + sum);
-//
-//        //Skriver til score.txt filen
-//        PrintWriter pw;
-//        try{
-//            pw = new PrintWriter(scoreFile);
-//            pw.println(sum);
-//            pw.close();
-//        } catch (FileNotFoundException ex){
-//            System.out.println("Der var en fejl i scoresystemet. ");
-//        }
-//        return sum;
-//    }
-//
-//
-    public void switchItemState() {
-        if (currentItem instanceof Item.ToggleItem) {
-            //If you do the "right thing" you get points
-            if (currentItem.getItemState()==true) {              //If item use is climate friendly, add points and change toggleState
-                score_list.add(currentItem.getItemPoints());
-            } else {                                             //If item use is not climate friendly, subtract points and change toggleState
-                score_list.remove(Integer.valueOf(currentItem.getItemPoints()));
+
+        }else if (currentItem instanceof Item.TrashItem) {
+            if (currentItem.getPickedUp()==true){
+                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
             }
-//            plus_sum_score();
-            currentItem.toggleState ^= true;                    //Toggle switch for toggleState boolean
+        }
+        for (int i = 0; i<score_list.size(); i++)
+            sum += Integer.valueOf(score_list.get(i));
+        System.out.println("Din score er nu: " + sum);
+
+        //Skriver til score.txt filen
+        PrintWriter pw;
+        try{
+            pw = new PrintWriter(scoreFile);
+            pw.println(sum);
+            pw.close();
+        } catch (FileNotFoundException ex){
+            System.out.println("Der var en fejl i scoresystemet. ");
+        }
+        return sum;
+    }
+
+    public void test(){
+        System.out.println("Test");
+            currentItem.toggleState ^= true;
+            plus_sum_score();
+    }
+    public void switchItemState() {
+
+        if (currentItem instanceof Item.ToggleItem) {
+
+            currentItem.toggleState ^= true;
+            plus_sum_score();
+            //Toggle switch for toggleState boolean
             //refer to method changing itemDescription based on toggleState?
 
 //        } else if(currentItem instanceof Item.ChoiceItem) {
