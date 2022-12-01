@@ -222,7 +222,7 @@ public class Game {
         int sum=0;
 
         if (currentItem instanceof Item.ToggleItem) {
-            if (currentItem.getItemState() == true) {
+            if (currentItem.getItemState() == false) {
                 score_list.add(currentItem.getItemPoints());
                 System.out.println("Du fik " + currentItem.getItemPoints() + " pointx");
             } else {

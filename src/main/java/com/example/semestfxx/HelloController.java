@@ -133,16 +133,17 @@ public class HelloController implements Initializable {
     void showCeilingLight (MouseEvent event) {
         game.currentRoom = game.rooms.get(0);
         game.currentItem = game.currentRoom.getItem("soveværelseLampe");
+        game.switchItemState();
 
         if(game.currentItem.getItemState()==false) {
-            soveværelseLampeSlukket.setVisible(false);
-            soveværelseLampeTændt.setVisible(true);
-        } else {
             soveværelseLampeSlukket.setVisible(true);
             soveværelseLampeTændt.setVisible(false);
+        } else {
+            soveværelseLampeSlukket.setVisible(false);
+            soveværelseLampeTændt.setVisible(true);
         }
 
-        game.switchItemState();
+//        game.switchItemState();
         System.out.println(game.currentItem.toggleState);
     }
 

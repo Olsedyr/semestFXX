@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9115dec8-674f-4874-a941-e95deb4f4fe7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/score.txt" beforeDir="false" afterPath="$PROJECT_DIR$/score.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloController.java" afterDir="false" />
     </list>
@@ -28,12 +29,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.semestfxx.HelloApplication" />
@@ -76,15 +77,9 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloController.java</url>
-          <line>144</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/workspace_xml$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1669904262462" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.semestfxx.*</FILTER>
+    </SUITE>
   </component>
 </project>
