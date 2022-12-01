@@ -20,6 +20,7 @@ public class HelloController implements Initializable {
 
     private Game game;
     private Room currentRoom;
+    public Item currentItem;
 
     @FXML
     private StackPane rootPane;
@@ -62,7 +63,8 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle rb){
         System.out.println("INIT");
         game = GameSingleton.getInstance().getGame();
-
+        currentRoom = GameSingleton.getInstance().getGame().currentRoom;
+        currentItem = GameSingleton.getInstance().getGame().currentItem;
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -70,14 +72,16 @@ public class HelloController implements Initializable {
     public void startGame(ActionEvent event) throws IOException {
         System.out.println("Game Started!");
         loadBedroomStart(event);
+
+        game.currentRoom = game.rooms.get(0);
+
     }
 
     public void loadBedroomStart(ActionEvent event) throws IOException {
         System.out.println("Start Bedroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
-        currentRoom = game.rooms.get(0);
-        System.out.print(currentRoom);
+        game.currentRoom = game.rooms.get(0);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -86,39 +90,34 @@ public class HelloController implements Initializable {
         System.out.println("Bedroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
-        currentRoom = game.rooms.get(0);
-        System.out.print(currentRoom);
+        game.currentRoom = game.rooms.get(0);
+
     }
 
     public void loadKitchen(MouseEvent event) throws IOException {
         System.out.println("Kitchen");
         StackPane pane = FXMLLoader.load(getClass().getResource("kitchen.fxml"));
         rootPane.getChildren().setAll(pane);
-        currentRoom = game.rooms.get(1);
-        System.out.print(currentRoom);
-        System.out.println(currentRoom.getRoomItemList());
+        currentRoom = game.rooms.get(1);System.out.println(currentRoom);
     }
 
     public void loadBathroom(MouseEvent event) throws IOException {
         System.out.println("Bathroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bathroom.fxml"));
         rootPane.getChildren().setAll(pane);
-        currentRoom = game.rooms.get(2);
-        System.out.print(currentRoom);
+        currentRoom = game.rooms.get(2);System.out.println(currentRoom);
     }
     public void loadCity(MouseEvent event) throws IOException {
         System.out.println("City");
         StackPane pane = FXMLLoader.load(getClass().getResource("city.fxml"));
         rootPane.getChildren().setAll(pane);
-        currentRoom = game.rooms.get(3);
-        System.out.print(currentRoom);
+        currentRoom = game.rooms.get(3);System.out.println(currentRoom);
     }
     public void loadBeach(MouseEvent event) throws IOException {
         System.out.println("Beach");
         StackPane pane = FXMLLoader.load(getClass().getResource("beach.fxml"));
         rootPane.getChildren().setAll(pane);
         currentRoom = game.rooms.get(4);
-        System.out.print(currentRoom);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -130,62 +129,88 @@ public class HelloController implements Initializable {
     // Soveværelse: Tænder/Slukker lys
     @FXML
     void showCeilingLight (MouseEvent event) {
-        if(soveværelseLampeSlukket.isVisible() ==true) {
-            soveværelseLampeSlukket.setVisible(false);
-            soveværelseLampeTændt.setVisible(true);
-        } else {
+        game.currentRoom = game.rooms.get(0);
+        game.currentItem = game.currentRoom.getItem("soveværelseLampe");
+        game.switchItemState();
+
+        if(game.currentItem.getItemState()==false) {
             soveværelseLampeSlukket.setVisible(true);
             soveværelseLampeTændt.setVisible(false);
+        } else {
+            soveværelseLampeSlukket.setVisible(false);
+            soveværelseLampeTændt.setVisible(true);
         }
+
+        System.out.println(game.currentItem.toggleState);
     }
 
     // Soveværelse: Tænder/Slukker computer
     @FXML
     void showComputer (MouseEvent event) {
-        if(computerSlukket.isVisible()==true) {
+        game.currentRoom = game.rooms.get(0);
+        game.currentItem = game.currentRoom.getItem("computer");
+        game.switchItemState();
+
+        if(game.currentItem.getItemState()==true) {
             computerSlukket.setVisible(false);
             computerTændt.setVisible(true);
         } else {
             computerSlukket.setVisible(true);
             computerTændt.setVisible(false);
         }
+        System.out.println(game.currentItem.toggleState);
     }
 
     //Soveværelse: Åbner/Lukker vindue
     @FXML
     void showWindow (MouseEvent event) {
-        if(vindueLukket.isVisible()==true) {
+        game.currentRoom = game.rooms.get(0);
+        game.currentItem = game.currentRoom.getItem("vindue");
+        game.switchItemState();
+
+        if(game.currentItem.getItemState()==true) {
             vindueLukket.setVisible(false);
             vindueÅben.setVisible(true);
         } else {
             vindueLukket.setVisible(true);
             vindueÅben.setVisible(false);
         }
+        System.out.println(game.currentItem.toggleState);
     }
 
     //------------------------------------------------------------------------------------------------------------------
     // Badeværelse: Tænder/Slukker badeværelse lys
     @FXML
     void toggleBadeværelseLys (MouseEvent event) {
-        if(badeværelseLysSlukket.isVisible()==true) {
+        game.currentRoom = game.rooms.get(2);
+        game.currentItem = game.currentRoom.getItem("badeværelselys");
+        game.switchItemState();
+
+        if(game.currentItem.getItemState()==true) {
             badeværelseLysSlukket.setVisible(false);
             badeværelseLysTændt.setVisible(true);
         } else {
             badeværelseLysSlukket.setVisible(true);
             badeværelseLysTændt.setVisible(false);
         }
+        System.out.println(game.currentItem.toggleState);
     }
 
     // Badeværelse: Tænder/Slukker vandhane
     @FXML
     void toggleVandhane (MouseEvent event) {
-        if(vandhaneSlukket.isVisible()==true) {
+        game.currentRoom = game.rooms.get(2);
+        game.currentItem = game.currentRoom.getItem("vandhane");
+        game.switchItemState();
+
+        if(game.currentItem.getItemState()==true) {
             vandhaneSlukket.setVisible(false);
             vandhaneTændt.setVisible(true);
         } else {
             vandhaneSlukket.setVisible(true);
             vandhaneTændt.setVisible(false);
         }
+        System.out.println(game.currentItem.toggleState);
     }
 
     // Badeværelse: Bad choice
@@ -202,6 +227,10 @@ public class HelloController implements Initializable {
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("køkkenlampe");
+        game.switchItemState();
+
         if(køkkenLampeSlukket.isVisible()==true) {
             køkkenLampeSlukket.setVisible(false);
             køkkenLampeTændt.setVisible(true);
@@ -209,11 +238,16 @@ public class HelloController implements Initializable {
             køkkenLampeSlukket.setVisible(true);
             køkkenLampeTændt.setVisible(false);
         }
+        System.out.println(game.currentItem.toggleState);
     }
 
     // Køkken: Tænder/Slukker TV
     @FXML
     void toggleTv (MouseEvent event) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("tv");
+        game.switchItemState();
+
         if(tvSlukket.isVisible()==true) {
             tvSlukket.setVisible(false);
             tvTændt.setVisible(true);
@@ -221,6 +255,7 @@ public class HelloController implements Initializable {
             tvSlukket.setVisible(true);
             tvTændt.setVisible(false);
         }
+            System.out.println(game.currentItem.toggleState);
     }
 
     // Køkken Choice: Køleskab
@@ -256,6 +291,14 @@ public class HelloController implements Initializable {
 
     //------------------------------------------------------------------------------------------------------------------
     // Strand:
+
+    // Trash Items
+    public void collectSilkepapir(MouseEvent event) {
+        game.currentRoom = game.rooms.get(0);
+        game.currentItem = game.currentRoom.getItem("silkepapir");
+        game.switchItemState();
+        silkepapir.setImage(null);
+    }
     @FXML
     void quit(ActionEvent event) {
         Platform.exit();

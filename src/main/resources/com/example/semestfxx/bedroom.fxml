@@ -27,7 +27,7 @@
       </ImageView>
 
 
-      <ImageView fx:id="silkepapir" fitHeight="63.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_LEFT">
+      <ImageView fx:id="silkepapir" fitHeight="63.0" fitWidth="71.0" onMouseClicked="#collectSilkepapir" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_LEFT">
 
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Silkepapir/Silkepapir.png" />
