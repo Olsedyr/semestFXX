@@ -81,9 +81,7 @@ public class HelloController implements Initializable {
         System.out.println("Start Bedroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
-        currentRoom = game.rooms.get(0);
-
-        System.out.println(currentRoom);
+        game.currentRoom = game.rooms.get(0);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -92,7 +90,7 @@ public class HelloController implements Initializable {
         System.out.println("Bedroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
-        currentRoom = game.rooms.get(0);System.out.println(currentRoom);
+        game.currentRoom = game.rooms.get(0);
 
     }
 
@@ -292,6 +290,14 @@ public class HelloController implements Initializable {
 
     //------------------------------------------------------------------------------------------------------------------
     // Strand:
+
+    // Trash Items
+    public void collectSilkepapir(MouseEvent event) {
+        game.currentRoom = game.rooms.get(0);
+        game.currentItem = game.currentRoom.getItem("silkepapir");
+        game.switchItemState();
+        silkepapir.setImage(null);
+    }
     @FXML
     void quit(ActionEvent event) {
         Platform.exit();
