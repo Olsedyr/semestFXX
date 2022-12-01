@@ -6,15 +6,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class HelloController implements Initializable {
 
@@ -56,16 +62,20 @@ public class HelloController implements Initializable {
     private Text display;
 
 
+
     //------------------------------------------------------------------------------------------------------------------
 
 
     @Override
-    public void initialize(URL url, ResourceBundle rb){
+    public void initialize(URL url, ResourceBundle rb) {
         System.out.println("INIT");
         game = GameSingleton.getInstance().getGame();
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
+
     }
+
+
 
     //------------------------------------------------------------------------------------------------------------------
     ///ActionEvent
@@ -127,6 +137,28 @@ public class HelloController implements Initializable {
 
     //------------------------------------------------------------------------------------------------------------------
     // Soveværelse: Tænder/Slukker lys
+
+
+
+    @FXML
+    void showHighscore(){
+        String data = null;
+        try {
+            File myObj = new File("score.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                data = myReader.nextLine();
+                System.out.println("Din highscore var" + data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+
+
     @FXML
     void showCeilingLight (MouseEvent event) {
         game.currentRoom = game.rooms.get(0);
