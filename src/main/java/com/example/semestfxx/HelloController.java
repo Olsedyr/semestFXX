@@ -15,7 +15,11 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.Arrays;
+import java.util.Map;
 
 public class HelloController implements Initializable {
 
@@ -289,6 +293,8 @@ public class HelloController implements Initializable {
         }
         inventoryList.getItems().add(game.currentItem.itemName);
     }
+
+
 
 
 
