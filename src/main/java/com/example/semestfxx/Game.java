@@ -41,7 +41,8 @@ public class Game {
 
         //------------------------------------Items------------------------------------
         //Toggle Items: ToggleState==True means that the current state of the object is not climate friendly
-        Item.ToggleItem soveværelseLampe, radiator, vindue, computer, køkkenlampe, tv, vandhane;
+        Item.ToggleItem soveværelseLampe, radiator, vindue, computer, køkkenlampe, tv, vandhane, badeværelselys;
+
         soveværelseLampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "soveværelseLampe","Du kigger på loftlampen i dit soveværelse. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
                         "Gardinet er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
@@ -81,6 +82,11 @@ public class Game {
                 "vandhane","Der er et vandhane på badeværelset. Den står og drypper, formentligt fra da du vaskede hænder tidligere på dagen.",
                 "Der er en vandhane på badeværelset. Lige nu er den ikke i brug, og bruger dermed ikke unødig rent vand.",
                 3,true);
+
+        badeværelselys = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
+                "badeværelselys", "Du kigger på badeværelseslyset. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt.",
+                "Du kigger på lampen i dit badeværelse. Den er slukket.",
+                1, true);
 
 
         //Choice Items, can only choose once
