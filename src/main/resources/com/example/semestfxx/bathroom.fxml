@@ -60,12 +60,28 @@
             <Insets bottom="568.0" right="22.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="bad" fitHeight="251.0" fitWidth="394.0" onMouseClicked="#choiceBad">
+      <ImageView fx:id="bad" fitHeight="467.0" fitWidth="394.0" onMouseClicked="#choiceBad">
          <image>
-            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/Bad.png" />
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/tubempty.png" />
          </image>
          <StackPane.margin>
-            <Insets left="864.0" top="268.0" />
+            <Insets left="874.0" top="32.0" />
+         </StackPane.margin>
+      </ImageView>
+      <ImageView fx:id="badShower" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" visible="false">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/tubshower.png" />
+         </image>
+         <StackPane.margin>
+            <Insets left="874.0" top="32.0" />
+         </StackPane.margin>
+      </ImageView>
+      <ImageView fx:id="badTub" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" visible="false">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/tubfull.png" />
+         </image>
+         <StackPane.margin>
+            <Insets left="874.0" top="32.0" />
          </StackPane.margin>
       </ImageView>
       <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">

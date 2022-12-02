@@ -166,6 +166,7 @@ public class Game {
 
         badeværelse.setRoomItems("vandhane", vandhane);
         badeværelse.setRoomItems("bad", bad);
+        badeværelse.setRoomItems("badeværelselys", badeværelselys);
 
         byen.setRoomItems("transport", transport);
 
@@ -232,16 +233,18 @@ public class Game {
         if (currentItem instanceof Item.ToggleItem) {
             if (currentItem.getItemState() == false) {
                 score_list.add(currentItem.getItemPoints());
-                System.out.println("Du fik " + currentItem.getItemPoints() + " pointx");
+                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
             } else {
                 score_list.remove(Integer.valueOf(currentItem.getItemPoints()));
                 System.out.println("Du mistede " + currentItem.getItemPoints() + " point");
             }
         }else if (currentItem instanceof Item.ChoiceItem) {
+            score_list.add(currentItem.getItemPoints());
             System.out.println("Du fik " + currentItem.getItemPoints() + " point");
 
         }else if (currentItem instanceof Item.TrashItem) {
             if (currentItem.getPickedUp()==true){
+                score_list.add(currentItem.getItemPoints());
                 System.out.println("Du fik " + currentItem.getItemPoints() + " point");
             }
         }
@@ -275,14 +278,12 @@ public class Game {
 
         } else if(currentItem instanceof Item.ChoiceItem) {
             currentItem.used = true;
-            plus_sum_score();
 
         } else if (currentItem instanceof Item.TrashItem) {
             currentItem.pickedUp = true;
             if (currentItem.getPickedUp()==true) {
-                score_list.add(currentItem.getItemPoints());
+                plus_sum_score();
             }
-            plus_sum_score();
             addItemToInventory();
             removeItem();
         }
