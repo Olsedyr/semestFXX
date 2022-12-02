@@ -19,6 +19,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -70,6 +72,13 @@ public class HelloController implements Initializable {
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
 
+
+        Iterator it = game.inventory.trash.entrySet().iterator();
+        while (it.hasNext()) {
+            HashMap.Entry pair = (HashMap.Entry)it.next();
+            System.out.println(pair.getKey() + " = " + pair.getValue());
+            it.remove(); // avoids a ConcurrentModificationException
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------
