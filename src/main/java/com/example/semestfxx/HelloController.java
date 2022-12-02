@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -21,6 +22,10 @@ public class HelloController implements Initializable {
     private Game game;
     private Room currentRoom;
     public Item currentItem;
+
+    public Inventory inventory;
+
+
 
     @FXML
     private StackPane rootPane;
@@ -53,6 +58,9 @@ public class HelloController implements Initializable {
     private Button quitGame, helpGame;
 
     @FXML
+    private ListView<String> inventoryList;
+
+    @FXML
     private Text display;
 
 
@@ -65,6 +73,7 @@ public class HelloController implements Initializable {
         game = GameSingleton.getInstance().getGame();
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
+        inventory = GameSingleton.getInstance().getGame().inventory;
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -268,6 +277,28 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("silkepapir");
         game.switchItemState();
         silkepapir.setImage(null);
+        System.out.println(game.inventory.getInventoryString());
+        itemToInventory();
+    }
+
+    // Inventory
+
+    public void itemToInventory() {
+        if (inventoryList==null) {
+            inventoryList = new ListView<String>();
+        }
+        inventoryList.getItems().add(game.currentItem.itemName);
+    }
+
+
+
+    @FXML
+    void showInventory (ActionEvent event) {
+        if(inventoryList.isVisible()==false){;
+            inventoryList.setVisible(true);
+        } else {
+            inventoryList.setVisible(false);
+        }
     }
     @FXML
     void quit(ActionEvent event) {

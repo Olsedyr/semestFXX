@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
@@ -113,6 +114,8 @@
             </Text>
          </children>
       </TextFlow>
+      <Button fx:id="inventory_bt" mnemonicParsing="false" onAction="#itemToInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT" />
+      <ListView fx:id="inventroyList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="177.0" prefWidth="158.0" StackPane.alignment="CENTER_RIGHT" />
     <!--  <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loadKitchen" opacity="0.0" prefHeight="406.0" prefWidth="193.0" text="Button" StackPane.alignment="CENTER_LEFT">
          <opaqueInsets>
             <Insets />

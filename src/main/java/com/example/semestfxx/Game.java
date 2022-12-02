@@ -1,6 +1,8 @@
 package com.example.semestfxx;
 
+import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 
 import java.io.*;
@@ -15,9 +17,11 @@ public class Game {
     public ArrayList<Room> rooms;
     public Room currentRoom;
     public Item currentItem;
-    private Inventory inventory;
-
+    public Inventory inventory;
     public List<Integer> score_list = new ArrayList<Integer>();
+
+
+
 
 
     public File scoreFile = new File("score.txt");
@@ -262,6 +266,7 @@ public class Game {
             currentItem.toggleState ^= true;
             plus_sum_score();
     }
+
     public void switchItemState() {
 
         if (currentItem instanceof Item.ToggleItem) {
@@ -278,6 +283,8 @@ public class Game {
 //            }
 //            plus_sum_score();
 //            removeItem();
+
+
 
         } else if (currentItem instanceof Item.TrashItem) {
             currentItem.pickedUp = true;
@@ -296,8 +303,10 @@ public class Game {
     }
 
     private void addItemToInventory() {
-        inventory.addTrash(currentItem.getItemDescription(), currentItem);
+        inventory.addTrash(currentItem.getItemName(), currentItem);
     }
+
+
 //
 //    public  boolean inventory(Command command){
 //        return !command.hasCommandValue();

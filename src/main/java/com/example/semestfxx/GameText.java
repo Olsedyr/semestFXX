@@ -9,4 +9,8 @@ public class GameText {
                 "Du kan få mere at vide om de enkelte objekter ved at højreklikke på dem om bruge dem/ samle ting op ved at venstreklikke. Du kan bruge døre og pile til at navigere mellem rummene. " +
                 "Prøv at undersøge dine omgivelser og se om du kan gøre en forskel!";
     }
+
+
+
 }
+
