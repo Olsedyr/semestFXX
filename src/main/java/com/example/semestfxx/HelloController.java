@@ -199,12 +199,32 @@ public class HelloController implements Initializable {
     // Badeværelse: Bad choice
     @FXML
     void choiceBad (MouseEvent event) {
-        if(badChoice.isVisible()==true) {
+        game.currentRoom = game.rooms.get(2);
+        game.currentItem = game.currentRoom.getItem("bad");
+        if(game.currentItem.getItemUsed()==false) {
+            if (badChoice.isVisible() == true) {
+                badChoice.setVisible(false);
+            } else {
+                badChoice.setVisible(true);
+            }
+        }else{
             badChoice.setVisible(false);
-        } else {
-            badChoice.setVisible(true);
         }
     }
+    @FXML
+    void choiceBruser (ActionEvent event) {
+        game.currentItem = game.currentRoom.getItem("bad");
+        badChoice.setVisible(false);
+        game.switchItemState();
+        game.score_list.add(currentItem.getItemPoints());
+    }
+    @FXML
+    void choiceBadekar (ActionEvent event) {
+        game.currentItem = game.currentRoom.getItem("bad");
+        badChoice.setVisible(false);
+        game.switchItemState();
+    }
+
 
     //------------------------------------------------------------------------------------------------------------------
     // Køkken: Tænder/Slukker køkken lys
@@ -264,6 +284,9 @@ public class HelloController implements Initializable {
 
     //------------------------------------------------------------------------------------------------------------------
     // Strand:
+
+
+    //------------------------------------------------------------------------------------------------------------------
     @FXML
     void quit(ActionEvent event) {
         Platform.exit();

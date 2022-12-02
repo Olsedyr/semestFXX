@@ -229,10 +229,8 @@ public class Game {
                 score_list.remove(Integer.valueOf(currentItem.getItemPoints()));
                 System.out.println("Du mistede " + currentItem.getItemPoints() + " point");
             }
-//        }else if (currentItem instanceof Item.ChoiceItem) {
-//            if(currentItem.correctChoice == CommandLineClient.choice){
-//                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
-//            }
+        }else if (currentItem instanceof Item.ChoiceItem) {
+            System.out.println("Du fik " + currentItem.getItemPoints() + " point");
 
         }else if (currentItem instanceof Item.TrashItem) {
             if (currentItem.getPickedUp()==true){
@@ -261,21 +259,15 @@ public class Game {
             plus_sum_score();
     }
     public void switchItemState() {
-
         if (currentItem instanceof Item.ToggleItem) {
-
             currentItem.toggleState ^= true;
             plus_sum_score();
             //Toggle switch for toggleState boolean
             //refer to method changing itemDescription based on toggleState?
 
-//        } else if(currentItem instanceof Item.ChoiceItem) {
-//            currentItem.used = true;
-//            if(currentItem.correctChoice == CommandLineClient.choice){
-//                score_list.add(currentItem.getItemPoints());
-//            }
-//            plus_sum_score();
-//            removeItem();
+        } else if(currentItem instanceof Item.ChoiceItem) {
+            currentItem.used = true;
+            plus_sum_score();
 
         } else if (currentItem instanceof Item.TrashItem) {
             currentItem.pickedUp = true;
