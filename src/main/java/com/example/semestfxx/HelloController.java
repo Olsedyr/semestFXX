@@ -14,6 +14,8 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -65,6 +67,13 @@ public class HelloController implements Initializable {
         game = GameSingleton.getInstance().getGame();
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
+
+        Iterator it = game.inventory.trash.entrySet().iterator();
+        while (it.hasNext()) {
+            HashMap.Entry pair = (HashMap.Entry)it.next();
+            System.out.println(pair.getKey() + " = " + pair.getValue());
+            it.remove(); // avoids a ConcurrentModificationException
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------
