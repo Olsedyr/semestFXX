@@ -44,7 +44,7 @@
             <Insets right="662.0" top="120.0" />
          </StackPane.margin>
       </Rectangle>
-      <ImageView fx:id="køleskabÅbnet" fitHeight="435.0" fitWidth="195.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="køleskabÅbnet" fitHeight="435.0" fitWidth="195.0" onMouseClicked="#choiceKøleskab" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Køleskab/KøleskabÅbnet.png" />
          </image>
@@ -52,7 +52,7 @@
             <Insets right="662.0" top="120.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="salat" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="salat" fitHeight="40.0" fitWidth="50.0" onMouseDragged="#choiceKøleskab" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Køleskab/Salat.png" />
          </image>
@@ -60,7 +60,7 @@
             <Insets right="268.0" top="34.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="burger" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="burger" fitHeight="40.0" fitWidth="50.0" onMouseClicked="#choiceKøleskab" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Køleskab/Burger.png" />
          </image>
@@ -108,7 +108,7 @@
             <Insets left="630.0" top="264.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="komfurTændt" fitHeight="295.0" fitWidth="220.0" layoutX="856.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="komfurTændt" fitHeight="295.0" fitWidth="220.0" layoutX="856.0" layoutY="355.0" onMouseClicked="#choiceKomfur" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Komfur/KomfurTændt.png" />
          </image>
@@ -116,7 +116,7 @@
             <Insets left="640.0" top="320.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="komfurPande" fitHeight="294.0" fitWidth="223.0" layoutX="860.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="komfurPande" fitHeight="294.0" fitWidth="223.0" layoutX="860.0" layoutY="409.0" onMouseClicked="#choiceKomfur" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Komfur/KomfurPande.png" />
          </image>

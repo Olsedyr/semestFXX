@@ -68,7 +68,7 @@
             <Insets left="874.0" top="32.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="badShower" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" visible="false">
+      <ImageView fx:id="badShower" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" onMouseClicked="#choiceBad" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/tubshower.png" />
          </image>
@@ -76,7 +76,7 @@
             <Insets left="874.0" top="32.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="badTub" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" visible="false">
+      <ImageView fx:id="badTub" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" onMouseClicked="#choiceBad" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/tubfull.png" />
          </image>

@@ -30,7 +30,15 @@
             <Insets left="80.0" top="260.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="bil" fitHeight="182.0" fitWidth="390.0" onMouseClicked="#choiceTransport" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_CENTER">
+      <ImageView fx:id="transport" fitHeight="130.0" fitWidth="593.0" onMouseClicked="#choiceTransport" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_RIGHT">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Byen/Transport/choiseTransport.PNG" />
+         </image>
+         <StackPane.margin>
+            <Insets bottom="6.0" right="28.0" />
+         </StackPane.margin>
+      </ImageView>
+      <ImageView fx:id="bil" fitHeight="182.0" fitWidth="390.0" onMouseClicked="#choiceTransport" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="BOTTOM_CENTER">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Byen/Transport/car.png" />
          </image>
@@ -38,12 +46,12 @@
             <Insets bottom="-20.0" left="440.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="cykle" fitHeight="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+      <ImageView fx:id="cykle" fitHeight="100.0" onMouseClicked="#choiceTransport" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="CENTER_RIGHT">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Byen/Transport/Cykel1.png" />
          </image>
          <StackPane.margin>
-            <Insets right="400.0" top="550.0" />
+            <Insets right="50.0" top="550.0" />
          </StackPane.margin>
       </ImageView>
       <ImageView fx:id="cityToBeach" fitHeight="70.0" fitWidth="70.0" onMouseClicked="#loadBeach" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">

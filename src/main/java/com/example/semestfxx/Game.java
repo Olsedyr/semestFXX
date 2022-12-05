@@ -98,17 +98,17 @@ public class Game {
                 "Du spiste salat",
                 "Du spiste burger",
                 false,1);
-        komfur = new Item.ChoiceItem("I dit køkken er der også et komfur. Du kan vælge enten at varme kødet i ovenen, " +
+        komfur = new Item.ChoiceItem("I dit køkken er der også et komfur. Du kan vælge enten at varme kødet i ovnen, " +
                 "eller stege det på en stegepande.","komfur",3,
-                "1. ovenen\n2. stegepande",
-                "Du brugt ovenen",
+                "1. ovnen\n2. stegepande",
+                "Du brugt ovnen",
                 "Du brugt stegepande",
                 false,2);
         bad = new Item.ChoiceItem("Der er en bruser og et badekar på dit badeværelse." +
-                " Du kan tage et brusebad eller karbad bad her.","komfur",3,
+                " Du kan tage et brusebad eller karbad bad her.","bad",3,
                 "1. bruser\n2. badekar",
-                "Du brugt bruser, hurtigt, men effektivt",
-                "Du brugt badekar, dejligt og varmt",
+                "Du har brugt bruser, hurtigt, men effektivt",
+                "Du har brugt badekar, dejligt og varmt",
                 false,1);
         transport = new Item.ChoiceItem("Du kan tage til stranden ved at cykle eller at køre.","transport",3,
                 "1. cykle\n2. bil",
@@ -265,11 +265,6 @@ public class Game {
         return sum;
     }
 
-    public void test(){
-        System.out.println("Test");
-            currentItem.toggleState ^= true;
-            plus_sum_score();
-    }
     public void switchItemState() {
         if (currentItem instanceof Item.ToggleItem) {
             currentItem.toggleState ^= true;
