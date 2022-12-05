@@ -71,22 +71,12 @@ public class HelloController implements Initializable {
         game = GameSingleton.getInstance().getGame();
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
-
-
-
-
-
-        Iterator it = game.inventory.trash.entrySet().iterator();
-        while (it.hasNext()) {
-            HashMap.Entry pair = (HashMap.Entry)it.next();
-            System.out.println(pair.getKey() + " = " + pair.getValue());
-            it.remove(); // avoids a ConcurrentModificationException
         }
 
 
 
 
-    }
+
 
     //------------------------------------------------------------------------------------------------------------------
     ///ActionEvent
@@ -426,6 +416,18 @@ public class HelloController implements Initializable {
         silkepapir.setImage(null);
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    // Inventory
+    public void InventoryList (MouseEvent event){
+    Iterator it = game.inventory.trash.entrySet().iterator();
+        while (it.hasNext()){
+        HashMap.Entry pair=(HashMap.Entry)it.next();
+        System.out.println(pair.getKey()+" = "+pair.getValue());
+        it.remove(); // avoids a ConcurrentModificationException
+        }}
+
+
+
     @FXML
     void quit(ActionEvent event) {
         Platform.exit();
@@ -440,6 +442,17 @@ public class HelloController implements Initializable {
             display.setVisible(false);
         }
     }
+
+    @FXML
+    void showInventory (ActionEvent event) {
+        if (display.isVisible()==false) {
+            display.setVisible(true);
+            display.setText(GameText.textInventory());
+        } else {
+            display.setVisible(false);
+        }
+    }
+
 
     @FXML
     void showHighscore(){
