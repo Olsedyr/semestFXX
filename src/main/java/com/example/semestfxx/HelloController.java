@@ -414,17 +414,11 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("silkepapir");
         game.switchItemState();
         silkepapir.setImage(null);
+
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    // Inventory
-    public void InventoryList (MouseEvent event){
-    Iterator it = game.inventory.trash.entrySet().iterator();
-        while (it.hasNext()){
-        HashMap.Entry pair=(HashMap.Entry)it.next();
-        System.out.println(pair.getKey()+" = "+pair.getValue());
-        it.remove(); // avoids a ConcurrentModificationException
-        }}
+
 
 
 

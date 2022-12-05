@@ -19,7 +19,7 @@ public class GameText {
     }
 
     public static String textInventory(){
-        return "Super";
+        return "super";
     }
 
 
