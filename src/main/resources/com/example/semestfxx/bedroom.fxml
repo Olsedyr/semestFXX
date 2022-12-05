@@ -106,7 +106,7 @@
             <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
          </StackPane.margin>
          <children>
-            <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="1000.0">
+            <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" wrappingWidth="1000.0">
                <font>
                   <Font size="18.0" />
                </font>

@@ -7,8 +7,9 @@
     <list default="true" id="9115dec8-674f-4874-a941-e95deb4f4fe7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/GameText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/GameText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/semestfxx/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/bedroom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/semestfxx/bedroom.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

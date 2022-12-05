@@ -41,11 +41,11 @@ public class Game {
 
         //------------------------------------Items------------------------------------
         //Toggle Items: ToggleState==True means that the current state of the object is not climate friendly
-        Item.ToggleItem soveværelseLampe, radiator, vindue, computer, køkkenlampe, tv, vandhane;
+        Item.ToggleItem soveværelseLampe, radiator, vindue, computer, køkkenlampe, tv, vandhane, badeværelseLys;
         soveværelseLampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "soveværelseLampe","Du kigger på loftlampen i dit soveværelse. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
                         "Gardinet er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
-                "Du kigger på loftlampen i dit soveværelse. Den er slukket" +
+                "Du kigger på loftlampen i dit soveværelse. Den er slukket. " +
                         "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
                 1,true);
         radiator = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
@@ -81,6 +81,12 @@ public class Game {
                 "vandhane","Der er et vandhane på badeværelset. Den står og drypper, formentligt fra da du vaskede hænder tidligere på dagen.",
                 "Der er en vandhane på badeværelset. Lige nu er den ikke i brug, og bruger dermed ikke unødig rent vand.",
                 3,true);
+        badeværelseLys = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
+                "badeværelseLys","Du kigger på badeværelseslyset. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
+                "Der er ikke så mange vinduer herinde, men det der er vender så solen skinner direkte ind. Gardinerne er trukket fra.",
+                "Du kigger på loftlampen i dit badeværelse. Den er slukket, men du kan stadig se alt du har brug for. " +
+                        "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
+                1,true);
 
 
         //Choice Items, can only choose once
@@ -160,6 +166,7 @@ public class Game {
 
         badeværelse.setRoomItems("vandhane", vandhane);
         badeværelse.setRoomItems("bad", bad);
+        badeværelse.setRoomItems("badeværelseLys",badeværelseLys);
 
         byen.setRoomItems("transport", transport);
 
@@ -226,7 +233,7 @@ public class Game {
         if (currentItem instanceof Item.ToggleItem) {
             if (currentItem.getItemState() == false) {
                 score_list.add(currentItem.getItemPoints());
-                System.out.println("Du fik " + currentItem.getItemPoints() + " pointx");
+                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
             } else {
                 score_list.remove(Integer.valueOf(currentItem.getItemPoints()));
                 System.out.println("Du mistede " + currentItem.getItemPoints() + " point");
