@@ -12,7 +12,9 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 
@@ -26,10 +28,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
+import static javafx.fxml.FXMLLoader.load;
+
 
 public class HelloApplication extends Application {
 
-//    public void play() {
+    //    public void play() {
 //        printWelcome();
 //
 //        boolean finished = false;
@@ -68,7 +72,6 @@ public class HelloApplication extends Application {
 //        System.out.println("Du vågner op fra din middagslur, det er eftermiddag.");
 //        System.out.println(klimaspillet.getRoomDescription());
 //    }
-
    @Override
     public void start(Stage primaryStage) throws IOException {
        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));

@@ -36,7 +36,7 @@
             <Insets bottom="220.0" left="400.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="soveværelseLampeSlukket" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#showCeilingLight" visible="false">
+      <ImageView fx:id="soveværelseLampeSlukket" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#showCeilingLighta" visible="false">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Loftlampe/LoftlampeSlukket.png" />
          </image>
@@ -44,7 +44,7 @@
             <Insets bottom="568.0" right="22.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="soveværelseLampeTændt" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#showCeilingLight">
+      <ImageView fx:id="soveværelseLampeTændt" fitHeight="180.0" fitWidth="181.0" onMouseClicked="#showCeilingLighta">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Loftlampe/LoftlampeTændt.png" />
          </image>
@@ -113,6 +113,12 @@
             </Text>
          </children>
       </TextFlow>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </StackPane>
     <!--  <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loadKitchen" opacity="0.0" prefHeight="406.0" prefWidth="193.0" text="Button" StackPane.alignment="CENTER_LEFT">
          <opaqueInsets>
             <Insets />
