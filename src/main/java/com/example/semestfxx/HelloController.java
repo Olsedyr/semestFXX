@@ -2,6 +2,7 @@ package com.example.semestfxx;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +21,8 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+
+import static java.lang.System.out;
 
 public class HelloController implements Initializable {
 
@@ -56,7 +59,7 @@ public class HelloController implements Initializable {
     private Button quitGame, helpGame;
 
     @FXML
-    private Text display, highscoreLoader;
+    private Text display, highscoreLoader, guiScore2;
 
 
 
@@ -93,19 +96,22 @@ public class HelloController implements Initializable {
     }
 
 
-    public void loadHighscore(ActionEvent event){
-  a
-    }
-
-
-    @FXML
-    void help(ActionEvent event) {
-        if (display.isVisible()==false) {
-            display.setVisible(true);
-            display.setText(GameText.textHelp());
+    public void loadHighscore(ActionEvent event) throws IOException {
+        String fileName = "score.txt";
+        File file = new File(fileName);
+        FileReader fr = new FileReader(file);
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+        while((line = br.readLine()) != null){
+            //process the line
+            System.out.println(line);
+        if (highscoreLoader.isVisible()==false) {
+            highscoreLoader.setVisible(true);
+            highscoreLoader.setText(String.valueOf("Din highscore er: "+line));
         } else {
-            display.setVisible(false);
+            highscoreLoader.setVisible(false);
         }
+    }
     }
 
 
@@ -172,6 +178,7 @@ public class HelloController implements Initializable {
         if(game.currentItem.getItemState()==false) {
             soveværelseLampeSlukket.setVisible(true);
             soveværelseLampeTændt.setVisible(false);
+
         } else {
             soveværelseLampeSlukket.setVisible(false);
             soveværelseLampeTændt.setVisible(true);
