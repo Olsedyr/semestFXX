@@ -99,7 +99,7 @@
             <Insets bottom="10.0" left="10.0" right="615.0" top="570.0" />
          </StackPane.margin>
          <children>
-            <Text fx:id="display" fill="#fffefe" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="1000.0">
+            <Text fx:id="display" fill="#fffefe" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i byen, travl som altid. Du kan vælge enten at tage en bil eller en cykel hjem." wrappingWidth="1000.0">
                <font>
                   <Font size="18.0" />
                </font>

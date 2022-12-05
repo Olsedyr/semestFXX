@@ -95,7 +95,6 @@ public class HelloController implements Initializable {
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
         game.currentRoom = game.rooms.get(0);
-        showRoomDescription(game.currentRoom);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -112,26 +111,26 @@ public class HelloController implements Initializable {
         System.out.println("Kitchen");
         StackPane pane = FXMLLoader.load(getClass().getResource("kitchen.fxml"));
         rootPane.getChildren().setAll(pane);
-        currentRoom = game.rooms.get(1);System.out.println(currentRoom);
+        game.currentRoom = game.rooms.get(1);
     }
 
     public void loadBathroom(MouseEvent event) throws IOException {
         System.out.println("Bathroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bathroom.fxml"));
         rootPane.getChildren().setAll(pane);
-        currentRoom = game.rooms.get(2);System.out.println(currentRoom);
+        game.currentRoom = game.rooms.get(2);
     }
     public void loadCity(MouseEvent event) throws IOException {
         System.out.println("City");
         StackPane pane = FXMLLoader.load(getClass().getResource("city.fxml"));
         rootPane.getChildren().setAll(pane);
-        currentRoom = game.rooms.get(3);System.out.println(currentRoom);
+        game.currentRoom = game.rooms.get(3);
     }
     public void loadBeach(MouseEvent event) throws IOException {
         System.out.println("Beach");
         StackPane pane = FXMLLoader.load(getClass().getResource("beach.fxml"));
         rootPane.getChildren().setAll(pane);
-        currentRoom = game.rooms.get(4);
+        game.currentRoom = game.rooms.get(4);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -159,6 +158,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
     }
 
@@ -182,6 +182,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
     }
 
@@ -205,6 +206,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
     }
 
@@ -229,6 +231,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
     }
 
@@ -252,6 +255,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
     }
 
@@ -283,6 +287,7 @@ public class HelloController implements Initializable {
         game.currentItem.itemDescription = game.currentItem.choice1Text;
         badChoice.setVisible(false);
         badShower.setVisible(true);
+        showNewPoints(game.currentItem);
     }
     @FXML
     void choiceBadekar (MouseEvent event) {
@@ -315,6 +320,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
     }
 
@@ -338,6 +344,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
     }
 
@@ -373,6 +380,7 @@ public class HelloController implements Initializable {
         køleskabChoice.setVisible(false);
         køleskabÅbnet.setVisible(false);
         salat.setVisible(true);
+        showNewPoints(game.currentItem);
     }
     @FXML
     void choiceBurger (MouseEvent event) {
@@ -420,6 +428,7 @@ public class HelloController implements Initializable {
         game.currentItem.itemDescription = game.currentItem.choice2Text;
         komfurChoice.setVisible(false);
         komfurPande.setVisible(true);
+        showNewPoints(game.currentItem);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -451,6 +460,7 @@ public class HelloController implements Initializable {
         game.currentItem.itemDescription = game.currentItem.choice1Text;
         transport.setVisible(false);
         cykle.setVisible(true);
+        showNewPoints(game.currentItem);
     }
     @FXML
     void choiceBil (MouseEvent event) {
@@ -472,6 +482,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("silkepapir");
         game.switchItemState();
         silkepapir.setImage(null);
+        showNewPoints(game.currentItem);
     }
 
     @FXML
@@ -490,10 +501,10 @@ public class HelloController implements Initializable {
     }
 
     // Does not work fully yet
-    public void showRoomDescription(Room currentRoom) {
-        display.setVisible(true);
-        display.setText(currentRoom.getLongDescription());
-    }
+//    public void showRoomDescription(Room currentRoom) {
+//        display.setText(currentRoom.getLongDescription());
+//        display.setVisible(true);
+//    }
 
     public void showDescription(Item currentItem) {
 
@@ -504,6 +515,16 @@ public class HelloController implements Initializable {
             display.setVisible(false);
         } else {
             display.setText(currentItem.getItemDescription());
+        }
+    }
+    public void showNewPoints(Item currentItem) {
+        if (display.isVisible()==false) {
+            display.setVisible(true);
+            display.setText(game.getAddedPoints());
+        } else if(display.isVisible() == true && game.getAddedPoints().equals(display.getText())){
+            display.setVisible(false);
+        } else {
+            display.setText(game.getAddedPoints());
         }
     }
 
