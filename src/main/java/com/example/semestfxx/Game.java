@@ -42,6 +42,7 @@ public class Game {
         //------------------------------------Items------------------------------------
         //Toggle Items: ToggleState==True means that the current state of the object is not climate friendly
         Item.ToggleItem soveværelseLampe, radiator, vindue, computer, køkkenlampe, tv, vandhane, badeværelseLys;
+
         soveværelseLampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "soveværelseLampe","Du kigger på loftlampen i dit soveværelse. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
                         "Gardinet er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
@@ -238,13 +239,13 @@ public class Game {
                 score_list.remove(Integer.valueOf(currentItem.getItemPoints()));
                 System.out.println("Du mistede " + currentItem.getItemPoints() + " point");
             }
-//        }else if (currentItem instanceof Item.ChoiceItem) {
-//            if(currentItem.correctChoice == CommandLineClient.choice){
-//                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
-//            }
+        }else if (currentItem instanceof Item.ChoiceItem) {
+            score_list.add(currentItem.getItemPoints());
+            System.out.println("Du fik " + currentItem.getItemPoints() + " point");
 
         }else if (currentItem instanceof Item.TrashItem) {
             if (currentItem.getPickedUp()==true){
+                score_list.add(currentItem.getItemPoints());
                 System.out.println("Du fik " + currentItem.getItemPoints() + " point");
             }
         }
@@ -270,28 +271,20 @@ public class Game {
             plus_sum_score();
     }
     public void switchItemState() {
-
         if (currentItem instanceof Item.ToggleItem) {
-
             currentItem.toggleState ^= true;
             plus_sum_score();
             //Toggle switch for toggleState boolean
             //refer to method changing itemDescription based on toggleState?
 
-//        } else if(currentItem instanceof Item.ChoiceItem) {
-//            currentItem.used = true;
-//            if(currentItem.correctChoice == CommandLineClient.choice){
-//                score_list.add(currentItem.getItemPoints());
-//            }
-//            plus_sum_score();
-//            removeItem();
+        } else if(currentItem instanceof Item.ChoiceItem) {
+            currentItem.used = true;
 
         } else if (currentItem instanceof Item.TrashItem) {
             currentItem.pickedUp = true;
             if (currentItem.getPickedUp()==true) {
-                score_list.add(currentItem.getItemPoints());
+                plus_sum_score();
             }
-            plus_sum_score();
             addItemToInventory();
             removeItem();
         }

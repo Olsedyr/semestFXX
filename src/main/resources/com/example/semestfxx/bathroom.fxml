@@ -60,12 +60,28 @@
             <Insets bottom="568.0" right="22.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="bad" fitHeight="251.0" fitWidth="394.0" onMouseClicked="#choiceBad">
+      <ImageView fx:id="bad" fitHeight="467.0" fitWidth="394.0" onMouseClicked="#choiceBad">
          <image>
-            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/Bad.png" />
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/tubempty.png" />
          </image>
          <StackPane.margin>
-            <Insets left="864.0" top="268.0" />
+            <Insets left="874.0" top="32.0" />
+         </StackPane.margin>
+      </ImageView>
+      <ImageView fx:id="badShower" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" visible="false">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/tubshower.png" />
+         </image>
+         <StackPane.margin>
+            <Insets left="874.0" top="32.0" />
+         </StackPane.margin>
+      </ImageView>
+      <ImageView fx:id="badTub" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" visible="false">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/tubfull.png" />
+         </image>
+         <StackPane.margin>
+            <Insets left="874.0" top="32.0" />
          </StackPane.margin>
       </ImageView>
       <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">
@@ -94,7 +110,7 @@
          <children>
             <Rectangle height="720.0" onMouseClicked="#choiceBad" opacity="0.4" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="490.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="300.0" />
-            <Button layoutX="540.0" layoutY="428.0" mnemonicParsing="false" prefWidth="200.0" text="Badekar">
+            <Button layoutX="540.0" layoutY="428.0" mnemonicParsing="false" onMouseClicked="#choiceBadekar" prefWidth="200.0" text="Badekar">
                <font>
                   <Font size="24.0" />
                </font>
@@ -104,7 +120,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Button layoutX="540.0" layoutY="360.0" mnemonicParsing="false" prefWidth="200.0" text="Bruser">
+            <Button layoutX="540.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#choiceBruser" prefWidth="200.0" text="Bruser">
                <font>
                   <Font size="24.0" />
                </font>
