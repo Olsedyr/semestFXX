@@ -6,15 +6,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class HelloController implements Initializable {
 
@@ -25,16 +33,14 @@ public class HelloController implements Initializable {
     @FXML
     private StackPane rootPane;
 
-        //ToggleItems
+        //Items
     @FXML
 
     private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, radiator, vindueÅben, vindueLukket,
-                badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad,
-                køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket;
+                badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad, badShower, badTub,
+                køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket, køleskabÅbnet, salat, burger, komfurTændt, komfurPande,
+                cykle, bil;
 
-        //ChoiceItems
-    @FXML
-    private ImageView komfur, transport;
     @FXML
     private AnchorPane badChoice, køleskabChoice, komfurChoice, transportChoice;
 
@@ -56,15 +62,23 @@ public class HelloController implements Initializable {
     private Text display;
 
 
+
     //------------------------------------------------------------------------------------------------------------------
 
-
     @Override
-    public void initialize(URL url, ResourceBundle rb){
+    public void initialize(URL url, ResourceBundle rb) {
         System.out.println("INIT");
         game = GameSingleton.getInstance().getGame();
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
+
+
+        Iterator it = game.inventory.trash.entrySet().iterator();
+        while (it.hasNext()) {
+            HashMap.Entry pair = (HashMap.Entry)it.next();
+            System.out.println(pair.getKey() + " = " + pair.getValue());
+            it.remove(); // avoids a ConcurrentModificationException
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -72,9 +86,6 @@ public class HelloController implements Initializable {
     public void startGame(ActionEvent event) throws IOException {
         System.out.println("Game Started!");
         loadBedroomStart(event);
-
-        game.currentRoom = game.rooms.get(0);
-
     }
 
     public void loadBedroomStart(ActionEvent event) throws IOException {
@@ -85,7 +96,7 @@ public class HelloController implements Initializable {
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    ///MouseEvent
+    ///MouseEvent Load Rooms
     public void loadBedroom(MouseEvent event) throws IOException {
         System.out.println("Bedroom");
         StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
@@ -140,7 +151,6 @@ public class HelloController implements Initializable {
             soveværelseLampeSlukket.setVisible(false);
             soveværelseLampeTændt.setVisible(true);
         }
-
         System.out.println(game.currentItem.toggleState);
     }
 
@@ -216,12 +226,32 @@ public class HelloController implements Initializable {
     // Badeværelse: Bad choice
     @FXML
     void choiceBad (MouseEvent event) {
-        if(badChoice.isVisible()==true) {
+        game.currentRoom = game.rooms.get(2);
+        game.currentItem = game.currentRoom.getItem("bad");
+        if(game.currentItem.getItemUsed()==false) {
+            if (badChoice.isVisible() == true) {
+                badChoice.setVisible(false);
+            } else {
+                badChoice.setVisible(true);
+            }
+        }else{
             badChoice.setVisible(false);
-        } else {
-            badChoice.setVisible(true);
         }
     }
+    @FXML
+    void choiceBruser (MouseEvent event) {
+        game.plus_sum_score();
+        game.switchItemState();
+        badChoice.setVisible(false);
+        badShower.setVisible(true);
+    }
+    @FXML
+    void choiceBadekar (MouseEvent event) {
+        game.switchItemState();
+        badChoice.setVisible(false);
+        badTub.setVisible(true);
+    }
+
 
     //------------------------------------------------------------------------------------------------------------------
     // Køkken: Tænder/Slukker køkken lys
@@ -261,37 +291,101 @@ public class HelloController implements Initializable {
     // Køkken Choice: Køleskab
     @FXML
     void choiceKøleskab (MouseEvent event) {
-        if(køleskabChoice.isVisible()==true) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("køleskab");
+        if(game.currentItem.getItemUsed()==false) {
+            if(køleskabChoice.isVisible()==true) {
+                køleskabChoice.setVisible(false);
+                køleskabÅbnet.setVisible(false);
+            } else {
+                køleskabChoice.setVisible(true);
+                køleskabÅbnet.setVisible(true);
+            }
+        }else{
             køleskabChoice.setVisible(false);
-        } else {
-            køleskabChoice.setVisible(true);
+            køleskabÅbnet.setVisible(false);
         }
+    }
+    @FXML
+    void choiceSalat (MouseEvent event) {
+        game.switchItemState();
+        game.plus_sum_score();
+        køleskabChoice.setVisible(false);
+        køleskabÅbnet.setVisible(false);
+        salat.setVisible(true);
+    }
+    @FXML
+    void choiceBurger (MouseEvent event) {
+        game.switchItemState();
+        køleskabChoice.setVisible(false);
+        køleskabÅbnet.setVisible(false);
+        burger.setVisible(true);
     }
 
     // Køkken Choice: Komfur
     @FXML
     void choiceKomfur (MouseEvent event) {
-        if(komfurChoice.isVisible()==true) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("komfur");
+        if(game.currentItem.getItemUsed()==false) {
+            if (komfurChoice.isVisible()==true) {
+                komfurChoice.setVisible(false);
+            } else {
+                komfurChoice.setVisible(true);
+            }
+        }else{
             komfurChoice.setVisible(false);
-        } else {
-            komfurChoice.setVisible(true);
         }
+    }
+    @FXML
+    void choiceOvenen (MouseEvent event) {
+        game.switchItemState();
+        komfurChoice.setVisible(false);
+        komfurTændt.setVisible(true);
+    }
+    @FXML
+    void choiceStegepande (MouseEvent event) {
+        game.plus_sum_score();
+        game.switchItemState();
+        komfurChoice.setVisible(false);
+        komfurPande.setVisible(true);
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    // Byen Choice:
+    // Byen Choice: Transport
     @FXML
     void choiceTransport (MouseEvent event) {
-        if (transportChoice.isVisible() == true) {
+        game.currentRoom = game.rooms.get(3);
+        game.currentItem = game.currentRoom.getItem("transport");
+        if(game.currentItem.getItemUsed()==false) {
+            if (transportChoice.isVisible() == true) {
+                transportChoice.setVisible(false);
+            } else {
+                transportChoice.setVisible(true);
+            }
+        }else{
             transportChoice.setVisible(false);
-        } else {
-            transportChoice.setVisible(true);
         }
+    }
+    @FXML
+    void choiceCykle (MouseEvent event) {
+        game.switchItemState();
+        game.plus_sum_score();
+        transportChoice.setVisible(false);
+        cykle.setVisible(true);
+    }
+    @FXML
+    void choiceBil (MouseEvent event) {
+        game.switchItemState();
+        transportChoice.setVisible(false);
+        bil.setVisible(true);
     }
 
     //------------------------------------------------------------------------------------------------------------------
     // Strand:
 
+
+    //------------------------------------------------------------------------------------------------------------------
     // Trash Items
     public void collectSilkepapir(MouseEvent event) {
         game.currentRoom = game.rooms.get(0);
@@ -299,6 +393,7 @@ public class HelloController implements Initializable {
         game.switchItemState();
         silkepapir.setImage(null);
     }
+
     @FXML
     void quit(ActionEvent event) {
         Platform.exit();
@@ -311,6 +406,23 @@ public class HelloController implements Initializable {
             display.setText(GameText.textHelp());
         } else {
             display.setVisible(false);
+        }
+    }
+
+    @FXML
+    void showHighscore(){
+        String data = null;
+        try {
+            File myObj = new File("score.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                data = myReader.nextLine();
+                System.out.println("Din highscore var" + data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
         }
     }
 
