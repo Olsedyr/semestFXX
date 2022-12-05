@@ -42,7 +42,7 @@ public class HelloController implements Initializable {
                 cykle, bil;
 
     @FXML
-    private AnchorPane badChoice, køleskabChoice, komfurChoice, transportChoice;
+    private AnchorPane badChoice, køleskabChoice, komfurChoice, transportChoice, npcQuiz, npcQuiz1, npcQuiz2, npcQuiz3, npcQuizF1, npcQuizF2, npcQuizF3;
 
         //Doors
     @FXML
@@ -415,6 +415,50 @@ public class HelloController implements Initializable {
 
     //------------------------------------------------------------------------------------------------------------------
     // Strand:
+    @FXML
+    void npcQuiz (MouseEvent event) {
+        game.currentRoom = game.rooms.get(4);
+        if (npcQuiz.isVisible() == true) {
+            npcQuiz.setVisible(false);
+            npcQuiz1.setVisible(false);
+            npcQuiz2.setVisible(false);
+            npcQuiz3.setVisible(false);
+        } else {
+            npcQuiz.setVisible(true);
+            npcQuiz1.setVisible(true);
+            npcQuizF1.setVisible(true);
+            npcQuizF2.setVisible(true);
+            npcQuizF3.setVisible(true);
+        }
+    }
+    @FXML
+    void npcQuizT (MouseEvent event) {
+        if(npcQuiz1.isVisible()==true){
+            npcQuiz1.setVisible(false);
+            npcQuiz2.setVisible(true);
+            npcQuizF2.setVisible(true);
+        } else if (npcQuiz2.isVisible()==true) {
+            npcQuiz2.setVisible(false);
+            npcQuiz3.setVisible(true);
+            npcQuizF3.setVisible(true);
+        } else if (npcQuiz3.isVisible()==true) {
+            npcQuiz3.setVisible(false);
+            npcQuiz.setVisible(false);
+            npcQuizF3.setVisible(true);
+        }
+    }
+    @FXML
+    void npcQuizF (MouseEvent event) {
+        if(npcQuiz1.isVisible()==true){
+            npcQuizF1.setVisible(false);
+        } else if (npcQuiz2.isVisible()==true) {
+            npcQuizF2.setVisible(false);
+        } else if (npcQuiz3.isVisible()==true) {
+            npcQuizF3.setVisible(false);
+        }
+    }
+
+
 
 
     //------------------------------------------------------------------------------------------------------------------
