@@ -15,7 +15,7 @@ public class Game {
     public ArrayList<Room> rooms;
     public Room currentRoom;
     public Item currentItem;
-    private Inventory inventory;
+    public Inventory inventory;
 
     public List<Integer> score_list = new ArrayList<Integer>();
 

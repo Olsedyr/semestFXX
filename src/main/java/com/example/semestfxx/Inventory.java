@@ -5,14 +5,14 @@ import java.util.Set;
 
 public class Inventory {
     ///Inventory that stores the trash player picked up in the game
-    private HashMap<String, Item> trash;
+    public HashMap<String, Item> trash;
 
     public Inventory() {
         trash = new HashMap<String, Item>();
     }
 
     public void addTrash(String string, Item item) {
-        trash.put(string, item);
+        trash.put( string, item);
     }
 
     public void removeTrash (Item item) {
