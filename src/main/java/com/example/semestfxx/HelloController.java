@@ -39,7 +39,7 @@ public class HelloController implements Initializable {
     private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, radiator, vindueÅben, vindueLukket,
                 badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad, badShower, badTub,
                 køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket, køleskabÅbnet, salat, burger, komfurTændt, komfurPande,
-                cykle, bil;
+                cykle, bil, sodavandsdåser;
 
     @FXML
     private AnchorPane badChoice, køleskabChoice, komfurChoice, transportChoice;
@@ -414,7 +414,26 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("silkepapir");
         game.switchItemState();
         silkepapir.setImage(null);
+    }
+    public void collectPizzabakke(MouseEvent event) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("pizzabakke");
+        game.switchItemState();
+        pizzabakke.setImage(null);
+    }
 
+    public void collectMælkekarton(MouseEvent event) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("mælkekarton");
+        game.switchItemState();
+        mælkekarton.setImage(null);
+    }
+
+    public void collectSodavandsdåser (MouseEvent event) {
+        game.currentRoom = game.rooms.get(0);
+        game.currentItem = game.currentRoom.getItem("sodavandsdåser");
+        game.switchItemState();
+        sodavandsdåser.setImage(null);
     }
 
     //------------------------------------------------------------------------------------------------------------------

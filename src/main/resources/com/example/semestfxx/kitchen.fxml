@@ -124,7 +124,7 @@
             <Insets left="638.0" top="266.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="mælkekarton" fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="mælkekarton" fitHeight="75.0" fitWidth="100.0" onMouseClicked="#collectMælkekarton" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Mælkekarton/Mælkekarton.png" />
          </image>
@@ -132,7 +132,7 @@
             <Insets left="220.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="pizzabakke" fitHeight="200.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pizzabakke" fitHeight="200.0" fitWidth="150.0" onMouseClicked="#collectPizzabakke" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Pizzabakke/Pizzabakke.png" />
          </image>
