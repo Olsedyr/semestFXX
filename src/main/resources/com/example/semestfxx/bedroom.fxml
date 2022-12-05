@@ -113,6 +113,19 @@
             </Text>
          </children>
       </TextFlow>
+      <Button fx:id="loadHighscore" mnemonicParsing="false" onAction="#loadHighscore" text="Highscore">
+         <StackPane.margin>
+            <Insets bottom="685.0" left="950.0" top="10.0" />
+         </StackPane.margin>
+      </Button>
+      <TextFlow>
+         <children>
+            <Text fx:id="highscoreLoader" strokeType="OUTSIDE" strokeWidth="0.0" />
+         </children>
+         <StackPane.margin>
+            <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
+         </StackPane.margin>
+      </TextFlow>
     <!--  <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loadKitchen" opacity="0.0" prefHeight="406.0" prefWidth="193.0" text="Button" StackPane.alignment="CENTER_LEFT">
          <opaqueInsets>
             <Insets />

@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -12,17 +13,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 public class HelloController implements Initializable {
 
@@ -59,7 +56,7 @@ public class HelloController implements Initializable {
     private Button quitGame, helpGame;
 
     @FXML
-    private Text display;
+    private Text display, highscoreLoader;
 
 
 
@@ -73,12 +70,19 @@ public class HelloController implements Initializable {
         currentItem = GameSingleton.getInstance().getGame().currentItem;
 
 
+
+
+
         Iterator it = game.inventory.trash.entrySet().iterator();
         while (it.hasNext()) {
             HashMap.Entry pair = (HashMap.Entry)it.next();
             System.out.println(pair.getKey() + " = " + pair.getValue());
             it.remove(); // avoids a ConcurrentModificationException
         }
+
+
+
+
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -87,6 +91,27 @@ public class HelloController implements Initializable {
         System.out.println("Game Started!");
         loadBedroomStart(event);
     }
+
+
+    public void loadHighscore(ActionEvent event){
+  a
+    }
+
+
+    @FXML
+    void help(ActionEvent event) {
+        if (display.isVisible()==false) {
+            display.setVisible(true);
+            display.setText(GameText.textHelp());
+        } else {
+            display.setVisible(false);
+        }
+    }
+
+
+
+
+
 
     public void loadBedroomStart(ActionEvent event) throws IOException {
         System.out.println("Start Bedroom");
