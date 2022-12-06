@@ -93,27 +93,31 @@ public class Game {
         //Choice Items, can only choose once
         Item.ChoiceItem køleskab, komfur, bad, transport, npc;
         køleskab = new Item.ChoiceItem("Der er et køleskab i dit køkken. Med ingredienserne indeni kan du enten lave en økologisk salat med kylling, " +
-                "eller en burger lavet på oksekød med ost og bacon.", "køleskab",3,
+                "eller en burger lavet på oksekød med ost og bacon. Du ved at kød og animalske produkter har et højt CO2 aftryk når det bliver produceret...",
+                "køleskab",3,
                 "1. salat\n2. burger",
-                "Du spiste salat",
-                "Du spiste burger",
+                "Du spiste salat. Et sundt og overvejende CO2 neutralt valg. Det er i hvert fald mere klimavenligt end oksekød.",
+                "Du spiste burger. Den smagte godt, men du kan ikke lade være med at have en lille smule dårlig samvittighed over " +
+                        "hvor meget CO2 der er blevet udledt for at alle råvarerne kunne blive produceret.",
                 false,1);
         komfur = new Item.ChoiceItem("I dit køkken er der også et komfur. Du kan vælge enten at varme kødet i ovnen, " +
-                "eller stege det på en stegepande.","komfur",3,
+                "eller stege det på en stegepande. Du kan se på din elmåler at når ovnen er i gang, bruger den ret meget strøm på at blive varm. " +
+                "Din kogeplade er en induktionskogeplade og den ved du er meget energieffektiv når den skal varmes op.","komfur",3,
                 "1. ovnen\n2. stegepande",
-                "Du brugt ovnen",
-                "Du brugt stegepande",
+                "Du har brugt ovnen. Det tog lidt tid at varme den op, og du kan mærke at rummet er blevet lidt varmere efter du har brugt den,",
+                "Du har brugt stegepanden. Med induktionskogepladen var det meget hurtigt at tilberede kødet, og den er hurtigt blevet kold igen.",
                 false,2);
-        bad = new Item.ChoiceItem("Der er en bruser og et badekar på dit badeværelse." +
-                " Du kan tage et brusebad eller karbad bad her.","bad",3,
+        bad = new Item.ChoiceItem("Der er en bruser og et badekar på dit badeværelse. Du kan enten tage et brusebad eller karbad bad her. " +
+                "Du ved at i gennemsnit bruger et karbad 105 liter varmt vand pr. bad, mens et brusebad kun bruger 70 liter.","bad",3,
                 "1. bruser\n2. badekar",
-                "Du har brugt bruser, hurtigt, men effektivt",
-                "Du har brugt badekar, dejligt og varmt",
+                "Du har brugt bruser. Hurtigt, men effektivt",
+                "Du har brugt badekar. Dejligt og varmt.",
                 false,1);
-        transport = new Item.ChoiceItem("Du kan tage til stranden ved at cykle eller at køre.","transport",3,
+        transport = new Item.ChoiceItem("Du kan tage til stranden ved at cykle eller tage bilen. Der er ikke så langt og det er godt vejr, dog er det lidt koldt. " +
+                "Du vil dog komme til at skulle bruge meget mere benzin hvis du tager bilen. ","transport",3,
                 "1. cykle\n2. bil",
-                "Du brugt cykle, ding ding",
-                "Du brugt bil, beep beep",
+                "Du brugte cyklen, ding ding. Du kom hurtigt til stranden og cykelturen var rar og frisk.",
+                "Du brugte bil, beep beep. Den var dejlig varm at sidde i, men har også udledt en del benzin. ",
                 false, 1);
 
         npc = new Item.ChoiceItem("En pige ved navn Grett står der og ser ud til, at hun gerne vil vide, hvordan man hjælper klimakrisen.", "grete",
