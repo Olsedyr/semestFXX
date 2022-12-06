@@ -18,19 +18,21 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-
 import java.io.*;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.ResourceBundle;
 
-import static java.lang.System.out;
 
 public class HelloController implements Initializable {
 
     private Game game;
     private Room currentRoom;
     public Item currentItem;
+
+    public Inventory inventory;
+
+
 
     @FXML
     private StackPane rootPane;
@@ -70,6 +72,7 @@ public class HelloController implements Initializable {
 
 
 
+
     //------------------------------------------------------------------------------------------------------------------
 
     @Override
@@ -78,6 +81,7 @@ public class HelloController implements Initializable {
         game = GameSingleton.getInstance().getGame();
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
+        inventory = GameSingleton.getInstance().getGame().inventory;
 
     }
 
@@ -545,8 +549,10 @@ public class HelloController implements Initializable {
         game.switchItemState();
         silkepapir.setImage(null);
         showNewPoints(game.currentItem);
+        System.out.println(game.inventory.getInventoryString());
         itemToInventory();
     }
+
     public void collectPizzabakke(MouseEvent event) {
         game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("pizzabakke");
