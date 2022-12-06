@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -26,14 +27,14 @@ import static java.lang.System.out;
 
 public class HelloController implements Initializable {
 
+    private Game game;
+    private Room currentRoom;
+    public Item currentItem;
     public StackPane bedroomPane;
     public StackPane bathroomPane;
     public StackPane kitchenPane;
     public StackPane cityPane;
     public StackPane beachPane;
-    private Game game;
-    private Room currentRoom;
-    public Item currentItem;
 
     @FXML
     private StackPane rootPane;
@@ -44,7 +45,7 @@ public class HelloController implements Initializable {
     private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, radiator, vindueÅben, vindueLukket,
                 badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad, badShower, badTub,
                 køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket, køleskabÅbnet, salat, burger, komfurTændt, komfurPande,
-                cykle, bil;
+                cykle, bil, sodavandsdåser, transport;;
 
     @FXML
     private AnchorPane badChoice, køleskabChoice, komfurChoice, transportChoice, npcQuiz, npcQuiz1, npcQuiz2, npcQuiz3, npcQuizF1, npcQuizF2, npcQuizF3;
@@ -77,20 +78,6 @@ public class HelloController implements Initializable {
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
 
-
-
-
-
-        Iterator it = game.inventory.trash.entrySet().iterator();
-        while (it.hasNext()) {
-            HashMap.Entry pair = (HashMap.Entry)it.next();
-            System.out.println(pair.getKey() + " = " + pair.getValue());
-            it.remove(); // avoids a ConcurrentModificationException
-        }
-
-
-
-
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -104,21 +91,14 @@ public class HelloController implements Initializable {
         while((line = br.readLine()) != null){
             //process the line
             System.out.println(line);
-        if (highscoreLoader.isVisible()==false) {
-            highscoreLoader.setVisible(true);
-            highscoreLoader.setText(String.valueOf("Din highscore er: "+line));
-        } else {
-            highscoreLoader.setVisible(false);
+            if (highscoreLoader.isVisible()==false) {
+                highscoreLoader.setVisible(true);
+                highscoreLoader.setText(String.valueOf("Din highscore er: "+line));
+            } else {
+                highscoreLoader.setVisible(false);
+            }
         }
     }
-    }
-
-//    public void loadBedroomStart(ActionEvent event) throws IOException {
-//        System.out.println("Start Bedroom");
-//        StackPane pane = FXMLLoader.load(getClass().getResource("worldStart.fxml"));
-//        rootPane.getChildren().setAll(pane);
-//        game.currentRoom = game.rooms.get(0);
-//    }
     public void startGame(ActionEvent event) throws IOException {
         worldStart(event);
         System.out.println("Game Started!");
@@ -172,17 +152,23 @@ public class HelloController implements Initializable {
     void showCeilingLight (MouseEvent event) {
         game.currentRoom = game.rooms.get(0);
         game.currentItem = game.currentRoom.getItem("soveværelseLampe");
-        game.switchItemState();
 
-        if(game.currentItem.getItemState()==false) {
-            soveværelseLampeSlukket.setVisible(true);
-            soveværelseLampeTændt.setVisible(false);
-
+        if(event.getButton() == MouseButton.SECONDARY){
+            showDescription(game.currentItem);
         } else {
-            soveværelseLampeSlukket.setVisible(false);
-            soveværelseLampeTændt.setVisible(true);
+            game.switchItemState();
+
+            if(game.currentItem.getItemState()==false) {
+                soveværelseLampeSlukket.setVisible(true);
+                soveværelseLampeTændt.setVisible(false);
+            } else {
+                soveværelseLampeSlukket.setVisible(false);
+                soveværelseLampeTændt.setVisible(true);
+            }
+
+            System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
-        System.out.println(game.currentItem.toggleState);
     }
 
     // Soveværelse: Tænder/Slukker computer
@@ -190,16 +176,23 @@ public class HelloController implements Initializable {
     void showComputer (MouseEvent event) {
         game.currentRoom = game.rooms.get(0);
         game.currentItem = game.currentRoom.getItem("computer");
-        game.switchItemState();
 
-        if(game.currentItem.getItemState()==true) {
-            computerSlukket.setVisible(false);
-            computerTændt.setVisible(true);
+        if(event.getButton() == MouseButton.SECONDARY){
+            showDescription(game.currentItem);
         } else {
-            computerSlukket.setVisible(true);
-            computerTændt.setVisible(false);
+            game.switchItemState();
+
+            if(game.currentItem.getItemState()==false) {
+                computerSlukket.setVisible(true);
+                computerTændt.setVisible(false);
+            } else {
+                computerSlukket.setVisible(false);
+                computerTændt.setVisible(true);
+            }
+
+            System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
-        System.out.println(game.currentItem.toggleState);
     }
 
     //Soveværelse: Åbner/Lukker vindue
@@ -207,16 +200,23 @@ public class HelloController implements Initializable {
     void showWindow (MouseEvent event) {
         game.currentRoom = game.rooms.get(0);
         game.currentItem = game.currentRoom.getItem("vindue");
-        game.switchItemState();
 
-        if(game.currentItem.getItemState()==true) {
-            vindueLukket.setVisible(false);
-            vindueÅben.setVisible(true);
+        if(event.getButton() == MouseButton.SECONDARY){
+            showDescription(game.currentItem);
         } else {
-            vindueLukket.setVisible(true);
-            vindueÅben.setVisible(false);
+            game.switchItemState();
+
+            if(game.currentItem.getItemState()==false) {
+                vindueLukket.setVisible(true);
+                vindueÅben.setVisible(false);
+            } else {
+                vindueLukket.setVisible(false);
+                vindueÅben.setVisible(true);
+            }
+
+            System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
-        System.out.println(game.currentItem.toggleState);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -224,17 +224,24 @@ public class HelloController implements Initializable {
     @FXML
     void toggleBadeværelseLys (MouseEvent event) {
         game.currentRoom = game.rooms.get(2);
-        game.currentItem = game.currentRoom.getItem("badeværelselys");
-        game.switchItemState();
 
-        if(game.currentItem.getItemState()==true) {
-            badeværelseLysSlukket.setVisible(false);
-            badeværelseLysTændt.setVisible(true);
+        game.currentItem = game.currentRoom.getItem("badeværelseLys");
+        if(event.getButton() == MouseButton.SECONDARY){
+            showDescription(game.currentItem);
         } else {
-            badeværelseLysSlukket.setVisible(true);
-            badeværelseLysTændt.setVisible(false);
+            game.switchItemState();
+
+            if(game.currentItem.getItemState()==false) {
+                badeværelseLysSlukket.setVisible(true);
+                badeværelseLysTændt.setVisible(false);
+            } else {
+                badeværelseLysSlukket.setVisible(false);
+                badeværelseLysTændt.setVisible(true);
+            }
+
+            System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
-        System.out.println(game.currentItem.toggleState);
     }
 
     // Badeværelse: Tænder/Slukker vandhane
@@ -242,16 +249,23 @@ public class HelloController implements Initializable {
     void toggleVandhane (MouseEvent event) {
         game.currentRoom = game.rooms.get(2);
         game.currentItem = game.currentRoom.getItem("vandhane");
-        game.switchItemState();
 
-        if(game.currentItem.getItemState()==true) {
-            vandhaneSlukket.setVisible(false);
-            vandhaneTændt.setVisible(true);
+        if(event.getButton() == MouseButton.SECONDARY){
+            showDescription(game.currentItem);
         } else {
-            vandhaneSlukket.setVisible(true);
-            vandhaneTændt.setVisible(false);
+            game.switchItemState();
+
+            if(game.currentItem.getItemState()==false) {
+                vandhaneSlukket.setVisible(true);
+                vandhaneTændt.setVisible(false);
+            } else {
+                vandhaneSlukket.setVisible(false);
+                vandhaneTændt.setVisible(true);
+            }
+
+            System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
-        System.out.println(game.currentItem.toggleState);
     }
 
     // Badeværelse: Bad choice
@@ -259,26 +273,36 @@ public class HelloController implements Initializable {
     void choiceBad (MouseEvent event) {
         game.currentRoom = game.rooms.get(2);
         game.currentItem = game.currentRoom.getItem("bad");
-        if(game.currentItem.getItemUsed()==false) {
-            if (badChoice.isVisible() == true) {
+
+        if(event.getButton() == MouseButton.SECONDARY){
+            showDescription(game.currentItem);
+        } else {
+            if(game.currentItem.getItemUsed()==false) {
+                if (badChoice.isVisible() == true) {
+                    badChoice.setVisible(false);
+                } else {
+                    badChoice.setVisible(true);
+                }
+            }else{
                 badChoice.setVisible(false);
-            } else {
-                badChoice.setVisible(true);
             }
-        }else{
-            badChoice.setVisible(false);
         }
     }
     @FXML
     void choiceBruser (MouseEvent event) {
         game.plus_sum_score();
         game.switchItemState();
+        game.currentItem = game.currentRoom.getItem("bad");
+        game.currentItem.itemDescription = game.currentItem.choice1Text;
         badChoice.setVisible(false);
         badShower.setVisible(true);
+        showNewPoints(game.currentItem);
     }
     @FXML
     void choiceBadekar (MouseEvent event) {
         game.switchItemState();
+        game.currentItem = game.currentRoom.getItem("bad");
+        game.currentItem.itemDescription = game.currentItem.choice2Text;
         badChoice.setVisible(false);
         badTub.setVisible(true);
     }
@@ -290,16 +314,23 @@ public class HelloController implements Initializable {
     void toggleKLamp (MouseEvent event) {
         game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("køkkenlampe");
-        game.switchItemState();
 
-        if(køkkenLampeSlukket.isVisible()==true) {
-            køkkenLampeSlukket.setVisible(false);
-            køkkenLampeTændt.setVisible(true);
+        if(event.getButton() == MouseButton.SECONDARY){
+            showDescription(game.currentItem);
         } else {
-            køkkenLampeSlukket.setVisible(true);
-            køkkenLampeTændt.setVisible(false);
+            game.switchItemState();
+
+            if(game.currentItem.getItemState()==false) {
+                køkkenLampeSlukket.setVisible(true);
+                køkkenLampeTændt.setVisible(false);
+            } else {
+                køkkenLampeSlukket.setVisible(false);
+                køkkenLampeTændt.setVisible(true);
+            }
+
+            System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
         }
-        System.out.println(game.currentItem.toggleState);
     }
 
     // Køkken: Tænder/Slukker TV
@@ -307,16 +338,23 @@ public class HelloController implements Initializable {
     void toggleTv (MouseEvent event) {
         game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("tv");
-        game.switchItemState();
 
-        if(tvSlukket.isVisible()==true) {
-            tvSlukket.setVisible(false);
-            tvTændt.setVisible(true);
+        if(event.getButton() == MouseButton.SECONDARY){
+            showDescription(game.currentItem);
         } else {
-            tvSlukket.setVisible(true);
-            tvTændt.setVisible(false);
-        }
+            game.switchItemState();
+
+            if(game.currentItem.getItemState()==false) {
+                tvSlukket.setVisible(true);
+                tvTændt.setVisible(false);
+            } else {
+                tvSlukket.setVisible(false);
+                tvTændt.setVisible(true);
+            }
+
             System.out.println(game.currentItem.toggleState);
+            showNewPoints(game.currentItem);
+        }
     }
 
     // Køkken Choice: Køleskab
@@ -324,30 +362,40 @@ public class HelloController implements Initializable {
     void choiceKøleskab (MouseEvent event) {
         game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("køleskab");
-        if(game.currentItem.getItemUsed()==false) {
-            if(køleskabChoice.isVisible()==true) {
+
+        if(event.getButton() == MouseButton.SECONDARY){
+            showDescription(game.currentItem);
+        } else {
+            if(game.currentItem.getItemUsed()==false) {
+                if(køleskabChoice.isVisible()==true) {
+                    køleskabChoice.setVisible(false);
+                    køleskabÅbnet.setVisible(false);
+                } else {
+                    køleskabChoice.setVisible(true);
+                    køleskabÅbnet.setVisible(true);
+                }
+            }else{
                 køleskabChoice.setVisible(false);
                 køleskabÅbnet.setVisible(false);
-            } else {
-                køleskabChoice.setVisible(true);
-                køleskabÅbnet.setVisible(true);
             }
-        }else{
-            køleskabChoice.setVisible(false);
-            køleskabÅbnet.setVisible(false);
         }
     }
     @FXML
     void choiceSalat (MouseEvent event) {
         game.switchItemState();
         game.plus_sum_score();
+        game.currentItem = game.currentRoom.getItem("køleskab");
+        game.currentItem.itemDescription = game.currentItem.choice1Text;
         køleskabChoice.setVisible(false);
         køleskabÅbnet.setVisible(false);
         salat.setVisible(true);
+        showNewPoints(game.currentItem);
     }
     @FXML
     void choiceBurger (MouseEvent event) {
         game.switchItemState();
+        game.currentItem = game.currentRoom.getItem("køleskab");
+        game.currentItem.itemDescription = game.currentItem.choice2Text;
         køleskabChoice.setVisible(false);
         køleskabÅbnet.setVisible(false);
         burger.setVisible(true);
@@ -358,19 +406,26 @@ public class HelloController implements Initializable {
     void choiceKomfur (MouseEvent event) {
         game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("komfur");
-        if(game.currentItem.getItemUsed()==false) {
-            if (komfurChoice.isVisible()==true) {
+
+        if(event.getButton() == MouseButton.SECONDARY){
+            showDescription(game.currentItem);
+        } else {
+            if(game.currentItem.getItemUsed()==false) {
+                if (komfurChoice.isVisible()==true) {
+                    komfurChoice.setVisible(false);
+                } else {
+                    komfurChoice.setVisible(true);
+                }
+            }else{
                 komfurChoice.setVisible(false);
-            } else {
-                komfurChoice.setVisible(true);
             }
-        }else{
-            komfurChoice.setVisible(false);
         }
     }
     @FXML
     void choiceOvenen (MouseEvent event) {
         game.switchItemState();
+        game.currentItem = game.currentRoom.getItem("komfur");
+        game.currentItem.itemDescription = game.currentItem.choice1Text;
         komfurChoice.setVisible(false);
         komfurTændt.setVisible(true);
     }
@@ -378,37 +433,50 @@ public class HelloController implements Initializable {
     void choiceStegepande (MouseEvent event) {
         game.plus_sum_score();
         game.switchItemState();
+        game.currentItem = game.currentRoom.getItem("komfur");
+        game.currentItem.itemDescription = game.currentItem.choice2Text;
         komfurChoice.setVisible(false);
         komfurPande.setVisible(true);
+        showNewPoints(game.currentItem);
     }
 
     //------------------------------------------------------------------------------------------------------------------
     // Byen Choice: Transport
     @FXML
     void choiceTransport (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
+        game.currentRoom = game.rooms.get(3);
         game.currentItem = game.currentRoom.getItem("transport");
-        if(game.currentItem.getItemUsed()==false) {
-            if (transportChoice.isVisible() == true) {
+
+        if(event.getButton() == MouseButton.SECONDARY){
+            showDescription(game.currentItem);
+        } else {
+            if(game.currentItem.getItemUsed()==false) {
+                if (transportChoice.isVisible() == true) {
+                    transportChoice.setVisible(false);
+                } else {
+                    transportChoice.setVisible(true);
+                }
+            }else{
                 transportChoice.setVisible(false);
-            } else {
-                transportChoice.setVisible(true);
             }
-        }else{
-            transportChoice.setVisible(false);
         }
     }
     @FXML
     void choiceCykle (MouseEvent event) {
         game.switchItemState();
         game.plus_sum_score();
+        game.currentItem.itemDescription = game.currentItem.choice1Text;
         transportChoice.setVisible(false);
+        transport.setVisible(false);
         cykle.setVisible(true);
+        showNewPoints(game.currentItem);
     }
     @FXML
     void choiceBil (MouseEvent event) {
         game.switchItemState();
+        game.currentItem.itemDescription = game.currentItem.choice2Text;
         transportChoice.setVisible(false);
+        transport.setVisible(false);
         bil.setVisible(true);
     }
 
@@ -416,22 +484,29 @@ public class HelloController implements Initializable {
     // Strand:
     @FXML
     void npcQuiz (MouseEvent event) {
-        game.currentRoom = game.rooms.get(3);
-        if (npcQuiz.isVisible() == true) {
+        game.currentItem = game.currentRoom.getItem("NPC");
+        game.currentRoom = game.rooms.get(4);
+        if(game.currentItem.getItemUsed()==false) {
+            if (npcQuiz.isVisible() == true) {
+                npcQuiz.setVisible(false);
+                npcQuiz1.setVisible(false);
+                npcQuiz2.setVisible(false);
+                npcQuiz3.setVisible(false);
+            } else {
+                npcQuiz.setVisible(true);
+                npcQuiz1.setVisible(true);
+                npcQuizF1.setVisible(true);
+                npcQuizF2.setVisible(true);
+                npcQuizF3.setVisible(true);
+            }
+        }else{
             npcQuiz.setVisible(false);
-            npcQuiz1.setVisible(false);
-            npcQuiz2.setVisible(false);
-            npcQuiz3.setVisible(false);
-        } else {
-            npcQuiz.setVisible(true);
-            npcQuiz1.setVisible(true);
-            npcQuizF1.setVisible(true);
-            npcQuizF2.setVisible(true);
-            npcQuizF3.setVisible(true);
         }
     }
     @FXML
     void npcQuizT (MouseEvent event) {
+        game.plus_sum_score();
+        showNewPoints(game.currentItem);
         if(npcQuiz1.isVisible()==true){
             npcQuiz1.setVisible(false);
             npcQuiz2.setVisible(true);
@@ -444,6 +519,7 @@ public class HelloController implements Initializable {
             npcQuiz3.setVisible(false);
             npcQuiz.setVisible(false);
             npcQuizF3.setVisible(true);
+            game.switchItemState();
         }
     }
     @FXML
@@ -457,9 +533,6 @@ public class HelloController implements Initializable {
         }
     }
 
-
-
-
     //------------------------------------------------------------------------------------------------------------------
     // Trash Items
     public void collectSilkepapir(MouseEvent event) {
@@ -467,7 +540,36 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("silkepapir");
         game.switchItemState();
         silkepapir.setImage(null);
+        showNewPoints(game.currentItem);
     }
+    public void collectPizzabakke(MouseEvent event) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("pizzabakke");
+        game.switchItemState();
+        pizzabakke.setImage(null);
+        showNewPoints(game.currentItem);
+    }
+
+    public void collectMælkekarton(MouseEvent event) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("mælkekarton");
+        game.switchItemState();
+        mælkekarton.setImage(null);
+        showNewPoints(game.currentItem);
+    }
+
+    public void collectSodavandsdåser (MouseEvent event) {
+        game.currentRoom = game.rooms.get(0);
+        game.currentItem = game.currentRoom.getItem("sodavandsdåser");
+        game.switchItemState();
+        sodavandsdåser.setImage(null);
+        showNewPoints(game.currentItem);
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+
+
 
     @FXML
     void quit(ActionEvent event) {
@@ -480,9 +582,48 @@ public class HelloController implements Initializable {
             display.setVisible(true);
             display.setText(GameText.textHelp());
         } else {
+            display.setText(GameText.textHelp());
+        }
+    }
+
+    // Does not work fully yet
+//    public void showRoomDescription(Room currentRoom) {
+//        display.setText(currentRoom.getLongDescription());
+//        display.setVisible(true);
+//    }
+
+    public void showDescription(Item currentItem) {
+
+        if (display.isVisible()==false) {
+            display.setVisible(true);
+            display.setText(currentItem.getItemDescription());
+        } else if(display.isVisible() == true && currentItem.getItemDescription().equals(display.getText())){
+            display.setVisible(false);
+        } else {
+            display.setText(currentItem.getItemDescription());
+        }
+    }
+    public void showNewPoints(Item currentItem) {
+        if (display.isVisible()==false) {
+            display.setVisible(true);
+            display.setText(game.getAddedPoints());
+        } else if(display.isVisible() == true && game.getAddedPoints().equals(display.getText())){
+            display.setVisible(false);
+        } else {
+            display.setText(game.getAddedPoints());
+        }
+    }
+
+    @FXML
+    void showInventory (ActionEvent event) {
+        if (display.isVisible()==false) {
+            display.setVisible(true);
+            display.setText(GameText.textInventory());
+        } else {
             display.setVisible(false);
         }
     }
+
 
     @FXML
     void showHighscore(){
@@ -500,7 +641,6 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
-
 }
 
 

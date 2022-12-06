@@ -7,9 +7,7 @@ import java.io.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Game {
 
@@ -17,6 +15,7 @@ public class Game {
     public Room currentRoom;
     public Item currentItem;
     public Inventory inventory;
+    private String addedPoints;
 
     public List<Integer> score_list = new ArrayList<Integer>();
 
@@ -42,40 +41,40 @@ public class Game {
 
         //------------------------------------Items------------------------------------
         //Toggle Items: ToggleState==True means that the current state of the object is not climate friendly
-        Item.ToggleItem soveværelseLampe, radiator, vindue, computer, køkkenlampe, tv, vandhane, badeværelselys;
+        Item.ToggleItem soveværelseLampe, radiator, vindue, computer, køkkenlampe, tv, vandhane, badeværelseLys;
 
         soveværelseLampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "soveværelseLampe","Du kigger på loftlampen i dit soveværelse. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
-                        "Gardinet er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
-                "Du kigger på loftlampen i dit soveværelse. Den er slukket" +
+                "Gardinet er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
+                "Du kigger på loftlampen i dit soveværelse. Den er slukket. " +
                         "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
                 1,true);
         radiator = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "radiator","Det er en radiator i din soveværelse. Den er tændt. Du kan mærke at rummet er ret varmt fordi den har været tændt hele dagen, " +
-                        "og solen samtidig har varmet rummet op.",
+                "og solen samtidig har varmet rummet op.",
                 "Det er radiatoren i dit soveværelse. Den er slukket lige nu, men du kan mærke at rummet stadig er dejligt varmt fra solen som skinner ind.",
                 5,true);
         vindue = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "vindue","Der er et vindue i dit soveværelse, som står åbent. Udenfor kan du se at bladene er faldet af træerne, og der er rim på græsset under dem." +
-                        " I rummet er der dog stadig varmt fra radiatoren og solen der skinner udenfor, men du kan mærke den kulden komme ind gennem vinduet.",
+                " I rummet er der dog stadig varmt fra radiatoren og solen der skinner udenfor, men du kan mærke den kulden komme ind gennem vinduet.",
                 "Der er et vindue i det soveværelse. Det er lukket. Der er en behagelig temperatur herinde, " +
                         "og luften er stadig lidt frisk fra vinduet sidst stod åbent.",
                 1,true);
         computer = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "computer","Det er din computer. Den er stationær, har to skærme og du fik den til din sidste fødselsdag. Det hele står lige nu tændt, fra da du spillede tidligere. " +
-                        "Når den er i brug kan du se på din elmåler at den bruger ret meget strøm.",
+                "Når den er i brug kan du se på din elmåler at den bruger ret meget strøm.",
                 " Det er din stationære computer. Den er slukket, så der er ikke længere en summen at høre fra den.",
                 2,true);
         køkkenlampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "køkkenlampe","Du kigger på køkkenlampen. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
-                       "Der er flere store vinduer rundt omkring i køkkenet. Gardinerne er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
+                "Der er flere store vinduer rundt omkring i køkkenet. Gardinerne er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
                 "Du kigger på loftlampen i dit soveværelse. Den er slukket. " +
                         "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
                 1,true);
         tv = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "tv", "Der er et TV i køkkenet. Det er lige nu tændt, og du kan høre en nyhedsvært tale i baggrunden. Når du vasker op er det " +
-                        "ofte rart at have noget at se på imens, men ellers bruger du det ikke så meget. Og lige nu ser det ikke ud til" +
-                        " at der er sket noget du ikke har hørt om tidligere.",
+                "ofte rart at have noget at se på imens, men ellers bruger du det ikke så meget. Og lige nu ser det ikke ud til" +
+                " at der er sket noget du ikke har hørt om tidligere.",
                 "Der er et TV i dit køkken. Det er lige nu slukket, og bruger dermed ikke unødig strøm. " +
                         "Du har alligevel ikke lyst til at se noget på det lige nu.",
                 3,true);
@@ -83,43 +82,46 @@ public class Game {
                 "vandhane","Der er et vandhane på badeværelset. Den står og drypper, formentligt fra da du vaskede hænder tidligere på dagen.",
                 "Der er en vandhane på badeværelset. Lige nu er den ikke i brug, og bruger dermed ikke unødig rent vand.",
                 3,true);
-
-        badeværelselys = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
-                "badeværelselys", "Du kigger på badeværelseslyset. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt.",
-                "Du kigger på lampen i dit badeværelse. Den er slukket.",
-                1, true);
+        badeværelseLys = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
+                "badeværelseLys","Du kigger på badeværelseslyset. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
+                "Der er ikke så mange vinduer herinde, men det der er vender så solen skinner direkte ind. Gardinerne er trukket fra.",
+                "Du kigger på loftlampen i dit badeværelse. Den er slukket, men du kan stadig se alt du har brug for. " +
+                        "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
+                1,true);
 
 
         //Choice Items, can only choose once
-        Item.ChoiceItem køleskab, komfur, bad, transport;
+        Item.ChoiceItem køleskab, komfur, bad, transport, npc;
         køleskab = new Item.ChoiceItem("Der er et køleskab i dit køkken. Med ingredienserne indeni kan du enten lave en økologisk salat med kylling, " +
-                "eller en burger lavet på oksekød med ost og bacon.", "køleskab",3,
+                "eller en burger lavet på oksekød med ost og bacon. Du ved at kød og animalske produkter har et højt CO2 aftryk når det bliver produceret...",
+                "køleskab",3,
                 "1. salat\n2. burger",
-                "Du spiste salat",
-                "Du spiste burger",
+                "Du spiste salat. Et sundt og overvejende CO2 neutralt valg. Det er i hvert fald mere klimavenligt end oksekød.",
+                "Du spiste burger. Den smagte godt, men du kan ikke lade være med at have en lille smule dårlig samvittighed over " +
+                        "hvor meget CO2 der er blevet udledt for at alle råvarerne kunne blive produceret.",
                 false,1);
-        komfur = new Item.ChoiceItem("I dit køkken er der også et komfur. Du kan vælge enten at varme kødet i ovenen, " +
-                "eller stege det på en stegepande.","komfur",3,
-                "1. ovenen\n2. stegepande",
-                "Du brugt ovenen",
-                "Du brugt stegepande",
+        komfur = new Item.ChoiceItem("I dit køkken er der også et komfur. Du kan vælge enten at varme kødet i ovnen, " +
+                "eller stege det på en stegepande. Du kan se på din elmåler at når ovnen er i gang, bruger den ret meget strøm på at blive varm. " +
+                "Din kogeplade er en induktionskogeplade og den ved du er meget energieffektiv når den skal varmes op.","komfur",3,
+                "1. ovnen\n2. stegepande",
+                "Du har brugt ovnen. Det tog lidt tid at varme den op, og du kan mærke at rummet er blevet lidt varmere efter du har brugt den,",
+                "Du har brugt stegepanden. Med induktionskogepladen var det meget hurtigt at tilberede kødet, og den er hurtigt blevet kold igen.",
                 false,2);
-        bad = new Item.ChoiceItem("Der er en bruser og et badekar på dit badeværelse." +
-                " Du kan tage et brusebad eller karbad bad her.","komfur",3,
+        bad = new Item.ChoiceItem("Der er en bruser og et badekar på dit badeværelse. Du kan enten tage et brusebad eller karbad bad her. " +
+                "Du ved at i gennemsnit bruger et karbad 105 liter varmt vand pr. bad, mens et brusebad kun bruger 70 liter.","bad",3,
                 "1. bruser\n2. badekar",
-                "Du brugt bruser, hurtigt, men effektivt",
-                "Du brugt badekar, dejligt og varmt",
+                "Du har brugt bruser. Hurtigt, men effektivt",
+                "Du har brugt badekar. Dejligt og varmt.",
                 false,1);
-        transport = new Item.ChoiceItem("Du kan tage til stranden ved at cykle eller at køre.","transport",3,
+        transport = new Item.ChoiceItem("Du kan tage til stranden ved at cykle eller tage bilen. Der er ikke så langt og det er godt vejr, dog er det lidt koldt. " +
+                "Du vil dog komme til at skulle bruge meget mere benzin hvis du tager bilen. ","transport",3,
                 "1. cykle\n2. bil",
-                "Du brugt cykle, ding ding",
-                "Du brugt bil, beep beep",
+                "Du brugte cyklen, ding ding. Du kom hurtigt til stranden og cykelturen var rar og frisk.",
+                "Du brugte bil, beep beep. Den var dejlig varm at sidde i, men har også udledt en del benzin. ",
                 false, 1);
 
-        ///Multiple Choice Items, can be chosen multiple times
-        Item.MultipleChoice grete, brete;
-        grete = new Item.MultipleChoice("En pige ved navn Grett står der og ser ud til, at hun gerne vil vide, hvordan man hjælper klimakrisen.", "grete",
-                3,
+        npc = new Item.ChoiceItem("En pige ved navn Grett står der og ser ud til, at hun gerne vil vide, hvordan man hjælper klimakrisen.", "grete",
+                2,
                 "Hej du! Er der noget jeg kan gøre for at hjælpe med klimakrisen?" +
                         "\n1. Du kan samle skrald op nede på stranden" +
                         "\n2. Du kan prøve at slukke for computeren" +
@@ -127,20 +129,7 @@ public class Game {
                         "\n4. Aner det ikke",
                 "Mange tak for hjælpen!",
                 "Nåår computeren, det var en god ide. Tak!",
-                "Uha, nej tak, det er der for langt til",
-                "Når..");
-
-        brete = new Item.MultipleChoice("En pige ved navn Brett står der og ser ud til, at hun gerne vil stille dig et simpelt matematikspørgsmål.", "brete",
-                3,
-                "1+1=?" +
-                        "\n1. 3" +
-                        "\n2. 2" +
-                        "\n3. 7" +
-                        "\n4. 42",
-                "Det kan måske virke med et par...",
-                "Korrekt! Godt klaret!",
-                "Forkert, hvordan får du overhovedet det svar?",
-                "Det er et svar... men for det forkerte spørgsmål.");
+                false,2);
 
 
         ///Trash Items
@@ -167,16 +156,14 @@ public class Game {
 
         badeværelse.setRoomItems("vandhane", vandhane);
         badeværelse.setRoomItems("bad", bad);
-        badeværelse.setRoomItems("badeværelselys", badeværelselys);
+        badeværelse.setRoomItems("badeværelseLys",badeværelseLys);
 
         byen.setRoomItems("transport", transport);
 
-        soveværelse.setRoomItems("Grete", grete);
-        soveværelse.setRoomItems("Brete", brete);
+        strand.setRoomItems("NPC", npc);
+    }
 
-   }
-
-//    public boolean goRoom(Command command) {
+    //    public boolean goRoom(Command command) {
 //        if (!command.hasCommandValue()) {
 //            //No direction on command.
 //            //Can't continue with GO command.
@@ -234,19 +221,19 @@ public class Game {
         if (currentItem instanceof Item.ToggleItem) {
             if (currentItem.getItemState() == false) {
                 score_list.add(currentItem.getItemPoints());
-                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
+                addedPoints = "Du fik " + currentItem.getItemPoints() + " point";
             } else {
                 score_list.remove(Integer.valueOf(currentItem.getItemPoints()));
-                System.out.println("Du mistede " + currentItem.getItemPoints() + " point");
+                addedPoints = "Du mistede " + currentItem.getItemPoints() + " point";
             }
         }else if (currentItem instanceof Item.ChoiceItem) {
             score_list.add(currentItem.getItemPoints());
-            System.out.println("Du fik " + currentItem.getItemPoints() + " point");
+            addedPoints = "Du fik " + currentItem.getItemPoints() + " point";
 
         }else if (currentItem instanceof Item.TrashItem) {
             if (currentItem.getPickedUp()==true){
                 score_list.add(currentItem.getItemPoints());
-                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
+                addedPoints = "Du fik " + currentItem.getItemPoints() + " point";
             }
         }
         for (int i = 0; i<score_list.size(); i++)
@@ -265,11 +252,6 @@ public class Game {
         return sum;
     }
 
-    public void test(){
-        System.out.println("Test");
-            currentItem.toggleState ^= true;
-            plus_sum_score();
-    }
     public void switchItemState() {
         if (currentItem instanceof Item.ToggleItem) {
             currentItem.toggleState ^= true;
@@ -287,8 +269,18 @@ public class Game {
             }
             addItemToInventory();
             removeItem();
+            InventoryList();
         }
     }
+
+    public void InventoryList(){
+        Iterator it = inventory.trash.entrySet().iterator();
+        while (it.hasNext()){
+            HashMap.Entry pair=(HashMap.Entry)it.next();
+            System.out.println(pair.getKey()+" = "+pair.getValue());
+            it.remove(); // avoids a ConcurrentModificationException
+        }}
+
 
     private void removeItem() {
 
@@ -298,10 +290,6 @@ public class Game {
     private void addItemToInventory() {
         inventory.addTrash(currentItem.getItemDescription(), currentItem);
     }
-//
-//    public  boolean inventory(Command command){
-//        return !command.hasCommandValue();
-//    }
 
 
     //------------------------------------getCommands Implementation------------------------------------
@@ -323,6 +311,9 @@ public class Game {
 
     public String getItemList() {
         return currentRoom.getRoomItemList();
+    }
+    public String getAddedPoints() {
+        return addedPoints;
     }
 }
 

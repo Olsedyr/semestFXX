@@ -100,8 +100,7 @@
             <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">
                 <StackPane.margin>
                     <Insets right="10.0" top="10.0" />
-                </StackPane.margin>
-            </Button>
+                </StackPane.margin></Button>
             <Button fx:id="Help" mnemonicParsing="false" onAction="#help" text="Hjælp" StackPane.alignment="TOP_RIGHT">
                 <StackPane.margin>
                     <Insets right="70.0" top="10.0" />
@@ -112,28 +111,58 @@
                     <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
                 </StackPane.margin>
                 <children>
-                    <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="1000.0">
+                    <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i dit soveværelse i dit hjem." wrappingWidth="1000.0">
                         <font>
                             <Font size="18.0" />
                         </font>
                     </Text>
                 </children>
             </TextFlow>
-            <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+            <Button fx:id="loadHighscore" mnemonicParsing="false" onAction="#loadHighscore" text="Highscore">
+                <StackPane.margin>
+                    <Insets bottom="685.0" left="950.0" top="10.0" />
+                </StackPane.margin>
+            </Button>
+            <TextFlow>
                 <children>
-                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                    <Text fx:id="highscoreLoader" strokeType="OUTSIDE" strokeWidth="0.0">
+                        <font>
+                            <Font name="DINPro-Bold" size="26.0" />
+                        </font></Text>
                 </children>
-            </StackPane>
+                <StackPane.margin>
+                    <Insets bottom="1275.0" left="6.0" right="300.0" top="610.0" />
+                </StackPane.margin>
+            </TextFlow>
+            <Text fx:id="guiScore2" strokeType="OUTSIDE" strokeWidth="0.0">
+                <font>
+                    <Font name="DINPro-Bold" size="22.0" />
+                </font>
+                <StackPane.margin>
+                    <Insets bottom="675.0" left="500.0" right="-250.0" />
+                </StackPane.margin>
+            </Text>
+            <Button fx:id="Inventory1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
+                <StackPane.margin>
+                    <Insets bottom="10.0" right="10.0" />
+                </StackPane.margin>
+            </Button>
+            <ImageView fx:id="sodavandsdåser" fitHeight="76.0" fitWidth="112.0" onMouseClicked="#collectSodavandsdåser" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                <image>
+                    <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Sodavandsdåser/Dåser.png" />
+                </image>
+                <StackPane.margin>
+                    <Insets left="100.0" top="20.0" />
+                </StackPane.margin>
+            </ImageView>
             <!--  <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loadKitchen" opacity="0.0" prefHeight="406.0" prefWidth="193.0" text="Button" StackPane.alignment="CENTER_LEFT">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets></Button>
-
-                     <StackPane.margin>
-                        <Insets left="625.0" />
-                     </StackPane.margin>
-                  </Button> -->
+                 <opaqueInsets>
+                    <Insets />
+                 </opaqueInsets></Button>
+                 <StackPane.margin>
+                    <Insets left="625.0" />
+                 </StackPane.margin>
+              </Button> -->
 
         </children>
     </StackPane>
@@ -192,7 +221,7 @@
                     <Insets left="874.0" top="32.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="badShower" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" visible="false">
+            <ImageView fx:id="badShower" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" onMouseClicked="#choiceBad" visible="false">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/tubshower.png" />
                 </image>
@@ -200,7 +229,7 @@
                     <Insets left="874.0" top="32.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="badTub" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" visible="false">
+            <ImageView fx:id="badTub" fitHeight="467.0" fitWidth="394.0" layoutX="890.0" layoutY="152.0" onMouseClicked="#choiceBad" visible="false">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Badeværesle/Bad/tubfull.png" />
                 </image>
@@ -223,7 +252,7 @@
                     <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
                 </StackPane.margin>
                 <children>
-                    <Text fx:id="display3" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="1000.0">
+                    <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er på badeværelset. Du mærker de kolde klinker under dine fødder." wrappingWidth="1000.0">
                         <font>
                             <Font size="18.0" />
                         </font>
@@ -254,15 +283,19 @@
                     <Insets />
                 </opaqueInsets>
             </AnchorPane>
+            <Button fx:id="Inventory1" alignment="CENTER_RIGHT" layoutX="10.0" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
+                <StackPane.margin>
+                    <Insets bottom="10.0" right="10.0" />
+                </StackPane.margin>
+            </Button>
             <!--  <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loadKitchen" opacity="0.0" prefHeight="406.0" prefWidth="193.0" text="Button" StackPane.alignment="CENTER_LEFT">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets></Button>
-
-                     <StackPane.margin>
-                        <Insets left="625.0" />
-                     </StackPane.margin>
-                  </Button> -->
+                 <opaqueInsets>
+                    <Insets />
+                 </opaqueInsets></Button>
+                 <StackPane.margin>
+                    <Insets left="625.0" />
+                 </StackPane.margin>
+              </Button> -->
 
         </children>
     </StackPane>
@@ -297,7 +330,7 @@
                     <Insets right="662.0" top="120.0" />
                 </StackPane.margin>
             </Rectangle>
-            <ImageView fx:id="køleskabÅbnet" fitHeight="435.0" fitWidth="195.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="køleskabÅbnet" fitHeight="435.0" fitWidth="195.0" onMouseClicked="#choiceKøleskab" pickOnBounds="true" preserveRatio="true" visible="false">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Køleskab/KøleskabÅbnet.png" />
                 </image>
@@ -305,7 +338,7 @@
                     <Insets right="662.0" top="120.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="salat" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="salat" fitHeight="40.0" fitWidth="50.0" onMouseDragged="#choiceKøleskab" pickOnBounds="true" preserveRatio="true" visible="false">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Køleskab/Salat.png" />
                 </image>
@@ -313,7 +346,7 @@
                     <Insets right="268.0" top="34.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="burger" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="burger" fitHeight="40.0" fitWidth="50.0" onMouseClicked="#choiceKøleskab" pickOnBounds="true" preserveRatio="true" visible="false">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Køleskab/Burger.png" />
                 </image>
@@ -361,7 +394,7 @@
                     <Insets left="630.0" top="264.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="komfurTændt" fitHeight="295.0" fitWidth="220.0" layoutX="856.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="komfurTændt" fitHeight="295.0" fitWidth="220.0" layoutX="856.0" layoutY="355.0" onMouseClicked="#choiceKomfur" pickOnBounds="true" preserveRatio="true" visible="false">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Komfur/KomfurTændt.png" />
                 </image>
@@ -369,7 +402,7 @@
                     <Insets left="640.0" top="320.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="komfurPande" fitHeight="294.0" fitWidth="223.0" layoutX="860.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="komfurPande" fitHeight="294.0" fitWidth="223.0" layoutX="860.0" layoutY="409.0" onMouseClicked="#choiceKomfur" pickOnBounds="true" preserveRatio="true" visible="false">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Komfur/KomfurPande.png" />
                 </image>
@@ -377,7 +410,7 @@
                     <Insets left="638.0" top="266.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="mælkekarton" fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="mælkekarton" fitHeight="75.0" fitWidth="100.0" onMouseClicked="#collectMælkekarton" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Mælkekarton/Mælkekarton.png" />
                 </image>
@@ -385,7 +418,7 @@
                     <Insets left="220.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="pizzabakke" fitHeight="200.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="pizzabakke" fitHeight="200.0" fitWidth="150.0" onMouseClicked="#collectPizzabakke" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Køkken/Pizzabakke/Pizzabakke.png" />
                 </image>
@@ -456,13 +489,18 @@
                     <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
                 </StackPane.margin>
                 <children>
-                    <Text fx:id="display4" fill="#f2f2f2" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="1000.0">
+                    <Text fx:id="display" fill="#f2f2f2" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i køkkenet. Der var gæster på besøg i går og det kan ses." wrappingWidth="1000.0">
                         <font>
                             <Font size="18.0" />
                         </font>
                     </Text>
                 </children>
             </TextFlow>
+            <Button fx:id="Inventory1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
+                <StackPane.margin>
+                    <Insets bottom="10.0" right="10.0" />
+                </StackPane.margin>
+            </Button>
         </children>
     </StackPane>
     <StackPane fx:id="cityPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
@@ -483,7 +521,15 @@
                     <Insets left="80.0" top="260.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="bil" fitHeight="182.0" fitWidth="390.0" onMouseClicked="#choiceTransport" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_CENTER">
+            <ImageView fx:id="transport" fitHeight="130.0" fitWidth="593.0" onMouseClicked="#choiceTransport" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_RIGHT">
+                <image>
+                    <Image url="@../../../Projekt_Billeder/ProjektBilleder/Byen/Transport/choiseTransport.png" />
+                </image>
+                <StackPane.margin>
+                    <Insets bottom="6.0" right="28.0" />
+                </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="bil" fitHeight="182.0" fitWidth="390.0" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="BOTTOM_CENTER">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Byen/Transport/car.png" />
                 </image>
@@ -491,12 +537,12 @@
                     <Insets bottom="-20.0" left="440.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="cykle" fitHeight="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+            <ImageView fx:id="cykle" fitHeight="100.0" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="CENTER_RIGHT">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Byen/Transport/Cykel1.png" />
                 </image>
                 <StackPane.margin>
-                    <Insets right="400.0" top="550.0" />
+                    <Insets right="50.0" top="550.0" />
                 </StackPane.margin>
             </ImageView>
             <ImageView fx:id="cityToBeach" fitHeight="70.0" fitWidth="70.0" onMouseClicked="#loadBeach" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
@@ -510,13 +556,11 @@
             <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">
                 <StackPane.margin>
                     <Insets right="10.0" top="10.0" />
-                </StackPane.margin>
-            </Button>
+                </StackPane.margin></Button>
             <Button fx:id="Help" mnemonicParsing="false" onAction="#help" text="Hjælp" StackPane.alignment="TOP_RIGHT">
                 <StackPane.margin>
                     <Insets right="70.0" top="10.0" />
-                </StackPane.margin>
-            </Button>
+                </StackPane.margin></Button>
             <AnchorPane fx:id="transportChoice" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="false">
                 <children>
                     <Rectangle height="720.0" onMouseClicked="#choiceTransport" opacity="0.4" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
@@ -546,13 +590,18 @@
                     <Insets bottom="10.0" left="10.0" right="615.0" top="570.0" />
                 </StackPane.margin>
                 <children>
-                    <Text fx:id="display5" fill="#fffefe" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="1000.0">
+                    <Text fx:id="display" fill="#fffefe" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i byen, travl som altid. Du kan vælge enten at tage en bil eller en cykel hjem." wrappingWidth="1000.0">
                         <font>
                             <Font size="18.0" />
                         </font>
                     </Text>
                 </children>
             </TextFlow>
+            <Button fx:id="Inventory1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
+                <StackPane.margin>
+                    <Insets bottom="10.0" right="10.0" />
+                </StackPane.margin>
+            </Button>
         </children>
     </StackPane>
     <StackPane fx:id="beachPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
@@ -580,18 +629,148 @@
                     <Insets right="70.0" top="10.0" />
                 </StackPane.margin>
             </Button>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#npcQuiz" prefHeight="250.0" prefWidth="100.0" StackPane.alignment="CENTER">
+                <children>
+                    <ImageView fitHeight="63.0" fitWidth="46.0" layoutX="32.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Question_mark.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Strand/NPC.png" />
+                        </image>
+                    </ImageView>
+                </children>
+                <StackPane.margin>
+                    <Insets left="450.0" />
+                </StackPane.margin>
+            </AnchorPane>
+            <AnchorPane fx:id="npcQuiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="false">
+                <children>
+                    <Rectangle height="720.0" onMouseClicked="#npcQuiz" opacity="0.4" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
+                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="400.0" layoutX="376.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="500.0" />
+                    <AnchorPane fx:id="npcQuiz1" layoutX="376.0" layoutY="186.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" visible="false">
+                        <children>
+                            <AnchorPane fx:id="npcQuizF1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0">
+                                <children>
+                                    <Button layoutX="52.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Bruge flere produkter">
+                                        <font>
+                                            <Font size="24.0" />
+                                        </font>
+                                    </Button>
+                                    <Button layoutX="52.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Tage bilen i stedet for cyklen">
+                                        <font>
+                                            <Font size="24.0" />
+                                        </font>
+                                    </Button>
+                                    <Button layoutX="52.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Aner det ikke">
+                                        <font>
+                                            <Font size="24.0" />
+                                        </font>
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="20.0" layoutY="14.0" prefHeight="100.0" prefWidth="459.0" text="Hej du! Ved du om der er noget, du kan gøre for at hjælpe med klimakrisen?" textAlignment="CENTER" wrapText="true">
+                                <font>
+                                    <Font size="26.0" />
+                                </font>
+                            </Label>
+                            <Button layoutX="52.0" layoutY="182.0" mnemonicParsing="false" onMouseClicked="#npcQuizT" prefHeight="51.0" prefWidth="395.0" text="Prøve at slukke for computeren">
+                                <font>
+                                    <Font size="24.0" />
+                                </font>
+                            </Button>
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane fx:id="npcQuiz2" layoutX="376.0" layoutY="186.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" visible="false">
+                        <children>
+                            <AnchorPane fx:id="npcQuizF2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0">
+                                <children>
+                                    <Button layoutX="52.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Kød baseret diæt">
+                                        <font>
+                                            <Font size="24.0" />
+                                        </font>
+                                    </Button>
+                                    <Button layoutX="52.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Aner det ikke">
+                                        <font>
+                                            <Font size="24.0" />
+                                        </font>
+                                    </Button>
+                                    <Button layoutX="52.0" layoutY="185.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Tage lang wame bad hver dag">
+                                        <font>
+                                            <Font size="24.0" />
+                                        </font>
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="20.0" layoutY="14.0" prefHeight="100.0" prefWidth="459.0" text="Hej du! Ved du om der er noget, du kan gøre for at hjælpe med klimakrisen?" textAlignment="CENTER" wrapText="true">
+                                <font>
+                                    <Font size="26.0" />
+                                </font>
+                            </Label>
+                            <Button layoutX="52.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#npcQuizT" prefHeight="51.0" prefWidth="395.0" text="Genbruge og sortere affald">
+                                <font>
+                                    <Font size="24.0" />
+                                </font>
+                            </Button>
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane fx:id="npcQuiz3" layoutX="376.0" layoutY="186.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" visible="false">
+                        <children>
+                            <AnchorPane fx:id="npcQuizF3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0">
+                                <children>
+                                    <Button layoutX="52.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Næste generationers problem">
+                                        <font>
+                                            <Font size="24.0" />
+                                        </font>
+                                    </Button>
+                                    <Button layoutX="52.0" layoutY="181.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Bor i vildmarken">
+                                        <font>
+                                            <Font size="24.0" />
+                                        </font>
+                                    </Button>
+                                    <Button layoutX="52.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Aner det ikke">
+                                        <font>
+                                            <Font size="24.0" />
+                                        </font>
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="20.0" layoutY="14.0" prefHeight="100.0" prefWidth="459.0" text="Hej du! Ved du om der er noget, du kan gøre for at hjælpe med klimakrisen?" textAlignment="CENTER" wrapText="true">
+                                <font>
+                                    <Font size="26.0" />
+                                </font>
+                            </Label>
+                            <Button layoutX="52.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#npcQuizT" prefHeight="51.0" prefWidth="395.0" text="Sprede bevidstheden">
+                                <font>
+                                    <Font size="24.0" />
+                                </font>
+                            </Button>
+                        </children>
+                    </AnchorPane>
+                </children>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </AnchorPane>
             <TextFlow StackPane.alignment="BOTTOM_LEFT">
                 <StackPane.margin>
                     <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
                 </StackPane.margin>
                 <children>
-                    <Text fx:id="display6" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="1000.0">
+                    <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er på stranden. Sandet er blødt under din fødder." wrappingWidth="1000.0">
                         <font>
                             <Font size="18.0" />
                         </font>
                     </Text>
                 </children>
             </TextFlow>
+            <Button fx:id="Inventory1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
+                <StackPane.margin>
+                    <Insets bottom="10.0" right="10.0" />
+                </StackPane.margin>
+            </Button>
         </children>
     </StackPane>
 </StackPane>
