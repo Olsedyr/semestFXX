@@ -83,9 +83,7 @@ public class HelloController implements Initializable {
     //------------------------------------------------------------------------------------------------------------------
     ///ActionEvent
     public void loadHighscore(ActionEvent event) throws IOException {
-        String fileName = "score.txt";
-        File file = new File(fileName);
-        FileReader fr = new FileReader(file);
+        FileReader fr = new FileReader(game.scoreFile);
         BufferedReader br = new BufferedReader(fr);
         String line;
         while((line = br.readLine()) != null){
