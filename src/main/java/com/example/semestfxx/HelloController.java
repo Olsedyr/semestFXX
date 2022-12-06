@@ -521,28 +521,28 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("silkepapir");
         game.switchItemState();
         showNewPoints(game.currentItem);
-        silkepapir.setImage(null);
+        silkepapir.setVisible(false);
         itemToInventory();
     }
     public void collectPizzabakke(MouseEvent event) {
         game.currentItem = game.currentRoom.getItem("pizzabakke");
         game.switchItemState();
         showNewPoints(game.currentItem);
-        pizzabakke.setImage(null);
+        pizzabakke.setVisible(false);
         itemToInventory();
     }
     public void collectMælkekarton(MouseEvent event) {
         game.currentItem = game.currentRoom.getItem("mælkekarton");
         game.switchItemState();
         showNewPoints(game.currentItem);
-        mælkekarton.setImage(null);
+        mælkekarton.setVisible(false);
         itemToInventory();
     }
     public void collectSodavandsdåser (MouseEvent event) {
         game.currentItem = game.currentRoom.getItem("sodavandsdåser");
         game.switchItemState();
         showNewPoints(game.currentItem);
-        sodavandsdåser.setImage(null);
+        sodavandsdåser.setVisible(false);
         itemToInventory();
     }
 
