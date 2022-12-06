@@ -300,10 +300,11 @@ public class HelloController implements Initializable {
 
     @FXML
     void showInventory (ActionEvent event) {
-        if(inventoryList.isVisible()==false){;
-            inventoryList.setVisible(true);
+        if(display.isVisible()==false){;
+            display.setVisible(true);
+            display.setText(game.getInventoryDescription());
         } else {
-            inventoryList.setVisible(false);
+            display.setVisible(false);
         }
     }
     @FXML
