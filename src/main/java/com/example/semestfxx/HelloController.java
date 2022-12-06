@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -60,6 +61,9 @@ public class HelloController implements Initializable {
                 pizzabakke, mælkekarton;
     @FXML
     private Button quitGame, helpGame;
+
+    @FXML
+    private ListView<String> inventoryList;
 
     @FXML
     private Text display, highscoreLoader, guiScore2;
@@ -541,12 +545,14 @@ public class HelloController implements Initializable {
         game.switchItemState();
         silkepapir.setImage(null);
         showNewPoints(game.currentItem);
+        itemToInventory();
     }
     public void collectPizzabakke(MouseEvent event) {
         game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("pizzabakke");
         game.switchItemState();
         pizzabakke.setImage(null);
+        itemToInventory();
     }
 
     public void collectMælkekarton(MouseEvent event) {
@@ -554,6 +560,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("mælkekarton");
         game.switchItemState();
         mælkekarton.setImage(null);
+        itemToInventory();
     }
 
     public void collectSodavandsdåser (MouseEvent event) {
@@ -561,10 +568,17 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("sodavandsdåser");
         game.switchItemState();
         sodavandsdåser.setImage(null);
+        itemToInventory();
     }
 
     //------------------------------------------------------------------------------------------------------------------
-
+    // Inventory
+    public void itemToInventory() {
+        if (inventoryList==null) {
+            inventoryList = new ListView<String>();
+        }
+        inventoryList.getItems().add(game.currentItem.itemName);
+    }
 
 
 
@@ -615,7 +629,7 @@ public class HelloController implements Initializable {
     void showInventory (ActionEvent event) {
         if (display.isVisible()==false) {
             display.setVisible(true);
-            display.setText(GameText.textInventory());
+            display.setText(game.getInventoryDescription());
         } else {
             display.setVisible(false);
         }
