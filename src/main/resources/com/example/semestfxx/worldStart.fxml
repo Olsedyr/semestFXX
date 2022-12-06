@@ -425,7 +425,7 @@
                     <Insets bottom="6.0" right="28.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="bil" fitHeight="182.0" fitWidth="390.0" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="BOTTOM_CENTER">
+            <ImageView fx:id="bil" fitHeight="182.0" fitWidth="390.0" onMouseClicked="#choiceTransport" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="BOTTOM_CENTER">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Byen/Transport/car.png" />
                 </image>
@@ -433,7 +433,7 @@
                     <Insets bottom="-20.0" left="440.0" />
                 </StackPane.margin>
             </ImageView>
-            <ImageView fx:id="cykle" fitHeight="100.0" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="CENTER_RIGHT">
+            <ImageView fx:id="cykle" fitHeight="100.0" onMouseClicked="#choiceTransport" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="CENTER_RIGHT">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Byen/Transport/Cykel1.png" />
                 </image>
@@ -458,12 +458,12 @@
                             <Font size="24.0" />
                         </font>
                     </Button>
-                    <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="515.0" layoutY="238.0" prefHeight="100.0" prefWidth="250.0" text="Tage du cyklen eller billen?" textAlignment="CENTER" wrapText="true">
+                    <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="515.0" layoutY="238.0" prefHeight="100.0" prefWidth="250.0" text="Tager du cyklen eller bilen?" textAlignment="CENTER" wrapText="true">
                         <font>
                             <Font size="28.0" />
                         </font>
                     </Label>
-                    <Button layoutX="540.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#choiceBil" prefWidth="200.0" text="Billen">
+                    <Button layoutX="540.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#choiceBil" prefWidth="200.0" text="Bilen">
                         <font>
                             <Font size="24.0" />
                         </font>
@@ -509,7 +509,7 @@
             </AnchorPane>
             <AnchorPane fx:id="npcQuiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="false">
                 <children>
-                    <Rectangle height="720.0" onMouseClicked="#npcQuiz" opacity="0.4" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
+                    <Rectangle height="720.0" opacity="0.4" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="400.0" layoutX="376.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="500.0" />
                     <AnchorPane fx:id="npcQuiz1" layoutX="376.0" layoutY="186.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" visible="false">
                         <children>
@@ -537,7 +537,7 @@
                                     <Font size="26.0" />
                                 </font>
                             </Label>
-                            <Button layoutX="52.0" layoutY="182.0" mnemonicParsing="false" onMouseClicked="#npcQuizT" prefHeight="51.0" prefWidth="395.0" text="Prøve at slukke for computeren">
+                            <Button layoutX="52.0" layoutY="182.0" mnemonicParsing="false" onMouseClicked="#npcQuizT" prefHeight="51.0" prefWidth="395.0" text="Slukke for computeren">
                                 <font>
                                     <Font size="24.0" />
                                 </font>
@@ -548,7 +548,7 @@
                         <children>
                             <AnchorPane fx:id="npcQuizF2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0">
                                 <children>
-                                    <Button layoutX="52.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Kød baseret diæt">
+                                    <Button layoutX="52.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Kødbaseret diæt">
                                         <font>
                                             <Font size="24.0" />
                                         </font>
@@ -558,7 +558,7 @@
                                             <Font size="24.0" />
                                         </font>
                                     </Button>
-                                    <Button layoutX="52.0" layoutY="185.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Tage lang wame bad hver dag">
+                                    <Button layoutX="52.0" layoutY="185.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Tage lange varme bade hver dag">
                                         <font>
                                             <Font size="24.0" />
                                         </font>
@@ -581,7 +581,7 @@
                         <children>
                             <AnchorPane fx:id="npcQuizF3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0">
                                 <children>
-                                    <Button layoutX="52.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Næste generationers problem">
+                                    <Button layoutX="52.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#npcQuizF" prefHeight="51.0" prefWidth="395.0" text="Næste generations problem">
                                         <font>
                                             <Font size="24.0" />
                                         </font>
@@ -603,7 +603,7 @@
                                     <Font size="26.0" />
                                 </font>
                             </Label>
-                            <Button layoutX="52.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#npcQuizT" prefHeight="51.0" prefWidth="395.0" text="Sprede bevidstheden">
+                            <Button layoutX="52.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#npcQuizT" prefHeight="51.0" prefWidth="395.0" text="Skabe opmærksomhed">
                                 <font>
                                     <Font size="24.0" />
                                 </font>
@@ -632,15 +632,18 @@
          <Insets right="200.0" top="10.0" />
       </StackPane.margin>
    </Button>
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0e6eb" height="120.0" stroke="BLACK" strokeType="INSIDE" width="680.0" StackPane.alignment="BOTTOM_LEFT" />
-   <TextFlow maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="680.0" StackPane.alignment="BOTTOM_LEFT">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0e6eb" height="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="4.0" width="695.0" StackPane.alignment="BOTTOM_LEFT" />
+   <TextFlow maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="118.0" prefWidth="680.0" StackPane.alignment="BOTTOM_LEFT">
       <children>
          <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i dit soveværelse i dit hjem." wrappingWidth="1000.0">
             <font>
-               <Font size="18.0" />
+               <Font size="16.0" />
             </font>
          </Text>
       </children>
+      <StackPane.margin>
+         <Insets left="6.0" />
+      </StackPane.margin>
    </TextFlow>
    <TextFlow maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="200.0" StackPane.alignment="TOP_LEFT">
       <children>

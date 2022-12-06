@@ -17,9 +17,6 @@ public class Room{
         roomItems.put(itemName,item);
     }
 
-    public String getShortDescription() {
-        return description;
-    }
     public String getLongDescription() {
         return "Du er " + description + ".";
     }
@@ -27,6 +24,7 @@ public class Room{
     public String getRoomItemList() {
         return "Du ser " + roomItems.size() + " objekter af interesse:" + getItemString();
     }
+
     private String getItemString(){
         String returnString = "";
         Set<String> keys = roomItems.keySet();
@@ -42,7 +40,5 @@ public class Room{
     }
 
     public Item getItem(String itemName) { return roomItems.get(itemName);}
-
-
 }
 

@@ -30,26 +30,20 @@ public class HelloController implements Initializable {
     private Room currentRoom;
     public Item currentItem;
     public StackPane bedroomPane, bathroomPane, kitchenPane, cityPane, beachPane;
-
     public Inventory inventory;
-
-
     @FXML
     private StackPane rootPane;
 
     //Items
     @FXML
-
     private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, vindueÅben, vindueLukket,
                 badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad, badShower, badTub,
-
                 køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket, køleskabÅbnet, salat, burger, komfurTændt, komfurPande,
                 cykle, bil, sodavandsdåser, transport;
-
     @FXML
     private AnchorPane badChoice, køleskabChoice, komfurChoice, transportChoice, npcQuiz, npcQuiz1, npcQuiz2, npcQuiz3, npcQuizF1, npcQuizF2, npcQuizF3;
 
-        //Doors
+    //Doors
     @FXML
     private ImageView bedroomToBathroom, bathroomToBedroom,
                 kitchenToBedroom, bedroomToKitchen,
@@ -59,13 +53,10 @@ public class HelloController implements Initializable {
     //TrashItems
     @FXML
     private ImageView silkepapir, pizzabakke, mælkekarton;
-
     @FXML
     private Button quitGame, helpGame;
-
     @FXML
     private ListView<String> inventoryList;
-
     @FXML
     private Text display, highscoreLoader;
 
@@ -151,7 +142,6 @@ public class HelloController implements Initializable {
     @FXML
     void showCeilingLight (MouseEvent event) {
         game.currentItem = game.currentRoom.getItem("soveværelseLampe");
-
         if(event.getButton() == MouseButton.SECONDARY){
             showDescription(game.currentItem);
         } else {
@@ -174,7 +164,6 @@ public class HelloController implements Initializable {
     @FXML
     void showComputer (MouseEvent event) {
         game.currentItem = game.currentRoom.getItem("computer");
-
         if(event.getButton() == MouseButton.SECONDARY){
             showDescription(game.currentItem);
         } else {
@@ -296,7 +285,6 @@ public class HelloController implements Initializable {
         badChoice.setVisible(false);
         badTub.setVisible(true);
     }
-
 
     //------------------------------------------------------------------------------------------------------------------
     // Køkken: Tænder/Slukker køkken lys
@@ -576,37 +564,23 @@ public class HelloController implements Initializable {
 
     public void showRoomDescription(Room currentRoom) {
         display.setText(currentRoom.getLongDescription());
-        display.setVisible(true);
     }
 
     public void showDescription(Item currentItem) {
-
         if (display.isVisible()==false) {
-            display.setVisible(true);
             display.setText(currentItem.getItemDescription());
-        } else if(display.isVisible() == true && currentItem.getItemDescription().equals(display.getText())){
-            display.setVisible(false);
         } else {
             display.setText(currentItem.getItemDescription());
         }
     }
+
     public void showNewPoints(Item currentItem) {
-        if (display.isVisible()==false) {
-            display.setVisible(true);
-            display.setText(game.getAddedPoints());
-        } else {
-            display.setText(game.getAddedPoints());
-        }
+        display.setText(game.getAddedPoints());
     }
 
     @FXML
     void showInventory (ActionEvent event) {
-        if (display.isVisible()==false) {
-            display.setVisible(true);
-            display.setText(game.getInventoryDescription());
-        } else {
-            display.setVisible(false);
-        }
+        display.setText(game.getInventoryDescription());
     }
 }
 

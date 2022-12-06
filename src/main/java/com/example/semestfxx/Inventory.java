@@ -15,10 +15,6 @@ public class Inventory {
         trash.put( string, item);
     }
 
-    public void removeTrash (Item item) {
-        trash.remove(item);
-    }
-
     public String getInventoryString() {
         String returnString = "Din affaldspose:";
         Set<String> keys = trash.keySet();
