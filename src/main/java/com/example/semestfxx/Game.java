@@ -69,11 +69,11 @@ public class Game {
                         " at der er sket noget du ikke har hørt om tidligere.",
                 "Der er et TV i dit køkken. Det er lige nu slukket, og bruger dermed ikke unødig strøm. " +
                         "Du har alligevel ikke lyst til at se noget på det lige nu.",
-                3,true);
+                2,true);
         vandhane = new Item.ToggleItem(" Dette burde du ikke kunne se! pinligt...",
                 "vandhane","Der er et vandhane på badeværelset. Den står og drypper, formentligt fra da du vaskede hænder tidligere på dagen.",
                 "Der er en vandhane på badeværelset. Lige nu er den ikke i brug, og bruger dermed ikke unødig rent vand.",
-                3,true);
+                2,true);
         badeværelseLys = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "badeværelseLys","Du kigger på badeværelseslyset. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
                 "Der er ikke så mange vinduer herinde, men det der er vender så solen skinner direkte ind. Gardinerne er trukket fra.",
