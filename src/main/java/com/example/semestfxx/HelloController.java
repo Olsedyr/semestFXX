@@ -136,24 +136,29 @@ public class HelloController implements Initializable {
         bedroomPane.setVisible(true);
         kitchenPane.setVisible(false);
         bathroomPane.setVisible(false);
+        game.currentRoom = game.rooms.get(0);
     }
     public void loadKitchen(MouseEvent event) throws IOException {
+        kitchenPane.setVisible(true);
         bedroomPane.setVisible(false);
         cityPane.setVisible(false);
-        kitchenPane.setVisible(true);
+        game.currentRoom = game.rooms.get(1);
     }
     public void loadBathroom(MouseEvent event) throws IOException {
         bedroomPane.setVisible(false);
         bathroomPane.setVisible(true);
+        game.currentRoom = game.rooms.get(2);
     }
     public void loadCity(MouseEvent event) throws IOException {
         cityPane.setVisible(true);
         beachPane.setVisible(false);
         kitchenPane.setVisible(false);
+        game.currentRoom = game.rooms.get(3);
     }
     public void loadBeach(MouseEvent event) throws IOException {
         beachPane.setVisible(true);
         cityPane.setVisible(false);
+        game.currentRoom = game.rooms.get(4);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -218,7 +223,7 @@ public class HelloController implements Initializable {
     // Badeværelse: Tænder/Slukker badeværelse lys
     @FXML
     void toggleBadeværelseLys (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
+        game.currentRoom = game.rooms.get(2);
         game.currentItem = game.currentRoom.getItem("badeværelselys");
         game.switchItemState();
 
@@ -235,7 +240,7 @@ public class HelloController implements Initializable {
     // Badeværelse: Tænder/Slukker vandhane
     @FXML
     void toggleVandhane (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
+        game.currentRoom = game.rooms.get(2);
         game.currentItem = game.currentRoom.getItem("vandhane");
         game.switchItemState();
 
@@ -252,7 +257,7 @@ public class HelloController implements Initializable {
     // Badeværelse: Bad choice
     @FXML
     void choiceBad (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
+        game.currentRoom = game.rooms.get(2);
         game.currentItem = game.currentRoom.getItem("bad");
         if(game.currentItem.getItemUsed()==false) {
             if (badChoice.isVisible() == true) {
@@ -283,7 +288,7 @@ public class HelloController implements Initializable {
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
+        game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("køkkenlampe");
         game.switchItemState();
 
@@ -300,7 +305,7 @@ public class HelloController implements Initializable {
     // Køkken: Tænder/Slukker TV
     @FXML
     void toggleTv (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
+        game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("tv");
         game.switchItemState();
 
@@ -317,7 +322,7 @@ public class HelloController implements Initializable {
     // Køkken Choice: Køleskab
     @FXML
     void choiceKøleskab (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
+        game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("køleskab");
         if(game.currentItem.getItemUsed()==false) {
             if(køleskabChoice.isVisible()==true) {
@@ -351,7 +356,7 @@ public class HelloController implements Initializable {
     // Køkken Choice: Komfur
     @FXML
     void choiceKomfur (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
+        game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("komfur");
         if(game.currentItem.getItemUsed()==false) {
             if (komfurChoice.isVisible()==true) {
@@ -411,7 +416,7 @@ public class HelloController implements Initializable {
     // Strand:
     @FXML
     void npcQuiz (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
+        game.currentRoom = game.rooms.get(3);
         if (npcQuiz.isVisible() == true) {
             npcQuiz.setVisible(false);
             npcQuiz1.setVisible(false);
