@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -17,36 +18,33 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-
 import java.io.*;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.ResourceBundle;
 
-import static java.lang.System.out;
 
 public class HelloController implements Initializable {
 
     private Game game;
     private Room currentRoom;
     public Item currentItem;
-    public StackPane bedroomPane;
-    public StackPane bathroomPane;
-    public StackPane kitchenPane;
-    public StackPane cityPane;
-    public StackPane beachPane;
-    public StackPane funktion;
+    public StackPane bedroomPane, bathroomPane, kitchenPane, cityPane, beachPane;
+
+    public Inventory inventory;
+
 
     @FXML
     private StackPane rootPane;
 
-        //Items
+    //Items
     @FXML
 
-    private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, radiator, vindueÅben, vindueLukket,
+    private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, vindueÅben, vindueLukket,
                 badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad, badShower, badTub,
+
                 køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket, køleskabÅbnet, salat, burger, komfurTændt, komfurPande,
-                cykle, bil, sodavandsdåser, transport;;
+                cykle, bil, sodavandsdåser, transport;
 
     @FXML
     private AnchorPane badChoice, køleskabChoice, komfurChoice, transportChoice, npcQuiz, npcQuiz1, npcQuiz2, npcQuiz3, npcQuizF1, npcQuizF2, npcQuizF3;
@@ -58,17 +56,18 @@ public class HelloController implements Initializable {
                 kitchenToCity, cityToKitchen,
                 cityToBeach, beachToCity;
 
-        //TrashItems
+    //TrashItems
     @FXML
-    private ImageView silkepapir,
-                pizzabakke, mælkekarton;
+    private ImageView silkepapir, pizzabakke, mælkekarton;
+
     @FXML
     private Button quitGame, helpGame;
 
     @FXML
-    private Text display, highscoreLoader, guiScore2;
+    private ListView<String> inventoryList;
 
-
+    @FXML
+    private Text display, highscoreLoader;
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -78,7 +77,7 @@ public class HelloController implements Initializable {
         game = GameSingleton.getInstance().getGame();
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
-
+        inventory = GameSingleton.getInstance().getGame().inventory;
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -118,40 +117,39 @@ public class HelloController implements Initializable {
         kitchenPane.setVisible(false);
         bathroomPane.setVisible(false);
         game.currentRoom = game.rooms.get(0);
+        showRoomDescription(game.currentRoom);
     }
     public void loadKitchen(MouseEvent event) throws IOException {
         kitchenPane.setVisible(true);
         bedroomPane.setVisible(false);
         cityPane.setVisible(false);
         game.currentRoom = game.rooms.get(1);
+        showRoomDescription(game.currentRoom);
     }
     public void loadBathroom(MouseEvent event) throws IOException {
         bedroomPane.setVisible(false);
         bathroomPane.setVisible(true);
         game.currentRoom = game.rooms.get(2);
+        showRoomDescription(game.currentRoom);
     }
     public void loadCity(MouseEvent event) throws IOException {
         cityPane.setVisible(true);
         beachPane.setVisible(false);
         kitchenPane.setVisible(false);
         game.currentRoom = game.rooms.get(3);
+        showRoomDescription(game.currentRoom);
     }
     public void loadBeach(MouseEvent event) throws IOException {
         beachPane.setVisible(true);
         cityPane.setVisible(false);
         game.currentRoom = game.rooms.get(4);
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
-    public void deleteItem() throws IOException {
-        // relevantfx:id.setImage(null);
+        showRoomDescription(game.currentRoom);
     }
 
     //------------------------------------------------------------------------------------------------------------------
     // Soveværelse: Tænder/Slukker lys
     @FXML
     void showCeilingLight (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
         game.currentItem = game.currentRoom.getItem("soveværelseLampe");
 
         if(event.getButton() == MouseButton.SECONDARY){
@@ -175,7 +173,6 @@ public class HelloController implements Initializable {
     // Soveværelse: Tænder/Slukker computer
     @FXML
     void showComputer (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
         game.currentItem = game.currentRoom.getItem("computer");
 
         if(event.getButton() == MouseButton.SECONDARY){
@@ -199,9 +196,7 @@ public class HelloController implements Initializable {
     //Soveværelse: Åbner/Lukker vindue
     @FXML
     void showWindow (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
         game.currentItem = game.currentRoom.getItem("vindue");
-
         if(event.getButton() == MouseButton.SECONDARY){
             showDescription(game.currentItem);
         } else {
@@ -224,8 +219,6 @@ public class HelloController implements Initializable {
     // Badeværelse: Tænder/Slukker badeværelse lys
     @FXML
     void toggleBadeværelseLys (MouseEvent event) {
-        game.currentRoom = game.rooms.get(2);
-
         game.currentItem = game.currentRoom.getItem("badeværelseLys");
         if(event.getButton() == MouseButton.SECONDARY){
             showDescription(game.currentItem);
@@ -248,9 +241,7 @@ public class HelloController implements Initializable {
     // Badeværelse: Tænder/Slukker vandhane
     @FXML
     void toggleVandhane (MouseEvent event) {
-        game.currentRoom = game.rooms.get(2);
         game.currentItem = game.currentRoom.getItem("vandhane");
-
         if(event.getButton() == MouseButton.SECONDARY){
             showDescription(game.currentItem);
         } else {
@@ -272,9 +263,7 @@ public class HelloController implements Initializable {
     // Badeværelse: Bad choice
     @FXML
     void choiceBad (MouseEvent event) {
-        game.currentRoom = game.rooms.get(2);
         game.currentItem = game.currentRoom.getItem("bad");
-
         if(event.getButton() == MouseButton.SECONDARY){
             showDescription(game.currentItem);
         } else {
@@ -313,7 +302,6 @@ public class HelloController implements Initializable {
     // Køkken: Tænder/Slukker køkken lys
     @FXML
     void toggleKLamp (MouseEvent event) {
-        game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("køkkenlampe");
 
         if(event.getButton() == MouseButton.SECONDARY){
@@ -337,7 +325,6 @@ public class HelloController implements Initializable {
     // Køkken: Tænder/Slukker TV
     @FXML
     void toggleTv (MouseEvent event) {
-        game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("tv");
 
         if(event.getButton() == MouseButton.SECONDARY){
@@ -361,7 +348,6 @@ public class HelloController implements Initializable {
     // Køkken Choice: Køleskab
     @FXML
     void choiceKøleskab (MouseEvent event) {
-        game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("køleskab");
 
         if(event.getButton() == MouseButton.SECONDARY){
@@ -405,7 +391,6 @@ public class HelloController implements Initializable {
     // Køkken Choice: Komfur
     @FXML
     void choiceKomfur (MouseEvent event) {
-        game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("komfur");
 
         if(event.getButton() == MouseButton.SECONDARY){
@@ -445,7 +430,6 @@ public class HelloController implements Initializable {
     // Byen Choice: Transport
     @FXML
     void choiceTransport (MouseEvent event) {
-        game.currentRoom = game.rooms.get(3);
         game.currentItem = game.currentRoom.getItem("transport");
 
         if(event.getButton() == MouseButton.SECONDARY){
@@ -486,7 +470,6 @@ public class HelloController implements Initializable {
     @FXML
     void npcQuiz (MouseEvent event) {
         game.currentItem = game.currentRoom.getItem("NPC");
-        game.currentRoom = game.rooms.get(4);
         if(game.currentItem.getItemUsed()==false) {
             if (npcQuiz.isVisible() == true) {
                 npcQuiz.setVisible(false);
@@ -537,41 +520,45 @@ public class HelloController implements Initializable {
     //------------------------------------------------------------------------------------------------------------------
     // Trash Items
     public void collectSilkepapir(MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
         game.currentItem = game.currentRoom.getItem("silkepapir");
         game.switchItemState();
-        silkepapir.setImage(null);
         showNewPoints(game.currentItem);
+        silkepapir.setImage(null);
+        itemToInventory();
     }
     public void collectPizzabakke(MouseEvent event) {
-        game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("pizzabakke");
         game.switchItemState();
-        pizzabakke.setImage(null);
         showNewPoints(game.currentItem);
+        pizzabakke.setImage(null);
+        itemToInventory();
     }
-
     public void collectMælkekarton(MouseEvent event) {
-        game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("mælkekarton");
         game.switchItemState();
-        mælkekarton.setImage(null);
         showNewPoints(game.currentItem);
+        mælkekarton.setImage(null);
+        itemToInventory();
     }
-
     public void collectSodavandsdåser (MouseEvent event) {
-        game.currentRoom = game.rooms.get(0);
         game.currentItem = game.currentRoom.getItem("sodavandsdåser");
         game.switchItemState();
-        sodavandsdåser.setImage(null);
         showNewPoints(game.currentItem);
+        sodavandsdåser.setImage(null);
+        itemToInventory();
     }
 
     //------------------------------------------------------------------------------------------------------------------
+    // Inventory
+    public void itemToInventory() {
+        if (inventoryList==null) {
+            inventoryList = new ListView<String>();
+        }
+        inventoryList.getItems().add(game.currentItem.itemName);
+    }
 
-
-
-
+    //------------------------------------------------------------------------------------------------------------------
+    // Buttons
     @FXML
     void quit(ActionEvent event) {
         Platform.exit();
@@ -587,11 +574,10 @@ public class HelloController implements Initializable {
         }
     }
 
-    // Does not work fully yet
-//    public void showRoomDescription(Room currentRoom) {
-//        display.setText(currentRoom.getLongDescription());
-//        display.setVisible(true);
-//    }
+    public void showRoomDescription(Room currentRoom) {
+        display.setText(currentRoom.getLongDescription());
+        display.setVisible(true);
+    }
 
     public void showDescription(Item currentItem) {
 
@@ -608,8 +594,6 @@ public class HelloController implements Initializable {
         if (display.isVisible()==false) {
             display.setVisible(true);
             display.setText(game.getAddedPoints());
-        } else if(display.isVisible() == true && game.getAddedPoints().equals(display.getText())){
-            display.setVisible(false);
         } else {
             display.setText(game.getAddedPoints());
         }
@@ -619,27 +603,9 @@ public class HelloController implements Initializable {
     void showInventory (ActionEvent event) {
         if (display.isVisible()==false) {
             display.setVisible(true);
-            display.setText(GameText.textInventory());
+            display.setText(game.getInventoryDescription());
         } else {
             display.setVisible(false);
-        }
-    }
-
-
-    @FXML
-    void showHighscore(){
-        String data = null;
-        try {
-            File myObj = new File("score.txt");
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                data = myReader.nextLine();
-                System.out.println("Din highscore var" + data);
-            }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
         }
     }
 }

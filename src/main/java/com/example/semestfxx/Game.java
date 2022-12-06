@@ -1,6 +1,8 @@
 package com.example.semestfxx;
 
+import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 
 import java.io.*;
@@ -15,9 +17,12 @@ public class Game {
     public Room currentRoom;
     public Item currentItem;
     public Inventory inventory;
-    private String addedPoints;
 
+    private String addedPoints;
     public List<Integer> score_list = new ArrayList<Integer>();
+
+
+
 
 
     public File scoreFile = new File("score.txt");
@@ -141,7 +146,6 @@ public class Game {
 
         ///Set Room item
         soveværelse.setRoomItems("soveværelseLampe", soveværelseLampe);
-        soveværelse.setRoomItems("radiator", radiator);
         soveværelse.setRoomItems("vindue", vindue);
         soveværelse.setRoomItems("computer", computer);
         soveværelse.setRoomItems("silkepapir", silkepapir);
@@ -163,58 +167,6 @@ public class Game {
         strand.setRoomItems("NPC", npc);
    }
 
-//    public boolean goRoom(Command command) {
-//        if (!command.hasCommandValue()) {
-//            //No direction on command.
-//            //Can't continue with GO command.
-//            System.out.println("Har brug for en retning at gå til.");
-//        }
-//        String direction = command.getCommandValue();
-//        Room nextRoom = currentRoom.getExit(direction);
-//        if (nextRoom == null) {
-//            return false;
-//        } else {
-//            currentRoom = nextRoom;
-//            return true;
-//        }
-//    }
-//
-//    public boolean lookRoom(Command command) {
-//        if(command.hasCommandValue()) {
-//            return false;
-//        }
-//        String Item = currentRoom.getRoomItemList();
-//        return Item != null;    //return true if Item != null
-//    }
-//
-//    public boolean lookItem(Command command) {
-//        if (!command.hasCommandValue()) {
-//            return false;
-//        }
-//        String itemName = command.getCommandValue();
-//        Item useingItem = currentRoom.getItem(itemName);
-//        if (useingItem == null) {
-//            return false;
-//        } else {
-//            currentItem = useingItem;
-//            return true;
-//        }
-//    }
-//
-//    public boolean useItem(Command command) {
-//        if (!command.hasCommandValue()) {
-//            return false;
-//        }
-//        String itemName = command.getCommandValue();
-//        Item useingItem = currentRoom.getItem(itemName);
-//        if (useingItem == null) {
-//            return false;
-//        } else {
-//            currentItem = useingItem;
-//            return true;
-//        }
-//    }
-//
     public int plus_sum_score(){
         int sum=0;
 
@@ -262,6 +214,8 @@ public class Game {
         } else if(currentItem instanceof Item.ChoiceItem) {
             currentItem.used = true;
 
+
+
         } else if (currentItem instanceof Item.TrashItem) {
             currentItem.pickedUp = true;
             if (currentItem.getPickedUp()==true) {
@@ -269,18 +223,8 @@ public class Game {
             }
             addItemToInventory();
             removeItem();
-            InventoryList();
         }
     }
-
-    public void InventoryList(){
-        Iterator it = inventory.trash.entrySet().iterator();
-        while (it.hasNext()){
-            HashMap.Entry pair=(HashMap.Entry)it.next();
-            System.out.println(pair.getKey()+" = "+pair.getValue());
-            it.remove(); // avoids a ConcurrentModificationException
-        }}
-
 
     private void removeItem() {
 
@@ -288,7 +232,7 @@ public class Game {
     }
 
     private void addItemToInventory() {
-        inventory.addTrash(currentItem.getItemDescription(), currentItem);
+        inventory.addTrash(currentItem.getItemName(), currentItem);
     }
 
 

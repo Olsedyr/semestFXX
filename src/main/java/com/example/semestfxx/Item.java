@@ -86,4 +86,9 @@ public class Item{
             this.pickedUp = pickedUp;
         }
     }
+
+    public String getItemName() {
+        return itemName;
+    }
+
 }
