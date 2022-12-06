@@ -30,9 +30,7 @@ public class HelloController implements Initializable {
     private Room currentRoom;
     public Item currentItem;
     public StackPane bedroomPane, bathroomPane, kitchenPane, cityPane, beachPane;
-
     public Inventory inventory;
-
 
     @FXML
     private StackPane rootPane;
@@ -70,7 +68,6 @@ public class HelloController implements Initializable {
     private Text display, highscoreLoader;
 
     //------------------------------------------------------------------------------------------------------------------
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("INIT");
@@ -197,6 +194,7 @@ public class HelloController implements Initializable {
     @FXML
     void showWindow (MouseEvent event) {
         game.currentItem = game.currentRoom.getItem("vindue");
+
         if(event.getButton() == MouseButton.SECONDARY){
             showDescription(game.currentItem);
         } else {
@@ -220,6 +218,7 @@ public class HelloController implements Initializable {
     @FXML
     void toggleBadeværelseLys (MouseEvent event) {
         game.currentItem = game.currentRoom.getItem("badeværelseLys");
+
         if(event.getButton() == MouseButton.SECONDARY){
             showDescription(game.currentItem);
         } else {
@@ -242,6 +241,7 @@ public class HelloController implements Initializable {
     @FXML
     void toggleVandhane (MouseEvent event) {
         game.currentItem = game.currentRoom.getItem("vandhane");
+
         if(event.getButton() == MouseButton.SECONDARY){
             showDescription(game.currentItem);
         } else {
@@ -264,6 +264,7 @@ public class HelloController implements Initializable {
     @FXML
     void choiceBad (MouseEvent event) {
         game.currentItem = game.currentRoom.getItem("bad");
+
         if(event.getButton() == MouseButton.SECONDARY){
             showDescription(game.currentItem);
         } else {
@@ -296,7 +297,6 @@ public class HelloController implements Initializable {
         badChoice.setVisible(false);
         badTub.setVisible(true);
     }
-
 
     //------------------------------------------------------------------------------------------------------------------
     // Køkken: Tænder/Slukker køkken lys

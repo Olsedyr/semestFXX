@@ -21,10 +21,6 @@ public class Game {
     private String addedPoints;
     public List<Integer> score_list = new ArrayList<Integer>();
 
-
-
-
-
     public File scoreFile = new File("score.txt");
 
     public Game() {

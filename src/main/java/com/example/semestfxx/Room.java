@@ -42,7 +42,5 @@ public class Room{
     }
 
     public Item getItem(String itemName) { return roomItems.get(itemName);}
-
-
 }
 
