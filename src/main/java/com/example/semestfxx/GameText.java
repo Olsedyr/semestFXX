@@ -1,16 +1,6 @@
 package com.example.semestfxx;
 
-import javafx.scene.text.Text;
-
-import java.io.File;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
-
-
 public class GameText {
-
-
-    public String content;
 
     public static String textHelp() {
         return "Du er inde i en verden hvor du skal træffe de rigtige valg for klimaet. Du starter med 0 point, og dit mål er at få så mange point som muligt, ud fra dine klimabevidste handlinger. " +

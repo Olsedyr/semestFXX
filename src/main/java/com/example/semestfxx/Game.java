@@ -1,11 +1,5 @@
 package com.example.semestfxx;
 
-import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.control.ListView;
-import javafx.scene.image.ImageView;
-
-import java.io.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -189,8 +183,6 @@ public class Game {
         if (currentItem instanceof Item.ToggleItem) {
             currentItem.toggleState ^= true;
             plus_sum_score();
-            //Toggle switch for toggleState boolean
-            //refer to method changing itemDescription based on toggleState?
 
         } else if(currentItem instanceof Item.ChoiceItem) {
             currentItem.used = true;

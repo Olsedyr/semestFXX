@@ -1,5 +1,7 @@
 package com.example.semestfxx;
 
+
+// SuperClass Item
 public class Item{
 
     protected String itemDescription;       //Text for the item itself
@@ -44,6 +46,7 @@ public class Item{
     }
 
 
+    //SubClass Toggle Item
     public static class ToggleItem extends Item{
         private final String itemDescriptionTrue;
         private final String itemDescriptionFalse;
@@ -65,6 +68,7 @@ public class Item{
         }
     }
 
+    //SubClass ChoiceItem
     public static class ChoiceItem extends Item{
 
         public ChoiceItem(String itemDescirption, String itemName, int points, String choice1Text, String choice2Text, boolean used) {
@@ -75,6 +79,7 @@ public class Item{
         }
     }
 
+    //Subclass TrashItem
     public static class TrashItem extends Item{
         public TrashItem(String itemDescirption, String itemName, int points, boolean pickedUp) {
             super(itemDescirption, itemName, points);
