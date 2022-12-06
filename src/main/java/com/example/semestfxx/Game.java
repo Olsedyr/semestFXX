@@ -119,24 +119,24 @@ public class Game {
 
         ///Trash Items
         Item.TrashItem silkepapir, sodavandsdåser, pizzabakke, mælkekarton;
-        silkepapir = new Item.TrashItem("Brugt silkepapir.", "Silkepapir",1,false);
-        sodavandsdåser = new Item.TrashItem("Tomme sodavandsdåser som du drak i går med dine venner.","Sodavandsdåser",1,false);
-        pizzabakke = new Item.TrashItem("Tom pizzabakke, olien fra pizzaen pletter pizzaboksen.","Pizzabakke",1,false);
-        mælkekarton = new Item.TrashItem("Tom mælkekarton，du har allerede foldet det sammen.","Mælkekarton",1,false);
+        silkepapir = new Item.TrashItem("Brugt silkepapir.", "silkepapir",1,false);
+        sodavandsdåser = new Item.TrashItem("Tomme sodavandsdåser som du drak i går med dine venner.","sodavandsdåser",1,false);
+        pizzabakke = new Item.TrashItem("Tom pizzabakke, olien fra pizzaen pletter pizzaboksen.","pizzabakke",1,false);
+        mælkekarton = new Item.TrashItem("Tom mælkekarton，du har allerede foldet det sammen.","mælkekarton",1,false);
 
         ///Set Room item
         soveværelse.setRoomItems("soveværelseLampe", soveværelseLampe);
         soveværelse.setRoomItems("vindue", vindue);
         soveværelse.setRoomItems("computer", computer);
-        soveværelse.setRoomItems("Silkepapir", silkepapir);
-        soveværelse.setRoomItems("Sodavandsdåser", sodavandsdåser);
+        soveværelse.setRoomItems("silkepapir", silkepapir);
+        soveværelse.setRoomItems("sodavandsdåser", sodavandsdåser);
 
         køkken.setRoomItems("køkkenlampe", køkkenlampe);
         køkken.setRoomItems("tv", tv);
         køkken.setRoomItems("køleskab", køleskab);
         køkken.setRoomItems("komfur", komfur);
-        køkken.setRoomItems("Pizzabakke", pizzabakke);
-        køkken.setRoomItems("Mælkekarton", mælkekarton);
+        køkken.setRoomItems("pizzabakke", pizzabakke);
+        køkken.setRoomItems("mælkekarton", mælkekarton);
 
         badeværelse.setRoomItems("vandhane", vandhane);
         badeværelse.setRoomItems("bad", bad);
