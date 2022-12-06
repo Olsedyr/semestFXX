@@ -91,7 +91,7 @@ public class Game {
 
 
         //Choice Items, can only choose once
-        Item.ChoiceItem køleskab, komfur, bad, transport;
+        Item.ChoiceItem køleskab, komfur, bad, transport, npc;
         køleskab = new Item.ChoiceItem("Der er et køleskab i dit køkken. Med ingredienserne indeni kan du enten lave en økologisk salat med kylling, " +
                 "eller en burger lavet på oksekød med ost og bacon.", "køleskab",3,
                 "1. salat\n2. burger",
@@ -116,10 +116,8 @@ public class Game {
                 "Du brugt bil, beep beep",
                 false, 1);
 
-        ///Multiple Choice Items, can be chosen multiple times
-        Item.MultipleChoice grete, brete;
-        grete = new Item.MultipleChoice("En pige ved navn Grett står der og ser ud til, at hun gerne vil vide, hvordan man hjælper klimakrisen.", "grete",
-                3,
+        npc = new Item.ChoiceItem("En pige ved navn Grett står der og ser ud til, at hun gerne vil vide, hvordan man hjælper klimakrisen.", "grete",
+                2,
                 "Hej du! Er der noget jeg kan gøre for at hjælpe med klimakrisen?" +
                         "\n1. Du kan samle skrald op nede på stranden" +
                         "\n2. Du kan prøve at slukke for computeren" +
@@ -127,20 +125,7 @@ public class Game {
                         "\n4. Aner det ikke",
                 "Mange tak for hjælpen!",
                 "Nåår computeren, det var en god ide. Tak!",
-                "Uha, nej tak, det er der for langt til",
-                "Når..");
-
-        brete = new Item.MultipleChoice("En pige ved navn Brett står der og ser ud til, at hun gerne vil stille dig et simpelt matematikspørgsmål.", "brete",
-                3,
-                "1+1=?" +
-                        "\n1. 3" +
-                        "\n2. 2" +
-                        "\n3. 7" +
-                        "\n4. 42",
-                "Det kan måske virke med et par...",
-                "Korrekt! Godt klaret!",
-                "Forkert, hvordan får du overhovedet det svar?",
-                "Det er et svar... men for det forkerte spørgsmål.");
+                false,2);
 
 
         ///Trash Items
@@ -171,9 +156,7 @@ public class Game {
 
         byen.setRoomItems("transport", transport);
 
-        soveværelse.setRoomItems("Grete", grete);
-        soveværelse.setRoomItems("Brete", brete);
-
+        strand.setRoomItems("NPC", npc);
    }
 
 //    public boolean goRoom(Command command) {
@@ -303,10 +286,6 @@ public class Game {
     private void addItemToInventory() {
         inventory.addTrash(currentItem.getItemDescription(), currentItem);
     }
-//
-//    public  boolean inventory(Command command){
-//        return !command.hasCommandValue();
-//    }
 
 
     //------------------------------------getCommands Implementation------------------------------------
