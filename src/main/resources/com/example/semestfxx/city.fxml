@@ -38,7 +38,7 @@
             <Insets bottom="6.0" right="28.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="bil" fitHeight="182.0" fitWidth="390.0" onMouseClicked="#choiceTransport" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="BOTTOM_CENTER">
+      <ImageView fx:id="bil" fitHeight="182.0" fitWidth="390.0" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="BOTTOM_CENTER">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Byen/Transport/car.png" />
          </image>
@@ -46,7 +46,7 @@
             <Insets bottom="-20.0" left="440.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fx:id="cykle" fitHeight="100.0" onMouseClicked="#choiceTransport" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="CENTER_RIGHT">
+      <ImageView fx:id="cykle" fitHeight="100.0" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="CENTER_RIGHT">
          <image>
             <Image url="@../../../Projekt_Billeder/ProjektBilleder/Byen/Transport/Cykel1.png" />
          </image>

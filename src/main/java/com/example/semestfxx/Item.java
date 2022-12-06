@@ -80,17 +80,6 @@ public class Item{
         }
     }
 
-    public static class MultipleChoice extends Item{
-        public MultipleChoice (String itemDescirption, String itemName, int points, String choiceDescription, String choice1Text, String choice2Text, String choice3Text, String choice4Text) {
-            super(itemDescirption, itemName, points);
-            this.choiceDescription = choiceDescription;
-            this.choice1Text = choice1Text;
-            this.choice2Text = choice2Text;
-            this.choice3Text = choice3Text;
-            this.choice4Text = choice4Text;
-        }
-    }
-
     public static class TrashItem extends Item{
         public TrashItem(String itemDescirption, String itemName, int points, boolean pickedUp) {
             super(itemDescirption, itemName, points);

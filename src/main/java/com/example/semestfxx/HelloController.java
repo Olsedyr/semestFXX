@@ -477,8 +477,8 @@ public class HelloController implements Initializable {
     void choiceCykle (MouseEvent event) {
         game.switchItemState();
         game.plus_sum_score();
-        game.currentItem = game.currentRoom.getItem("transport");
         game.currentItem.itemDescription = game.currentItem.choice1Text;
+        transportChoice.setVisible(false);
         transport.setVisible(false);
         cykle.setVisible(true);
         showNewPoints(game.currentItem);
@@ -486,8 +486,8 @@ public class HelloController implements Initializable {
     @FXML
     void choiceBil (MouseEvent event) {
         game.switchItemState();
-        game.currentItem = game.currentRoom.getItem("transport");
         game.currentItem.itemDescription = game.currentItem.choice2Text;
+        transportChoice.setVisible(false);
         transport.setVisible(false);
         bil.setVisible(true);
     }
@@ -496,22 +496,29 @@ public class HelloController implements Initializable {
     // Strand:
     @FXML
     void npcQuiz (MouseEvent event) {
+        game.currentItem = game.currentRoom.getItem("NPC");
         game.currentRoom = game.rooms.get(4);
-        if (npcQuiz.isVisible() == true) {
+        if(game.currentItem.getItemUsed()==false) {
+            if (npcQuiz.isVisible() == true) {
+                npcQuiz.setVisible(false);
+                npcQuiz1.setVisible(false);
+                npcQuiz2.setVisible(false);
+                npcQuiz3.setVisible(false);
+            } else {
+                npcQuiz.setVisible(true);
+                npcQuiz1.setVisible(true);
+                npcQuizF1.setVisible(true);
+                npcQuizF2.setVisible(true);
+                npcQuizF3.setVisible(true);
+            }
+        }else{
             npcQuiz.setVisible(false);
-            npcQuiz1.setVisible(false);
-            npcQuiz2.setVisible(false);
-            npcQuiz3.setVisible(false);
-        } else {
-            npcQuiz.setVisible(true);
-            npcQuiz1.setVisible(true);
-            npcQuizF1.setVisible(true);
-            npcQuizF2.setVisible(true);
-            npcQuizF3.setVisible(true);
         }
     }
     @FXML
     void npcQuizT (MouseEvent event) {
+        game.plus_sum_score();
+        showNewPoints(game.currentItem);
         if(npcQuiz1.isVisible()==true){
             npcQuiz1.setVisible(false);
             npcQuiz2.setVisible(true);
@@ -524,6 +531,7 @@ public class HelloController implements Initializable {
             npcQuiz3.setVisible(false);
             npcQuiz.setVisible(false);
             npcQuizF3.setVisible(true);
+            game.switchItemState();
         }
     }
     @FXML
@@ -536,9 +544,6 @@ public class HelloController implements Initializable {
             npcQuizF3.setVisible(false);
         }
     }
-
-
-
 
     //------------------------------------------------------------------------------------------------------------------
     // Trash Items
