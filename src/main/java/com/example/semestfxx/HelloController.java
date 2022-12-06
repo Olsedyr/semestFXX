@@ -30,11 +30,6 @@ public class HelloController implements Initializable {
     private Game game;
     private Room currentRoom;
     public Item currentItem;
-    public StackPane bedroomPane;
-    public StackPane bathroomPane;
-    public StackPane kitchenPane;
-    public StackPane cityPane;
-    public StackPane beachPane;
 
     @FXML
     private StackPane rootPane;
@@ -45,7 +40,8 @@ public class HelloController implements Initializable {
     private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, radiator, vindueÅben, vindueLukket,
                 badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad, badShower, badTub,
                 køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket, køleskabÅbnet, salat, burger, komfurTændt, komfurPande,
-                cykle, bil, sodavandsdåser, transport;;
+                cykle, bil, sodavandsdåser, transport;
+
 
     @FXML
     private AnchorPane badChoice, køleskabChoice, komfurChoice, transportChoice, npcQuiz, npcQuiz1, npcQuiz2, npcQuiz3, npcQuizF1, npcQuizF2, npcQuizF3;
@@ -78,10 +74,21 @@ public class HelloController implements Initializable {
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
 
-    }
+        }
+
+
+
+
+
 
     //------------------------------------------------------------------------------------------------------------------
     ///ActionEvent
+    public void startGame(ActionEvent event) throws IOException {
+        System.out.println("Game Started!");
+        loadBedroomStart(event);
+    }
+
+
     public void loadHighscore(ActionEvent event) throws IOException {
         String fileName = "score.txt";
         File file = new File(fileName);
@@ -91,21 +98,18 @@ public class HelloController implements Initializable {
         while((line = br.readLine()) != null){
             //process the line
             System.out.println(line);
-            if (highscoreLoader.isVisible()==false) {
-                highscoreLoader.setVisible(true);
-                highscoreLoader.setText(String.valueOf("Din highscore er: "+line));
-            } else {
-                highscoreLoader.setVisible(false);
-            }
+        if (highscoreLoader.isVisible()==false) {
+            highscoreLoader.setVisible(true);
+            highscoreLoader.setText(String.valueOf("Din highscore er: "+line));
+        } else {
+            highscoreLoader.setVisible(false);
         }
     }
-    public void startGame(ActionEvent event) throws IOException {
-        worldStart(event);
-        System.out.println("Game Started!");
     }
-    public void worldStart(ActionEvent event) throws IOException {
+
+    public void loadBedroomStart(ActionEvent event) throws IOException {
         System.out.println("Start Bedroom");
-        StackPane pane = FXMLLoader.load(getClass().getResource("worldStart.fxml"));
+        StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
         rootPane.getChildren().setAll(pane);
         game.currentRoom = game.rooms.get(0);
     }
@@ -113,31 +117,36 @@ public class HelloController implements Initializable {
     //------------------------------------------------------------------------------------------------------------------
     ///MouseEvent Load Rooms
     public void loadBedroom(MouseEvent event) throws IOException {
-        bedroomPane.setVisible(true);
-        kitchenPane.setVisible(false);
-        bathroomPane.setVisible(false);
+        System.out.println("Bedroom");
+        StackPane pane = FXMLLoader.load(getClass().getResource("bedroom.fxml"));
+        rootPane.getChildren().setAll(pane);
         game.currentRoom = game.rooms.get(0);
+
     }
+
     public void loadKitchen(MouseEvent event) throws IOException {
-        kitchenPane.setVisible(true);
-        bedroomPane.setVisible(false);
-        cityPane.setVisible(false);
+        System.out.println("Kitchen");
+        StackPane pane = FXMLLoader.load(getClass().getResource("kitchen.fxml"));
+        rootPane.getChildren().setAll(pane);
         game.currentRoom = game.rooms.get(1);
     }
+
     public void loadBathroom(MouseEvent event) throws IOException {
-        bedroomPane.setVisible(false);
-        bathroomPane.setVisible(true);
+        System.out.println("Bathroom");
+        StackPane pane = FXMLLoader.load(getClass().getResource("bathroom.fxml"));
+        rootPane.getChildren().setAll(pane);
         game.currentRoom = game.rooms.get(2);
     }
     public void loadCity(MouseEvent event) throws IOException {
-        cityPane.setVisible(true);
-        beachPane.setVisible(false);
-        kitchenPane.setVisible(false);
+        System.out.println("City");
+        StackPane pane = FXMLLoader.load(getClass().getResource("city.fxml"));
+        rootPane.getChildren().setAll(pane);
         game.currentRoom = game.rooms.get(3);
     }
     public void loadBeach(MouseEvent event) throws IOException {
-        beachPane.setVisible(true);
-        cityPane.setVisible(false);
+        System.out.println("Beach");
+        StackPane pane = FXMLLoader.load(getClass().getResource("beach.fxml"));
+        rootPane.getChildren().setAll(pane);
         game.currentRoom = game.rooms.get(4);
     }
 

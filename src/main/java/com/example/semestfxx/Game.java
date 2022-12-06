@@ -45,36 +45,36 @@ public class Game {
 
         soveværelseLampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "soveværelseLampe","Du kigger på loftlampen i dit soveværelse. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
-                "Gardinet er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
+                        "Gardinet er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
                 "Du kigger på loftlampen i dit soveværelse. Den er slukket. " +
                         "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
                 1,true);
         radiator = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "radiator","Det er en radiator i din soveværelse. Den er tændt. Du kan mærke at rummet er ret varmt fordi den har været tændt hele dagen, " +
-                "og solen samtidig har varmet rummet op.",
+                        "og solen samtidig har varmet rummet op.",
                 "Det er radiatoren i dit soveværelse. Den er slukket lige nu, men du kan mærke at rummet stadig er dejligt varmt fra solen som skinner ind.",
                 5,true);
         vindue = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "vindue","Der er et vindue i dit soveværelse, som står åbent. Udenfor kan du se at bladene er faldet af træerne, og der er rim på græsset under dem." +
-                " I rummet er der dog stadig varmt fra radiatoren og solen der skinner udenfor, men du kan mærke den kulden komme ind gennem vinduet.",
+                        " I rummet er der dog stadig varmt fra radiatoren og solen der skinner udenfor, men du kan mærke den kulden komme ind gennem vinduet.",
                 "Der er et vindue i det soveværelse. Det er lukket. Der er en behagelig temperatur herinde, " +
                         "og luften er stadig lidt frisk fra vinduet sidst stod åbent.",
                 1,true);
         computer = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "computer","Det er din computer. Den er stationær, har to skærme og du fik den til din sidste fødselsdag. Det hele står lige nu tændt, fra da du spillede tidligere. " +
-                "Når den er i brug kan du se på din elmåler at den bruger ret meget strøm.",
+                        "Når den er i brug kan du se på din elmåler at den bruger ret meget strøm.",
                 " Det er din stationære computer. Den er slukket, så der er ikke længere en summen at høre fra den.",
                 2,true);
         køkkenlampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "køkkenlampe","Du kigger på køkkenlampen. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
-                "Der er flere store vinduer rundt omkring i køkkenet. Gardinerne er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
+                       "Der er flere store vinduer rundt omkring i køkkenet. Gardinerne er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
                 "Du kigger på loftlampen i dit soveværelse. Den er slukket. " +
                         "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
                 1,true);
         tv = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "tv", "Der er et TV i køkkenet. Det er lige nu tændt, og du kan høre en nyhedsvært tale i baggrunden. Når du vasker op er det " +
-                "ofte rart at have noget at se på imens, men ellers bruger du det ikke så meget. Og lige nu ser det ikke ud til" +
-                " at der er sket noget du ikke har hørt om tidligere.",
+                        "ofte rart at have noget at se på imens, men ellers bruger du det ikke så meget. Og lige nu ser det ikke ud til" +
+                        " at der er sket noget du ikke har hørt om tidligere.",
                 "Der er et TV i dit køkken. Det er lige nu slukket, og bruger dermed ikke unødig strøm. " +
                         "Du har alligevel ikke lyst til at se noget på det lige nu.",
                 3,true);
@@ -161,9 +161,9 @@ public class Game {
         byen.setRoomItems("transport", transport);
 
         strand.setRoomItems("NPC", npc);
-    }
+   }
 
-    //    public boolean goRoom(Command command) {
+//    public boolean goRoom(Command command) {
 //        if (!command.hasCommandValue()) {
 //            //No direction on command.
 //            //Can't continue with GO command.
@@ -316,5 +316,3 @@ public class Game {
         return addedPoints;
     }
 }
-
-
