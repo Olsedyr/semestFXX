@@ -557,6 +557,7 @@ public class HelloController implements Initializable {
         game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("pizzabakke");
         game.switchItemState();
+        showNewPoints(game.currentItem);
         pizzabakke.setImage(null);
         itemToInventory();
     }
@@ -565,6 +566,7 @@ public class HelloController implements Initializable {
         game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("mælkekarton");
         game.switchItemState();
+        showNewPoints(game.currentItem);
         mælkekarton.setImage(null);
         itemToInventory();
     }
@@ -573,6 +575,7 @@ public class HelloController implements Initializable {
         game.currentRoom = game.rooms.get(0);
         game.currentItem = game.currentRoom.getItem("sodavandsdåser");
         game.switchItemState();
+        showNewPoints(game.currentItem);
         sodavandsdåser.setImage(null);
         itemToInventory();
     }

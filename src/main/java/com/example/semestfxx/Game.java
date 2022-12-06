@@ -290,17 +290,16 @@ public class Game {
             }
             addItemToInventory();
             removeItem();
-            InventoryList();
         }
     }
 
-    public void InventoryList(){
+    /*public void InventoryList(){
         Iterator it = inventory.trash.entrySet().iterator();
         while (it.hasNext()){
             HashMap.Entry pair=(HashMap.Entry)it.next();
             System.out.println(pair.getKey()+" = "+pair.getValue());
             it.remove(); // avoids a ConcurrentModificationException
-        }}
+        }}*/
 
 
     private void removeItem() {
