@@ -95,7 +95,7 @@ public class HelloController implements Initializable {
                 highscoreLoader.setVisible(true);
                 highscoreLoader.setText(String.valueOf("Din highscore er: "+line));
             } else {
-                highscoreLoader.setVisible(false);
+                highscoreLoader.setText(String.valueOf("Din highscore er: "+line));
             }
         }
     }
