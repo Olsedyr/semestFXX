@@ -14,7 +14,7 @@
 <?import javafx.scene.text.TextFlow?>
 
 <StackPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" stylesheets="@mainmenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.semestfxx.HelloController">
-    <StackPane fx:id="bedroomPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="true" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <StackPane fx:id="bedroomPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
         <children>
 
             <ImageView fitHeight="720.0" fitWidth="1280.0">
@@ -97,56 +97,6 @@
                     <Insets left="1086.0" top="40.0" />
                 </StackPane.margin>
             </ImageView>
-            <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">
-                <StackPane.margin>
-                    <Insets right="10.0" top="10.0" />
-                </StackPane.margin></Button>
-            <Button fx:id="Help" mnemonicParsing="false" onAction="#help" text="Hjælp" StackPane.alignment="TOP_RIGHT">
-                <StackPane.margin>
-                    <Insets right="70.0" top="10.0" />
-                </StackPane.margin>
-            </Button>
-            <TextFlow StackPane.alignment="BOTTOM_LEFT">
-                <StackPane.margin>
-                    <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
-                </StackPane.margin>
-                <children>
-                    <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i dit soveværelse i dit hjem." wrappingWidth="1000.0">
-                        <font>
-                            <Font size="18.0" />
-                        </font>
-                    </Text>
-                </children>
-            </TextFlow>
-            <Button fx:id="loadHighscore" mnemonicParsing="false" onAction="#loadHighscore" text="Highscore">
-                <StackPane.margin>
-                    <Insets bottom="685.0" left="950.0" top="10.0" />
-                </StackPane.margin>
-            </Button>
-            <TextFlow>
-                <children>
-                    <Text fx:id="highscoreLoader" strokeType="OUTSIDE" strokeWidth="0.0">
-                        <font>
-                            <Font name="DINPro-Bold" size="26.0" />
-                        </font></Text>
-                </children>
-                <StackPane.margin>
-                    <Insets bottom="1275.0" left="6.0" right="300.0" top="610.0" />
-                </StackPane.margin>
-            </TextFlow>
-            <Text fx:id="guiScore2" strokeType="OUTSIDE" strokeWidth="0.0">
-                <font>
-                    <Font name="DINPro-Bold" size="22.0" />
-                </font>
-                <StackPane.margin>
-                    <Insets bottom="675.0" left="500.0" right="-250.0" />
-                </StackPane.margin>
-            </Text>
-            <Button fx:id="Inventory1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
-                <StackPane.margin>
-                    <Insets bottom="10.0" right="10.0" />
-                </StackPane.margin>
-            </Button>
             <ImageView fx:id="sodavandsdåser" fitHeight="76.0" fitWidth="112.0" onMouseClicked="#collectSodavandsdåser" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                 <image>
                     <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Sodavandsdåser/Dåser.png" />
@@ -237,28 +187,6 @@
                     <Insets left="874.0" top="32.0" />
                 </StackPane.margin>
             </ImageView>
-            <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">
-                <StackPane.margin>
-                    <Insets right="10.0" top="10.0" />
-                </StackPane.margin>
-            </Button>
-            <Button fx:id="Help" mnemonicParsing="false" onAction="#help" text="Hjælp" StackPane.alignment="TOP_RIGHT">
-                <StackPane.margin>
-                    <Insets right="70.0" top="10.0" />
-                </StackPane.margin>
-            </Button>
-            <TextFlow lineSpacing="5.0" StackPane.alignment="BOTTOM_LEFT">
-                <StackPane.margin>
-                    <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
-                </StackPane.margin>
-                <children>
-                    <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er på badeværelset. Du mærker de kolde klinker under dine fødder." wrappingWidth="1000.0">
-                        <font>
-                            <Font size="18.0" />
-                        </font>
-                    </Text>
-                </children>
-            </TextFlow>
             <AnchorPane fx:id="badChoice" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="false">
                 <children>
                     <Rectangle height="720.0" onMouseClicked="#choiceBad" opacity="0.4" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
@@ -283,11 +211,6 @@
                     <Insets />
                 </opaqueInsets>
             </AnchorPane>
-            <Button fx:id="Inventory1" alignment="CENTER_RIGHT" layoutX="10.0" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
-                <StackPane.margin>
-                    <Insets bottom="10.0" right="10.0" />
-                </StackPane.margin>
-            </Button>
             <!--  <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loadKitchen" opacity="0.0" prefHeight="406.0" prefWidth="193.0" text="Button" StackPane.alignment="CENTER_LEFT">
                  <opaqueInsets>
                     <Insets />
@@ -426,16 +349,6 @@
                     <Insets right="40.0" top="45.0" />
                 </StackPane.margin>
             </ImageView>
-            <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">
-                <StackPane.margin>
-                    <Insets right="10.0" top="10.0" />
-                </StackPane.margin>
-            </Button>
-            <Button fx:id="Help" mnemonicParsing="false" onAction="#help" text="Help" StackPane.alignment="TOP_RIGHT">
-                <StackPane.margin>
-                    <Insets right="70.0" top="10.0" />
-                </StackPane.margin>
-            </Button>
             <AnchorPane fx:id="komfurChoice" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="false">
                 <children>
                     <Rectangle height="720.0" onMouseClicked="#choiceKomfur" opacity="0.4" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
@@ -484,23 +397,6 @@
                     <Insets />
                 </opaqueInsets>
             </AnchorPane>
-            <TextFlow StackPane.alignment="BOTTOM_LEFT">
-                <StackPane.margin>
-                    <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
-                </StackPane.margin>
-                <children>
-                    <Text fx:id="display" fill="#f2f2f2" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i køkkenet. Der var gæster på besøg i går og det kan ses." wrappingWidth="1000.0">
-                        <font>
-                            <Font size="18.0" />
-                        </font>
-                    </Text>
-                </children>
-            </TextFlow>
-            <Button fx:id="Inventory1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
-                <StackPane.margin>
-                    <Insets bottom="10.0" right="10.0" />
-                </StackPane.margin>
-            </Button>
         </children>
     </StackPane>
     <StackPane fx:id="cityPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
@@ -553,14 +449,6 @@
                     <Insets left="300.0" top="300.0" />
                 </StackPane.margin>
             </ImageView>
-            <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">
-                <StackPane.margin>
-                    <Insets right="10.0" top="10.0" />
-                </StackPane.margin></Button>
-            <Button fx:id="Help" mnemonicParsing="false" onAction="#help" text="Hjælp" StackPane.alignment="TOP_RIGHT">
-                <StackPane.margin>
-                    <Insets right="70.0" top="10.0" />
-                </StackPane.margin></Button>
             <AnchorPane fx:id="transportChoice" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="false">
                 <children>
                     <Rectangle height="720.0" onMouseClicked="#choiceTransport" opacity="0.4" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
@@ -585,23 +473,6 @@
                     <Insets />
                 </opaqueInsets>
             </AnchorPane>
-            <TextFlow onMouseClicked="#choiceTransport" StackPane.alignment="BOTTOM_LEFT">
-                <StackPane.margin>
-                    <Insets bottom="10.0" left="10.0" right="615.0" top="570.0" />
-                </StackPane.margin>
-                <children>
-                    <Text fx:id="display" fill="#fffefe" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i byen, travl som altid. Du kan vælge enten at tage en bil eller en cykel hjem." wrappingWidth="1000.0">
-                        <font>
-                            <Font size="18.0" />
-                        </font>
-                    </Text>
-                </children>
-            </TextFlow>
-            <Button fx:id="Inventory1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
-                <StackPane.margin>
-                    <Insets bottom="10.0" right="10.0" />
-                </StackPane.margin>
-            </Button>
         </children>
     </StackPane>
     <StackPane fx:id="beachPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
@@ -619,16 +490,6 @@
                     <Insets bottom="180.0" left="30.0" />
                 </StackPane.margin>
             </ImageView>
-            <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">
-                <StackPane.margin>
-                    <Insets right="10.0" top="10.0" />
-                </StackPane.margin>
-            </Button>
-            <Button fx:id="Help" mnemonicParsing="false" onAction="#help" text="Hjælp" StackPane.alignment="TOP_RIGHT">
-                <StackPane.margin>
-                    <Insets right="70.0" top="10.0" />
-                </StackPane.margin>
-            </Button>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#npcQuiz" prefHeight="250.0" prefWidth="100.0" StackPane.alignment="CENTER">
                 <children>
                     <ImageView fitHeight="63.0" fitWidth="46.0" layoutX="32.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -754,23 +615,48 @@
                     <Insets />
                 </opaqueInsets>
             </AnchorPane>
-            <TextFlow StackPane.alignment="BOTTOM_LEFT">
-                <StackPane.margin>
-                    <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
-                </StackPane.margin>
-                <children>
-                    <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er på stranden. Sandet er blødt under din fødder." wrappingWidth="1000.0">
-                        <font>
-                            <Font size="18.0" />
-                        </font>
-                    </Text>
-                </children>
-            </TextFlow>
-            <Button fx:id="Inventory1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
-                <StackPane.margin>
-                    <Insets bottom="10.0" right="10.0" />
-                </StackPane.margin>
-            </Button>
         </children>
     </StackPane>
+   <Button fx:id="Help" mnemonicParsing="false" onAction="#help" text="Hjælp" StackPane.alignment="TOP_RIGHT">
+      <StackPane.margin>
+         <Insets right="64.0" top="10.0" />
+      </StackPane.margin>
+   </Button>
+   <Button fx:id="loadHighscore" mnemonicParsing="false" onAction="#loadHighscore" text="Highscore" StackPane.alignment="TOP_RIGHT">
+      <StackPane.margin>
+         <Insets right="120.0" top="10.0" />
+      </StackPane.margin>
+   </Button>
+   <Button fx:id="Inventory" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="TOP_RIGHT">
+      <StackPane.margin>
+         <Insets right="200.0" top="10.0" />
+      </StackPane.margin>
+   </Button>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0e6eb" height="120.0" stroke="BLACK" strokeType="INSIDE" width="680.0" StackPane.alignment="BOTTOM_LEFT" />
+   <TextFlow maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="680.0" StackPane.alignment="BOTTOM_LEFT">
+      <children>
+         <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i dit soveværelse i dit hjem." wrappingWidth="1000.0">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+      </children>
+   </TextFlow>
+   <TextFlow maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="200.0" StackPane.alignment="TOP_LEFT">
+      <children>
+         <Text fx:id="highscoreLoader" strokeType="OUTSIDE" strokeWidth="0.0">
+            <font>
+               <Font name="DINPro-Bold" size="26.0" />
+            </font>
+         </Text>
+      </children>
+      <StackPane.margin>
+         <Insets left="10.0" top="10.0" />
+      </StackPane.margin>
+   </TextFlow>
+   <Button fx:id="Quit" mnemonicParsing="false" onAction="#quit" text="Afslut" StackPane.alignment="TOP_RIGHT">
+      <StackPane.margin>
+         <Insets right="10.0" top="10.0" />
+      </StackPane.margin>
+   </Button>
 </StackPane>

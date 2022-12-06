@@ -35,6 +35,7 @@ public class HelloController implements Initializable {
     public StackPane kitchenPane;
     public StackPane cityPane;
     public StackPane beachPane;
+    public StackPane funktion;
 
     @FXML
     private StackPane rootPane;
