@@ -174,5 +174,10 @@
             </Text>
          </children>
       </TextFlow>
+      <Button fx:id="Inventory1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
+         <StackPane.margin>
+            <Insets bottom="10.0" right="10.0" />
+         </StackPane.margin>
+      </Button>
    </children>
 </StackPane>

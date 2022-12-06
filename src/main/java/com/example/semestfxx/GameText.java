@@ -18,5 +18,9 @@ public class GameText {
                 "Prøv at undersøge dine omgivelser og se om du kan gøre en forskel!";
     }
 
+    public static String textInventory(){
+        return "super";
+    }
+
 
 }

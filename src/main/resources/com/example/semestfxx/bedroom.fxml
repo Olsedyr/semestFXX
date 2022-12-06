@@ -137,6 +137,19 @@
             <Insets bottom="675.0" left="500.0" right="-250.0" />
          </StackPane.margin>
       </Text>
+      <Button fx:id="Inventory1" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showInventory" text="Inventory" StackPane.alignment="BOTTOM_RIGHT">
+         <StackPane.margin>
+            <Insets bottom="10.0" right="10.0" />
+         </StackPane.margin>
+      </Button>
+      <ImageView fx:id="sodavandsdåser" fitHeight="76.0" fitWidth="112.0" onMouseClicked="#collectSodavandsdåser" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+         <image>
+            <Image url="@../../../Projekt_Billeder/ProjektBilleder/Soveværelse/Sodavandsdåser/Dåser.png" />
+         </image>
+         <StackPane.margin>
+            <Insets left="100.0" top="20.0" />
+         </StackPane.margin>
+      </ImageView>
     <!--  <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loadKitchen" opacity="0.0" prefHeight="406.0" prefWidth="193.0" text="Button" StackPane.alignment="CENTER_LEFT">
          <opaqueInsets>
             <Insets />

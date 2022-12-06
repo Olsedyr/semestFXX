@@ -7,9 +7,7 @@ import java.io.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Game {
 
@@ -284,8 +282,18 @@ public class Game {
             }
             addItemToInventory();
             removeItem();
+            InventoryList();
         }
     }
+
+    public void InventoryList(){
+        Iterator it = inventory.trash.entrySet().iterator();
+        while (it.hasNext()){
+            HashMap.Entry pair=(HashMap.Entry)it.next();
+            System.out.println(pair.getKey()+" = "+pair.getValue());
+            it.remove(); // avoids a ConcurrentModificationException
+        }}
+
 
     private void removeItem() {
 

@@ -39,8 +39,9 @@ public class HelloController implements Initializable {
 
     private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, radiator, vindueÅben, vindueLukket,
                 badeværelseLysSlukket, badeværelseLysTændt, vandhaneTændt, vandhaneSlukket, bad, badShower, badTub,
-                køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket, køleskabÅbnet, salat, burger, komfurTændt, komfurPande, transport,
-                cykle, bil;
+                køkkenLampeTændt, køkkenLampeSlukket, tvTændt, tvSlukket, køleskabÅbnet, salat, burger, komfurTændt, komfurPande,
+                cykle, bil, sodavandsdåser, transport;
+
 
     @FXML
     private AnchorPane badChoice, køleskabChoice, komfurChoice, transportChoice, npcQuiz, npcQuiz1, npcQuiz2, npcQuiz3, npcQuizF1, npcQuizF2, npcQuizF3;
@@ -73,16 +74,12 @@ public class HelloController implements Initializable {
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
 
-
-
-        Iterator it = game.inventory.trash.entrySet().iterator();
-        while (it.hasNext()) {
-            HashMap.Entry pair = (HashMap.Entry)it.next();
-            System.out.println(pair.getKey() + " = " + pair.getValue());
-            it.remove(); // avoids a ConcurrentModificationException
         }
 
-    }
+
+
+
+
 
     //------------------------------------------------------------------------------------------------------------------
     ///ActionEvent
@@ -549,6 +546,31 @@ public class HelloController implements Initializable {
         silkepapir.setImage(null);
         showNewPoints(game.currentItem);
     }
+    public void collectPizzabakke(MouseEvent event) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("pizzabakke");
+        game.switchItemState();
+        pizzabakke.setImage(null);
+    }
+
+    public void collectMælkekarton(MouseEvent event) {
+        game.currentRoom = game.rooms.get(1);
+        game.currentItem = game.currentRoom.getItem("mælkekarton");
+        game.switchItemState();
+        mælkekarton.setImage(null);
+    }
+
+    public void collectSodavandsdåser (MouseEvent event) {
+        game.currentRoom = game.rooms.get(0);
+        game.currentItem = game.currentRoom.getItem("sodavandsdåser");
+        game.switchItemState();
+        sodavandsdåser.setImage(null);
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+
+
 
     @FXML
     void quit(ActionEvent event) {
@@ -592,6 +614,17 @@ public class HelloController implements Initializable {
             display.setText(game.getAddedPoints());
         }
     }
+
+    @FXML
+    void showInventory (ActionEvent event) {
+        if (display.isVisible()==false) {
+            display.setVisible(true);
+            display.setText(GameText.textInventory());
+        } else {
+            display.setVisible(false);
+        }
+    }
+
 
     @FXML
     void showHighscore(){
