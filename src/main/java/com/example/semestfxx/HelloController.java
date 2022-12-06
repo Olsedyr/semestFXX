@@ -65,7 +65,7 @@ public class HelloController implements Initializable {
     private Button quitGame, helpGame;
 
     @FXML
-    private Text display, highscoreLoader, guiScore2;
+    private Text display0, display1, display2, display3, display4, highscoreLoader, guiScore2;
 
 
 
@@ -154,7 +154,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("soveværelseLampe");
 
         if(event.getButton() == MouseButton.SECONDARY){
-            showDescription(game.currentItem);
+            showDescription0(game.currentItem);
         } else {
             game.switchItemState();
 
@@ -167,7 +167,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
-            showNewPoints(game.currentItem);
+            showNewPoints0(game.currentItem);
         }
     }
 
@@ -178,7 +178,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("computer");
 
         if(event.getButton() == MouseButton.SECONDARY){
-            showDescription(game.currentItem);
+            showDescription0(game.currentItem);
         } else {
             game.switchItemState();
 
@@ -191,7 +191,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
-            showNewPoints(game.currentItem);
+            showNewPoints0(game.currentItem);
         }
     }
 
@@ -202,7 +202,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("vindue");
 
         if(event.getButton() == MouseButton.SECONDARY){
-            showDescription(game.currentItem);
+            showDescription0(game.currentItem);
         } else {
             game.switchItemState();
 
@@ -215,7 +215,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
-            showNewPoints(game.currentItem);
+            showNewPoints0(game.currentItem);
         }
     }
 
@@ -227,7 +227,7 @@ public class HelloController implements Initializable {
 
         game.currentItem = game.currentRoom.getItem("badeværelseLys");
         if(event.getButton() == MouseButton.SECONDARY){
-            showDescription(game.currentItem);
+            showDescription2(game.currentItem);
         } else {
             game.switchItemState();
 
@@ -240,7 +240,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
-            showNewPoints(game.currentItem);
+            showNewPoints2(game.currentItem);
         }
     }
 
@@ -251,7 +251,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("vandhane");
 
         if(event.getButton() == MouseButton.SECONDARY){
-            showDescription(game.currentItem);
+            showDescription2(game.currentItem);
         } else {
             game.switchItemState();
 
@@ -264,7 +264,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
-            showNewPoints(game.currentItem);
+            showNewPoints2(game.currentItem);
         }
     }
 
@@ -275,7 +275,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("bad");
 
         if(event.getButton() == MouseButton.SECONDARY){
-            showDescription(game.currentItem);
+            showDescription2(game.currentItem);
         } else {
             if(game.currentItem.getItemUsed()==false) {
                 if (badChoice.isVisible() == true) {
@@ -296,7 +296,7 @@ public class HelloController implements Initializable {
         game.currentItem.itemDescription = game.currentItem.choice1Text;
         badChoice.setVisible(false);
         badShower.setVisible(true);
-        showNewPoints(game.currentItem);
+        showNewPoints2(game.currentItem);
     }
     @FXML
     void choiceBadekar (MouseEvent event) {
@@ -316,7 +316,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("køkkenlampe");
 
         if(event.getButton() == MouseButton.SECONDARY){
-            showDescription(game.currentItem);
+            showDescription1(game.currentItem);
         } else {
             game.switchItemState();
 
@@ -329,7 +329,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
-            showNewPoints(game.currentItem);
+            showNewPoints1(game.currentItem);
         }
     }
 
@@ -340,7 +340,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("tv");
 
         if(event.getButton() == MouseButton.SECONDARY){
-            showDescription(game.currentItem);
+            showDescription1(game.currentItem);
         } else {
             game.switchItemState();
 
@@ -353,7 +353,7 @@ public class HelloController implements Initializable {
             }
 
             System.out.println(game.currentItem.toggleState);
-            showNewPoints(game.currentItem);
+            showNewPoints1(game.currentItem);
         }
     }
 
@@ -364,7 +364,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("køleskab");
 
         if(event.getButton() == MouseButton.SECONDARY){
-            showDescription(game.currentItem);
+            showDescription1(game.currentItem);
         } else {
             if(game.currentItem.getItemUsed()==false) {
                 if(køleskabChoice.isVisible()==true) {
@@ -389,7 +389,7 @@ public class HelloController implements Initializable {
         køleskabChoice.setVisible(false);
         køleskabÅbnet.setVisible(false);
         salat.setVisible(true);
-        showNewPoints(game.currentItem);
+        showNewPoints1(game.currentItem);
     }
     @FXML
     void choiceBurger (MouseEvent event) {
@@ -408,7 +408,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("komfur");
 
         if(event.getButton() == MouseButton.SECONDARY){
-            showDescription(game.currentItem);
+            showDescription1(game.currentItem);
         } else {
             if(game.currentItem.getItemUsed()==false) {
                 if (komfurChoice.isVisible()==true) {
@@ -437,7 +437,7 @@ public class HelloController implements Initializable {
         game.currentItem.itemDescription = game.currentItem.choice2Text;
         komfurChoice.setVisible(false);
         komfurPande.setVisible(true);
-        showNewPoints(game.currentItem);
+        showNewPoints1(game.currentItem);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -448,7 +448,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("transport");
 
         if(event.getButton() == MouseButton.SECONDARY){
-            showDescription(game.currentItem);
+            showDescription3(game.currentItem);
         } else {
             if(game.currentItem.getItemUsed()==false) {
                 if (transportChoice.isVisible() == true) {
@@ -469,7 +469,7 @@ public class HelloController implements Initializable {
         transportChoice.setVisible(false);
         transport.setVisible(false);
         cykle.setVisible(true);
-        showNewPoints(game.currentItem);
+        showNewPoints3(game.currentItem);
     }
     @FXML
     void choiceBil (MouseEvent event) {
@@ -506,7 +506,7 @@ public class HelloController implements Initializable {
     @FXML
     void npcQuizT (MouseEvent event) {
         game.plus_sum_score();
-        showNewPoints(game.currentItem);
+        showNewPoints4(game.currentItem);
         if(npcQuiz1.isVisible()==true){
             npcQuiz1.setVisible(false);
             npcQuiz2.setVisible(true);
@@ -540,14 +540,14 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("silkepapir");
         game.switchItemState();
         silkepapir.setImage(null);
-        showNewPoints(game.currentItem);
+        showNewPoints0(game.currentItem);
     }
     public void collectPizzabakke(MouseEvent event) {
         game.currentRoom = game.rooms.get(1);
         game.currentItem = game.currentRoom.getItem("pizzabakke");
         game.switchItemState();
         pizzabakke.setImage(null);
-        showNewPoints(game.currentItem);
+        showNewPoints1(game.currentItem);
     }
 
     public void collectMælkekarton(MouseEvent event) {
@@ -555,7 +555,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("mælkekarton");
         game.switchItemState();
         mælkekarton.setImage(null);
-        showNewPoints(game.currentItem);
+        showNewPoints1(game.currentItem);
     }
 
     public void collectSodavandsdåser (MouseEvent event) {
@@ -563,7 +563,7 @@ public class HelloController implements Initializable {
         game.currentItem = game.currentRoom.getItem("sodavandsdåser");
         game.switchItemState();
         sodavandsdåser.setImage(null);
-        showNewPoints(game.currentItem);
+        showNewPoints0(game.currentItem);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -577,12 +577,44 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    void help(ActionEvent event) {
-        if (display.isVisible()==false) {
-            display.setVisible(true);
-            display.setText(GameText.textHelp());
+    void help0(ActionEvent event) {
+        if (display0.isVisible()==false) {
+            display0.setVisible(true);
+            display0.setText(GameText.textHelp());
         } else {
-            display.setText(GameText.textHelp());
+            display0.setText(GameText.textHelp());
+        }
+    }
+    void help1(ActionEvent event) {
+        if (display1.isVisible()==false) {
+            display1.setVisible(true);
+            display1.setText(GameText.textHelp());
+        } else {
+            display1.setText(GameText.textHelp());
+        }
+    }
+    void help2(ActionEvent event) {
+        if (display2.isVisible()==false) {
+            display2.setVisible(true);
+            display2.setText(GameText.textHelp());
+        } else {
+            display2.setText(GameText.textHelp());
+        }
+    }
+    void help3(ActionEvent event) {
+        if (display3.isVisible()==false) {
+            display3.setVisible(true);
+            display3.setText(GameText.textHelp());
+        } else {
+            display3.setText(GameText.textHelp());
+        }
+    }
+    void help4(ActionEvent event) {
+        if (display4.isVisible()==false) {
+            display4.setVisible(true);
+            display4.setText(GameText.textHelp());
+        } else {
+            display4.setText(GameText.textHelp());
         }
     }
 
@@ -592,35 +624,151 @@ public class HelloController implements Initializable {
 //        display.setVisible(true);
 //    }
 
-    public void showDescription(Item currentItem) {
+    public void showDescription0(Item currentItem) {
 
-        if (display.isVisible()==false) {
-            display.setVisible(true);
-            display.setText(currentItem.getItemDescription());
-        } else if(display.isVisible() == true && currentItem.getItemDescription().equals(display.getText())){
-            display.setVisible(false);
+        if (display0.isVisible()==false) {
+            display0.setVisible(true);
+            display0.setText(currentItem.getItemDescription());
+        } else if(display0.isVisible() == true && currentItem.getItemDescription().equals(display0.getText())){
+            display0.setVisible(false);
         } else {
-            display.setText(currentItem.getItemDescription());
+            display0.setText(currentItem.getItemDescription());
         }
     }
-    public void showNewPoints(Item currentItem) {
-        if (display.isVisible()==false) {
-            display.setVisible(true);
-            display.setText(game.getAddedPoints());
-        } else if(display.isVisible() == true && game.getAddedPoints().equals(display.getText())){
-            display.setVisible(false);
+    public void showDescription1(Item currentItem) {
+
+        if (display1.isVisible()==false) {
+            display1.setVisible(true);
+            display1.setText(currentItem.getItemDescription());
+        } else if(display1.isVisible() == true && currentItem.getItemDescription().equals(display1.getText())){
+            display1.setVisible(false);
         } else {
-            display.setText(game.getAddedPoints());
+            display1.setText(currentItem.getItemDescription());
+        }
+    }
+    public void showDescription2(Item currentItem) {
+
+        if (display2.isVisible()==false) {
+            display2.setVisible(true);
+            display2.setText(currentItem.getItemDescription());
+        } else if(display2.isVisible() == true && currentItem.getItemDescription().equals(display2.getText())){
+            display2.setVisible(false);
+        } else {
+            display2.setText(currentItem.getItemDescription());
+        }
+    }
+    public void showDescription3(Item currentItem) {
+
+        if (display3.isVisible()==false) {
+            display3.setVisible(true);
+            display3.setText(currentItem.getItemDescription());
+        } else if(display3.isVisible() == true && currentItem.getItemDescription().equals(display3.getText())){
+            display3.setVisible(false);
+        } else {
+            display3.setText(currentItem.getItemDescription());
+        }
+    }
+    public void showDescription4(Item currentItem) {
+
+        if (display4.isVisible()==false) {
+            display4.setVisible(true);
+            display4.setText(currentItem.getItemDescription());
+        } else if(display4.isVisible() == true && currentItem.getItemDescription().equals(display4.getText())){
+            display4.setVisible(false);
+        } else {
+            display4.setText(currentItem.getItemDescription());
+        }
+    }
+    public void showNewPoints0(Item currentItem) {
+        if (display0.isVisible()==false) {
+            display0.setVisible(true);
+            display0.setText(game.getAddedPoints());
+        } else if(display0.isVisible() == true && game.getAddedPoints().equals(display0.getText())){
+            display0.setVisible(false);
+        } else {
+            display0.setText(game.getAddedPoints());
+        }
+    }
+    public void showNewPoints1(Item currentItem) {
+        if (display1.isVisible()==false) {
+            display1.setVisible(true);
+            display1.setText(game.getAddedPoints());
+        } else if(display1.isVisible() == true && game.getAddedPoints().equals(display1.getText())){
+            display1.setVisible(false);
+        } else {
+            display1.setText(game.getAddedPoints());
+        }
+    }
+    public void showNewPoints2(Item currentItem) {
+        if (display2.isVisible()==false) {
+            display2.setVisible(true);
+            display2.setText(game.getAddedPoints());
+        } else if(display2.isVisible() == true && game.getAddedPoints().equals(display2.getText())){
+            display2.setVisible(false);
+        } else {
+            display2.setText(game.getAddedPoints());
+        }
+    }
+    public void showNewPoints3(Item currentItem) {
+        if (display3.isVisible()==false) {
+            display3.setVisible(true);
+            display3.setText(game.getAddedPoints());
+        } else if(display3.isVisible() == true && game.getAddedPoints().equals(display3.getText())){
+            display3.setVisible(false);
+        } else {
+            display3.setText(game.getAddedPoints());
+        }
+    }
+    public void showNewPoints4(Item currentItem) {
+        if (display4.isVisible()==false) {
+            display4.setVisible(true);
+            display4.setText(game.getAddedPoints());
+        } else if(display4.isVisible() == true && game.getAddedPoints().equals(display4.getText())){
+            display4.setVisible(false);
+        } else {
+            display4.setText(game.getAddedPoints());
         }
     }
 
     @FXML
-    void showInventory (ActionEvent event) {
-        if (display.isVisible()==false) {
-            display.setVisible(true);
-            display.setText(GameText.textInventory());
+    void showInventory0 (ActionEvent event) {
+        if (display0.isVisible()==false) {
+            display0.setVisible(true);
+            display0.setText(GameText.textInventory());
         } else {
-            display.setVisible(false);
+            display0.setVisible(false);
+        }
+    }
+    void showInventory1 (ActionEvent event) {
+        if (display1.isVisible()==false) {
+            display1.setVisible(true);
+            display1.setText(GameText.textInventory());
+        } else {
+            display1.setVisible(false);
+        }
+    }
+    void showInventory2 (ActionEvent event) {
+        if (display2.isVisible()==false) {
+            display2.setVisible(true);
+            display2.setText(GameText.textInventory());
+        } else {
+            display2.setVisible(false);
+        }
+    }
+    void showInventory3 (ActionEvent event) {
+        if (display3.isVisible()==false) {
+            display3.setVisible(true);
+            display3.setText(GameText.textInventory());
+        } else {
+            display3.setVisible(false);
+        }
+    }
+    void showInventory4 (ActionEvent event) {
+        if (display4.isVisible()==false) {
+            display4.setVisible(true);
+            display4.setText(GameText.textInventory());
+        } else {
+            display4.setVisible(false);
         }
     }
 

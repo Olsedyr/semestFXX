@@ -111,7 +111,7 @@
                     <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
                 </StackPane.margin>
                 <children>
-                    <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i dit soveværelse i dit hjem." wrappingWidth="1000.0">
+                    <Text fx:id="display0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i dit soveværelse i dit hjem." wrappingWidth="1000.0">
                         <font>
                             <Font size="18.0" />
                         </font>
@@ -252,7 +252,7 @@
                     <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
                 </StackPane.margin>
                 <children>
-                    <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er på badeværelset. Du mærker de kolde klinker under dine fødder." wrappingWidth="1000.0">
+                    <Text fx:id="display2" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er på badeværelset. Du mærker de kolde klinker under dine fødder." wrappingWidth="1000.0">
                         <font>
                             <Font size="18.0" />
                         </font>
@@ -489,7 +489,7 @@
                     <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
                 </StackPane.margin>
                 <children>
-                    <Text fx:id="display" fill="#f2f2f2" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i køkkenet. Der var gæster på besøg i går og det kan ses." wrappingWidth="1000.0">
+                    <Text fx:id="display1" fill="#f2f2f2" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i køkkenet. Der var gæster på besøg i går og det kan ses." wrappingWidth="1000.0">
                         <font>
                             <Font size="18.0" />
                         </font>
@@ -590,7 +590,7 @@
                     <Insets bottom="10.0" left="10.0" right="615.0" top="570.0" />
                 </StackPane.margin>
                 <children>
-                    <Text fx:id="display" fill="#fffefe" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i byen, travl som altid. Du kan vælge enten at tage en bil eller en cykel hjem." wrappingWidth="1000.0">
+                    <Text fx:id="display3" fill="#fffefe" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er i byen, travl som altid. Du kan vælge enten at tage en bil eller en cykel hjem." wrappingWidth="1000.0">
                         <font>
                             <Font size="18.0" />
                         </font>
@@ -759,7 +759,7 @@
                     <Insets bottom="10.0" left="10.0" right="400.0" top="610.0" />
                 </StackPane.margin>
                 <children>
-                    <Text fx:id="display" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er på stranden. Sandet er blødt under din fødder." wrappingWidth="1000.0">
+                    <Text fx:id="display4" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er på stranden. Sandet er blødt under din fødder." wrappingWidth="1000.0">
                         <font>
                             <Font size="18.0" />
                         </font>
