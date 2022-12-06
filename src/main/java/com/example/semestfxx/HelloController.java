@@ -34,6 +34,8 @@ public class HelloController implements Initializable {
     @FXML
     private StackPane rootPane;
 
+    private PrintWriter pw_reset;
+
     //Items
     @FXML
     private ImageView soveværelseLampeTændt, soveværelseLampeSlukket, computerTændt, computerSlukket, vindueÅben, vindueLukket,
@@ -69,6 +71,13 @@ public class HelloController implements Initializable {
         currentRoom = GameSingleton.getInstance().getGame().currentRoom;
         currentItem = GameSingleton.getInstance().getGame().currentItem;
         inventory = GameSingleton.getInstance().getGame().inventory;
+        try {
+            pw_reset = new PrintWriter(game.scoreFile);
+            pw_reset.println(0);
+            pw_reset.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -93,6 +102,7 @@ public class HelloController implements Initializable {
     public void startGame(ActionEvent event) throws IOException {
         worldStart(event);
         System.out.println("Game Started!");
+
     }
     public void worldStart(ActionEvent event) throws IOException {
         System.out.println("Start Bedroom");
