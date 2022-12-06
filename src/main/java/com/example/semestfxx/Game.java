@@ -15,6 +15,7 @@ public class Game {
     public Room currentRoom;
     public Item currentItem;
     public Inventory inventory;
+    private String addedPoints;
 
     public List<Integer> score_list = new ArrayList<Integer>();
 
@@ -40,12 +41,12 @@ public class Game {
 
         //------------------------------------Items------------------------------------
         //Toggle Items: ToggleState==True means that the current state of the object is not climate friendly
-        Item.ToggleItem soveværelseLampe, radiator, vindue, computer, køkkenlampe, tv, vandhane, badeværelselys;
+        Item.ToggleItem soveværelseLampe, radiator, vindue, computer, køkkenlampe, tv, vandhane, badeværelseLys;
 
         soveværelseLampe = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
                 "soveværelseLampe","Du kigger på loftlampen i dit soveværelse. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
                         "Gardinet er trukket fra så solen skinner ind i rummet og hjælper med at lyse det op.",
-                "Du kigger på loftlampen i dit soveværelse. Den er slukket" +
+                "Du kigger på loftlampen i dit soveværelse. Den er slukket. " +
                         "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
                 1,true);
         radiator = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
@@ -81,11 +82,12 @@ public class Game {
                 "vandhane","Der er et vandhane på badeværelset. Den står og drypper, formentligt fra da du vaskede hænder tidligere på dagen.",
                 "Der er en vandhane på badeværelset. Lige nu er den ikke i brug, og bruger dermed ikke unødig rent vand.",
                 3,true);
-
-        badeværelselys = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
-                "badeværelselys", "Du kigger på badeværelseslyset. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt.",
-                "Du kigger på lampen i dit badeværelse. Den er slukket.",
-                1, true);
+        badeværelseLys = new Item.ToggleItem("Dette burde du ikke kunne se! pinligt...",
+                "badeværelseLys","Du kigger på badeværelseslyset. Den er tændt. Du overvejer hvorvidt det er nødvendigt at det er tændt. " +
+                "Der er ikke så mange vinduer herinde, men det der er vender så solen skinner direkte ind. Gardinerne er trukket fra.",
+                "Du kigger på loftlampen i dit badeværelse. Den er slukket, men du kan stadig se alt du har brug for. " +
+                        "Lige nu vil det nok ikke gøre den store forskel om den er tændt eller slukket, da rummet allerede er godt lyst op.",
+                1,true);
 
 
         //Choice Items, can only choose once
@@ -96,17 +98,17 @@ public class Game {
                 "Du spiste salat",
                 "Du spiste burger",
                 false,1);
-        komfur = new Item.ChoiceItem("I dit køkken er der også et komfur. Du kan vælge enten at varme kødet i ovenen, " +
+        komfur = new Item.ChoiceItem("I dit køkken er der også et komfur. Du kan vælge enten at varme kødet i ovnen, " +
                 "eller stege det på en stegepande.","komfur",3,
-                "1. ovenen\n2. stegepande",
-                "Du brugt ovenen",
+                "1. ovnen\n2. stegepande",
+                "Du brugt ovnen",
                 "Du brugt stegepande",
                 false,2);
         bad = new Item.ChoiceItem("Der er en bruser og et badekar på dit badeværelse." +
-                " Du kan tage et brusebad eller karbad bad her.","komfur",3,
+                " Du kan tage et brusebad eller karbad bad her.","bad",3,
                 "1. bruser\n2. badekar",
-                "Du brugt bruser, hurtigt, men effektivt",
-                "Du brugt badekar, dejligt og varmt",
+                "Du har brugt bruser, hurtigt, men effektivt",
+                "Du har brugt badekar, dejligt og varmt",
                 false,1);
         transport = new Item.ChoiceItem("Du kan tage til stranden ved at cykle eller at køre.","transport",3,
                 "1. cykle\n2. bil",
@@ -165,7 +167,7 @@ public class Game {
 
         badeværelse.setRoomItems("vandhane", vandhane);
         badeværelse.setRoomItems("bad", bad);
-        badeværelse.setRoomItems("badeværelselys", badeværelselys);
+        badeværelse.setRoomItems("badeværelseLys",badeværelseLys);
 
         byen.setRoomItems("transport", transport);
 
@@ -232,19 +234,19 @@ public class Game {
         if (currentItem instanceof Item.ToggleItem) {
             if (currentItem.getItemState() == false) {
                 score_list.add(currentItem.getItemPoints());
-                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
+                addedPoints = "Du fik " + currentItem.getItemPoints() + " point";
             } else {
                 score_list.remove(Integer.valueOf(currentItem.getItemPoints()));
-                System.out.println("Du mistede " + currentItem.getItemPoints() + " point");
+                addedPoints = "Du mistede " + currentItem.getItemPoints() + " point";
             }
         }else if (currentItem instanceof Item.ChoiceItem) {
             score_list.add(currentItem.getItemPoints());
-            System.out.println("Du fik " + currentItem.getItemPoints() + " point");
+            addedPoints = "Du fik " + currentItem.getItemPoints() + " point";
 
         }else if (currentItem instanceof Item.TrashItem) {
             if (currentItem.getPickedUp()==true){
                 score_list.add(currentItem.getItemPoints());
-                System.out.println("Du fik " + currentItem.getItemPoints() + " point");
+                addedPoints = "Du fik " + currentItem.getItemPoints() + " point";
             }
         }
         for (int i = 0; i<score_list.size(); i++)
@@ -263,11 +265,6 @@ public class Game {
         return sum;
     }
 
-    public void test(){
-        System.out.println("Test");
-            currentItem.toggleState ^= true;
-            plus_sum_score();
-    }
     public void switchItemState() {
         if (currentItem instanceof Item.ToggleItem) {
             currentItem.toggleState ^= true;
@@ -332,6 +329,7 @@ public class Game {
     public String getItemList() {
         return currentRoom.getRoomItemList();
     }
+    public String getAddedPoints() {
+        return addedPoints;
+    }
 }
-
-
